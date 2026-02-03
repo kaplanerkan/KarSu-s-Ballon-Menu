@@ -3,7 +3,8 @@ package com.karsu.ballonsmenu
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuMenuButton
 
 class EaseActivity : AppCompatActivity() {
 
@@ -18,8 +19,8 @@ class EaseActivity : AppCompatActivity() {
         ).forEach { initBmb(it) }
     }
 
-    private fun initBmb(res: Int): BoomMenuButton =
-        findViewById<BoomMenuButton>(res).apply {
+    private fun initBmb(res: Int): KarSuMenuButton =
+        findViewById<KarSuMenuButton>(res).apply {
             repeat(piecePlaceEnum.pieceNumber()) {
                 addBuilder(BuilderManager.getSimpleCircleButtonBuilder())
             }

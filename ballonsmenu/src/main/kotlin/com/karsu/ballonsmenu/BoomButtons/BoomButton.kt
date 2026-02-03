@@ -1,5 +1,5 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
-package com.karsu.ballonsmenu.BoomButtons
+package com.karsu.ballonsmenu.KarSuButtons
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -26,12 +26,12 @@ import com.karsu.ballonsmenu.ButtonEnum
 import com.karsu.ballonsmenu.R
 import com.karsu.ballonsmenu.Util
 
-abstract class BoomButton(context: Context) : FrameLayout(context) {
+abstract class KarSuButton(context: Context) : FrameLayout(context) {
 
     // Basic
     @JvmField protected var context: Context = context
     @JvmField protected var index: Int = -1
-    @JvmField protected var listener: InnerOnBoomButtonClickListener? = null
+    @JvmField protected var listener: InnerOnKarSuButtonClickListener? = null
     @JvmField protected var onBMClickListener: OnBMClickListener? = null
     @JvmField protected var lastStateIsNormal: Boolean = true
     @JvmField protected var ableToHighlight: Boolean = true
@@ -92,18 +92,18 @@ abstract class BoomButton(context: Context) : FrameLayout(context) {
     @JvmField protected var textSize: Int = 0
 
     // Sub text
-    @JvmField protected var subNormalTextRes: Int = 0
-    @JvmField protected var subNormalText: String? = null
-    @JvmField protected var subHighlightedTextRes: Int = 0
-    @JvmField protected var subHighlightedText: String? = null
-    @JvmField protected var subUnableTextRes: Int = 0
-    @JvmField protected var subUnableText: String? = null
-    @JvmField protected var subNormalTextColor: Int = 0
-    @JvmField protected var subNormalTextColorRes: Int = 0
-    @JvmField protected var subHighlightedTextColor: Int = 0
-    @JvmField protected var subHighlightedTextColorRes: Int = 0
-    @JvmField protected var subUnableTextColor: Int = 0
-    @JvmField protected var subUnableTextColorRes: Int = 0
+    @JvmField internal var subNormalTextRes: Int = 0
+    @JvmField internal var subNormalText: String? = null
+    @JvmField internal var subHighlightedTextRes: Int = 0
+    @JvmField internal var subHighlightedText: String? = null
+    @JvmField internal var subUnableTextRes: Int = 0
+    @JvmField internal var subUnableText: String? = null
+    @JvmField internal var subNormalTextColor: Int = 0
+    @JvmField internal var subNormalTextColorRes: Int = 0
+    @JvmField internal var subHighlightedTextColor: Int = 0
+    @JvmField internal var subHighlightedTextColorRes: Int = 0
+    @JvmField internal var subUnableTextColor: Int = 0
+    @JvmField internal var subUnableTextColorRes: Int = 0
     @JvmField var subTextRect: Rect? = null
     @JvmField var subTextPadding: Rect? = null
     @JvmField protected var subTypeface: Typeface? = null
@@ -140,7 +140,7 @@ abstract class BoomButton(context: Context) : FrameLayout(context) {
 
     @JvmField var centerPoint: PointF? = null
 
-    protected open fun initAttrs(builder: BoomButtonBuilder<*>) {
+    protected open fun initAttrs(builder: KarSuButtonBuilder<*>) {
         index = builder.index
         listener = builder.listener
         onBMClickListener = builder.onBMClickListener
@@ -287,10 +287,10 @@ abstract class BoomButton(context: Context) : FrameLayout(context) {
         if (shadowEffect) {
             shadow = findViewById<BMBShadow>(R.id.shadow)
             shadow?.apply {
-                setShadowOffsetX(this@BoomButton.shadowOffsetX)
-                setShadowOffsetY(this@BoomButton.shadowOffsetY)
-                setShadowColor(this@BoomButton.shadowColor)
-                setShadowRadius(this@BoomButton.shadowRadius)
+                setShadowOffsetX(this@KarSuButton.shadowOffsetX)
+                setShadowOffsetY(this@KarSuButton.shadowOffsetY)
+                setShadowColor(this@KarSuButton.shadowColor)
+                setShadowRadius(this@KarSuButton.shadowRadius)
                 setShadowCornerRadius(shadowCornerRadius)
             }
         }
@@ -308,11 +308,11 @@ abstract class BoomButton(context: Context) : FrameLayout(context) {
     protected fun initText(parent: ViewGroup?) {
         text = TextView(context).apply {
             typeface?.let { setTypeface(it) }
-            maxLines = this@BoomButton.maxLines
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, this@BoomButton.textSize.toFloat())
+            maxLines = this@KarSuButton.maxLines
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, this@KarSuButton.textSize.toFloat())
             gravity = textGravity
-            ellipsize = this@BoomButton.ellipsize
-            if (this@BoomButton.ellipsize == TextUtils.TruncateAt.MARQUEE) {
+            ellipsize = this@KarSuButton.ellipsize
+            if (this@KarSuButton.ellipsize == TextUtils.TruncateAt.MARQUEE) {
                 setSingleLine(true)
                 marqueeRepeatLimit = -1
                 setHorizontallyScrolling(true)
@@ -330,7 +330,7 @@ abstract class BoomButton(context: Context) : FrameLayout(context) {
         if (!containsSubText) return
         subText = TextView(context).apply {
             subTypeface?.let { setTypeface(it) }
-            maxLines = this@BoomButton.maxLines
+            maxLines = this@KarSuButton.maxLines
             setTextSize(TypedValue.COMPLEX_UNIT_SP, subTextSize.toFloat())
             gravity = subTextGravity
             ellipsize = subEllipsize
@@ -403,8 +403,8 @@ abstract class BoomButton(context: Context) : FrameLayout(context) {
         button?.isEnabled = !unable
         button?.setOnClickListener {
             if (!touchable) return@setOnClickListener
-            listener?.onButtonClick(index, this@BoomButton)
-            onBMClickListener?.onBoomButtonClick(index)
+            listener?.onButtonClick(index, this@KarSuButton)
+            onBMClickListener?.onKarSuButtonClick(index)
         }
 
         initCircleButtonDrawable()
@@ -475,8 +475,8 @@ abstract class BoomButton(context: Context) : FrameLayout(context) {
         button?.isEnabled = !unable
         button?.setOnClickListener {
             if (!touchable) return@setOnClickListener
-            listener?.onButtonClick(index, this@BoomButton)
-            onBMClickListener?.onBoomButtonClick(index)
+            listener?.onButtonClick(index, this@KarSuButton)
+            onBMClickListener?.onKarSuButtonClick(index)
         }
 
         initHamButtonDrawable()

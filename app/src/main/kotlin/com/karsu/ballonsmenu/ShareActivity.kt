@@ -6,13 +6,14 @@ import android.os.Bundle
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuMenuButton
 
 class ShareActivity : AppCompatActivity() {
 
-    private lateinit var bmb1: BoomMenuButton
-    private lateinit var bmb2: BoomMenuButton
-    private lateinit var bmb3: BoomMenuButton
+    private lateinit var bmb1: KarSuMenuButton
+    private lateinit var bmb2: KarSuMenuButton
+    private lateinit var bmb3: KarSuMenuButton
 
     private lateinit var showDelaySeekText: TextView
     private lateinit var showDurationSeekText: TextView
@@ -23,19 +24,19 @@ class ShareActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_share)
 
-        bmb1 = findViewById<BoomMenuButton>(R.id.bmb1).also { initBmb(it) }
-        bmb2 = findViewById<BoomMenuButton>(R.id.bmb2).also { initBmbWithWhitePieceColor(it) }
-        bmb3 = findViewById<BoomMenuButton>(R.id.bmb3).also { initBmb(it) }
+        bmb1 = findViewById<KarSuMenuButton>(R.id.bmb1).also { initBmb(it) }
+        bmb2 = findViewById<KarSuMenuButton>(R.id.bmb2).also { initBmbWithWhitePieceColor(it) }
+        bmb3 = findViewById<KarSuMenuButton>(R.id.bmb3).also { initBmb(it) }
 
         bmb1.apply {
-            shareLineLength = 45
-            shareLineWidth = 5
-            dotRadius = 12
+            setShareLineLength(45f)
+            setShareLineWidth(5f)
+            setDotRadius(12f)
         }
 
         bmb3.apply {
-            shareLine1Color = Color.BLACK
-            shareLine2Color = Color.BLACK
+            setShareLine1Color(Color.BLACK)
+            setShareLine2Color(Color.BLACK)
         }
 
         initShowDelaySeek()
@@ -44,13 +45,13 @@ class ShareActivity : AppCompatActivity() {
         initHideDurationSeek()
     }
 
-    private fun initBmb(bmb: BoomMenuButton): BoomMenuButton = bmb.apply {
+    private fun initBmb(bmb: KarSuMenuButton): KarSuMenuButton = bmb.apply {
         repeat(buttonPlaceEnum.buttonNumber()) {
             addBuilder(BuilderManager.getTextInsideCircleButtonBuilder())
         }
     }
 
-    private fun initBmbWithWhitePieceColor(bmb: BoomMenuButton): BoomMenuButton = bmb.apply {
+    private fun initBmbWithWhitePieceColor(bmb: KarSuMenuButton): KarSuMenuButton = bmb.apply {
         repeat(buttonPlaceEnum.buttonNumber()) {
             addBuilder(BuilderManager.getTextInsideCircleButtonBuilderWithDifferentPieceColor())
         }

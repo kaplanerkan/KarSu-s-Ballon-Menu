@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!-- Material3 Turquoise Color Scheme -->
+    <!-- Primary -->
+    <color name="md_theme_primary">#009688</color>
+    <color name="md_theme_onPrimary">#FFFFFF</color>
+    <color name="md_theme_primaryContainer">#A7FFEB</color>
+    <color name="md_theme_onPrimaryContainer">#00352F</color>
 
+    <!-- Secondary -->
+    <color name="md_theme_secondary">#00ACC1</color>
+    <color name="md_theme_onSecondary">#FFFFFF</color>
+    <color name="md_theme_secondaryContainer">#B2EBF2</color>
+    <color name="md_theme_onSecondaryContainer">#00363D</color>
+
+    <!-- Tertiary -->
+    <color name="md_theme_tertiary">#26A69A</color>
+    <color name="md_theme_onTertiary">#FFFFFF</color>
+    <color name="md_theme_tertiaryContainer">#B2DFDB</color>
+    <color name="md_theme_onTertiaryContainer">#00251E</color>
+
+    <!-- Error -->
+    <color name="md_theme_error">#B3261E</color>
+    <color name="md_theme_onError">#FFFFFF</color>
+    <color name="md_theme_errorContainer">#F9DEDC</color>
+    <color name="md_theme_onErrorContainer">#410E0B</color>
+
+    <!-- Background -->
+    <color name="md_theme_background">#F5FFFE</color>
+    <color name="md_theme_onBackground">#1A1C1C</color>
+
+    <!-- Surface -->
+    <color name="md_theme_surface">#F5FFFE</color>
+    <color name="md_theme_onSurface">#1A1C1C</color>
+    <color name="md_theme_surfaceVariant">#DAE5E3</color>
+    <color name="md_theme_onSurfaceVariant">#3F4947</color>
+
+    <!-- Outline -->
+    <color name="md_theme_outline">#6F7977</color>
+    <color name="md_theme_outlineVariant">#BEC9C6</color>
+
+    <!-- Legacy colors for compatibility -->
+    <color name="colorPrimary">@color/md_theme_primary</color>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorAccent">@color/md_theme_secondary</color>
 </resources>

@@ -6,7 +6,7 @@ import android.graphics.drawable.GradientDrawable
 import com.karsu.ballonsmenu.R
 import com.karsu.ballonsmenu.Util
 
-internal class Dot(context: Context) : BoomPiece(context) {
+internal class Dot(context: Context) : KarSuPiece(context) {
 
     override fun init(color: Int, cornerRadius: Float) {
         val backgroundDrawable = if (cornerRadius < 0) {
@@ -23,7 +23,7 @@ internal class Dot(context: Context) : BoomPiece(context) {
     }
 
     override fun setColor(color: Int) {
-        (background as GradientDrawable).setColor(color)
+        (background as? GradientDrawable)?.setColor(color)
     }
 
     override fun setColorRes(colorRes: Int) {

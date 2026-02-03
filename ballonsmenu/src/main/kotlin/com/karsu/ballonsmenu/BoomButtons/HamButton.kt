@@ -1,5 +1,5 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
-package com.karsu.ballonsmenu.BoomButtons
+package com.karsu.ballonsmenu.KarSuButtons
 
 import android.content.Context
 import android.graphics.PointF
@@ -14,7 +14,7 @@ import com.karsu.ballonsmenu.R
 import com.karsu.ballonsmenu.Util
 
 @Suppress("unused")
-class HamButton private constructor(builder: Builder, context: Context) : BoomButton(context) {
+class HamButton private constructor(builder: Builder, context: Context) : KarSuButton(context) {
 
     init {
         this.context = context
@@ -36,7 +36,7 @@ class HamButton private constructor(builder: Builder, context: Context) : BoomBu
         )
     }
 
-    override fun initAttrs(builder: BoomButtonBuilder<*>) {
+    override fun initAttrs(builder: KarSuButtonBuilder<*>) {
         super.initAttrs(builder)
     }
 
@@ -90,7 +90,7 @@ class HamButton private constructor(builder: Builder, context: Context) : BoomBu
         // No implementation needed
     }
 
-    class Builder : BoomButtonWithTextBuilder<Builder>() {
+    class Builder : KarSuButtonWithTextBuilder<Builder>() {
 
         init {
             imageRect = Rect(0, 0, Util.dp2px(60f), Util.dp2px(60f))

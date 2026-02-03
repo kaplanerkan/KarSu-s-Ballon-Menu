@@ -4,17 +4,18 @@ package com.karsu.ballonsmenu
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuMenuButton
 
 class ControlActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var bmb: BoomMenuButton
+    private lateinit var bmb: KarSuMenuButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_control)
 
-        bmb = findViewById<BoomMenuButton>(R.id.bmb).apply {
+        bmb = findViewById<KarSuMenuButton>(R.id.bmb).apply {
             repeat(piecePlaceEnum.pieceNumber()) {
                 addBuilder(BuilderManager.getSimpleCircleButtonBuilder())
             }

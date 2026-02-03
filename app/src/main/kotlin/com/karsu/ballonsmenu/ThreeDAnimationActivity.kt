@@ -3,73 +3,64 @@ package com.karsu.ballonsmenu
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.SeekBar
-import android.widget.Switch
-import android.widget.TextView
+import com.google.android.material.materialswitch.MaterialSwitch
+import com.google.android.material.slider.Slider
+import com.google.android.material.textview.MaterialTextView
 
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuMenuButton
 
 class ThreeDAnimationActivity : AppCompatActivity() {
 
-    private lateinit var durationTextView: TextView
-    private lateinit var bmb1: BoomMenuButton
-    private lateinit var bmb2: BoomMenuButton
-    private lateinit var bmb3: BoomMenuButton
+    private lateinit var durationTextView: MaterialTextView
+    private lateinit var bmb1: KarSuMenuButton
+    private lateinit var bmb2: KarSuMenuButton
+    private lateinit var bmb3: KarSuMenuButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_three_d_animation)
 
-        bmb1 = findViewById<BoomMenuButton>(R.id.bmb1).also { bmb ->
+        bmb1 = findViewById<KarSuMenuButton>(R.id.bmb1).also { bmb ->
             repeat(bmb.piecePlaceEnum.pieceNumber()) {
                 bmb.addBuilder(BuilderManager.getSquareSimpleCircleButtonBuilder())
             }
         }
 
-        bmb2 = findViewById<BoomMenuButton>(R.id.bmb2).also { bmb ->
+        bmb2 = findViewById<KarSuMenuButton>(R.id.bmb2).also { bmb ->
             repeat(bmb.piecePlaceEnum.pieceNumber()) {
                 bmb.addBuilder(BuilderManager.getHamButtonBuilderWithDifferentPieceColor())
             }
         }
 
-        bmb3 = findViewById<BoomMenuButton>(R.id.bmb3).also { bmb ->
+        bmb3 = findViewById<KarSuMenuButton>(R.id.bmb3).also { bmb ->
             repeat(bmb.piecePlaceEnum.pieceNumber()) {
                 bmb.addBuilder(BuilderManager.getTextOutsideCircleButtonBuilder())
             }
         }
 
-        findViewById<Switch>(R.id.three_d_animation_switch).apply {
+        findViewById<MaterialSwitch>(R.id.three_d_animation_switch).apply {
             setOnCheckedChangeListener { _, isChecked ->
-                bmb1.setUse3DTransformAnimation(isChecked)
-                bmb2.setUse3DTransformAnimation(isChecked)
-                bmb3.setUse3DTransformAnimation(isChecked)
+                bmb1.isUse3DTransformAnimation = isChecked
+                bmb2.isUse3DTransformAnimation = isChecked
+                bmb3.isUse3DTransformAnimation = isChecked
             }
             isChecked = true
         }
 
-        val durationSeekBar = findViewById<SeekBar>(R.id.duration_seek).apply {
-            max = 3000
-            progress = 300
-            setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                    durationTextView.text = "Show/Hide duration = ${seekBar.progress} ms"
-                    bmb1.duration = progress.toLong()
-                    bmb2.duration = progress.toLong()
-                    bmb3.duration = progress.toLong()
-                }
+        durationTextView = findViewById(R.id.duration_text)
 
-                override fun onStartTrackingTouch(seekBar: SeekBar) {
-                    // No action needed
-                }
-
-                override fun onStopTrackingTouch(seekBar: SeekBar) {
-                    // No action needed
-                }
-            })
-        }
-
-        durationTextView = findViewById<TextView>(R.id.duration_text).apply {
-            text = "Show/Hide duration = ${durationSeekBar.progress} ms"
+        findViewById<Slider>(R.id.duration_seek).apply {
+            value = 300f
+            addOnChangeListener { _, value, _ ->
+                val duration = value.toLong()
+                durationTextView.text = "Show/Hide duration = $duration ms"
+                bmb1.duration = duration
+                bmb2.duration = duration
+                bmb3.duration = duration
+            }
+            // Trigger initial text update
+            durationTextView.text = "Show/Hide duration = ${value.toLong()} ms"
         }
     }
 }

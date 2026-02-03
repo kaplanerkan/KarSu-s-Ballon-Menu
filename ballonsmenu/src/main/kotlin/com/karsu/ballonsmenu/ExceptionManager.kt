@@ -1,15 +1,15 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
 package com.karsu.ballonsmenu
 
-import com.karsu.ballonsmenu.Animation.BoomEnum
-import com.karsu.ballonsmenu.BoomButtons.BoomButtonBuilder
-import com.karsu.ballonsmenu.BoomButtons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.Animation.KarSuEnum
+import com.karsu.ballonsmenu.KarSuButtons.KarSuButtonBuilder
+import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
 import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
 
 internal object ExceptionManager {
 
     @JvmStatic
-    fun judge(bmb: BoomMenuButton, builders: ArrayList<BoomButtonBuilder>?) {
+    fun judge(bmb: KarSuMenuButton, builders: ArrayList<KarSuButtonBuilder<*>>?) {
         if (bmb.buttonEnum == ButtonEnum.Unknown) {
             throw RuntimeException("Unknown button-enum!")
         }
@@ -19,7 +19,7 @@ internal object ExceptionManager {
         if (bmb.buttonPlaceEnum == ButtonPlaceEnum.Unknown) {
             throw RuntimeException("Unknown button-place-enum!")
         }
-        if (bmb.boomEnum == null || bmb.boomEnum == BoomEnum.Unknown) {
+        if (bmb.boomEnum == null || bmb.boomEnum == KarSuEnum.Unknown) {
             throw RuntimeException("Unknown boom-enum!")
         }
         if (builders == null || builders.isEmpty()) {

@@ -9,7 +9,7 @@ import android.graphics.PointF
 import android.graphics.RectF
 import android.view.View
 import android.widget.FrameLayout
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.KarSuMenuButton
 import com.karsu.ballonsmenu.Util
 
 class ShareLinesView(context: Context) : View(context) {
@@ -41,7 +41,7 @@ class ShareLinesView(context: Context) : View(context) {
         isAntiAlias = true
     }
 
-    fun setData(piecePositions: ArrayList<RectF>?, bmb: BoomMenuButton) {
+    fun setData(piecePositions: ArrayList<RectF>?, bmb: KarSuMenuButton) {
         if (piecePositions == null) return
         val xOffset = bmb.dotRadius - lineWidth / 4f
         val yOffset = (bmb.dotRadius - lineWidth * kotlin.math.sqrt(3.0) / 4f).toFloat() + Util.dp2px(0.25f)

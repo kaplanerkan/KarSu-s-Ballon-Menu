@@ -1,5 +1,5 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
-package com.karsu.ballonsmenu.BoomButtons
+package com.karsu.ballonsmenu.KarSuButtons
 
 import android.content.Context
 import android.graphics.PointF
@@ -9,7 +9,7 @@ import com.karsu.ballonsmenu.ButtonEnum
 import com.karsu.ballonsmenu.R
 
 @Suppress("unused")
-class TextOutsideCircleButton private constructor(builder: Builder, context: Context) : BoomButton(context) {
+class TextOutsideCircleButton private constructor(builder: Builder, context: Context) : KarSuButton(context) {
 
     init {
         this.context = context
@@ -29,7 +29,7 @@ class TextOutsideCircleButton private constructor(builder: Builder, context: Con
         centerPoint = PointF(trueRadius.toFloat(), trueRadius.toFloat())
     }
 
-    override fun initAttrs(builder: BoomButtonBuilder<*>) {
+    override fun initAttrs(builder: KarSuButtonBuilder<*>) {
         super.initAttrs(builder)
     }
 
@@ -88,7 +88,7 @@ class TextOutsideCircleButton private constructor(builder: Builder, context: Con
         // No implementation needed
     }
 
-    class Builder : BoomButtonWithTextBuilder<Builder>() {
+    class Builder : KarSuButtonWithTextBuilder<Builder>() {
 
         /**
          * Whether the text-view should rotate.
@@ -178,7 +178,7 @@ class TextOutsideCircleButton private constructor(builder: Builder, context: Con
          */
         fun getButtonContentWidth(): Int {
             var width = buttonRadius * 2
-            textRect?.let { width = maxOf(width, textWidth) }
+            width = maxOf(width, textWidth)
             return width
         }
 
@@ -191,7 +191,7 @@ class TextOutsideCircleButton private constructor(builder: Builder, context: Con
          */
         fun getButtonContentHeight(): Int {
             var height = buttonRadius * 2
-            textRect?.let { height = maxOf(height, it.bottom - shadowOffsetY - shadowRadius) }
+            height = maxOf(height, textRect.bottom - shadowOffsetY - shadowRadius)
             return height
         }
 

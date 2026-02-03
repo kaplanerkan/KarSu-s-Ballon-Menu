@@ -5,14 +5,14 @@ import android.content.Context
 import android.graphics.Point
 import android.graphics.PointF
 import android.graphics.RectF
-import com.karsu.ballonsmenu.BoomButtons.BoomButtonBuilder
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.KarSuButtons.KarSuButtonBuilder
+import com.karsu.ballonsmenu.KarSuMenuButton
 import kotlin.math.sqrt
 
 object PiecePlaceManager {
 
     @JvmStatic
-    fun getDotPositions(bmb: BoomMenuButton, parentSize: Point): ArrayList<RectF> {
+    fun getDotPositions(bmb: KarSuMenuButton, parentSize: Point): ArrayList<RectF> {
         val hm = bmb.pieceHorizontalMargin
         val hm_0_5 = hm * 0.5f
         val hm_1_5 = hm * 1.5f
@@ -355,7 +355,7 @@ object PiecePlaceManager {
     }
 
     @JvmStatic
-    fun getHamPositions(bmb: BoomMenuButton, parentSize: Point): ArrayList<RectF> {
+    fun getHamPositions(bmb: KarSuMenuButton, parentSize: Point): ArrayList<RectF> {
         val positions = ArrayList<RectF>()
         var pos = ArrayList<PointF>()
 
@@ -407,7 +407,7 @@ object PiecePlaceManager {
 
     @JvmStatic
     fun getShareDotPositions(
-        bmb: BoomMenuButton,
+        bmb: KarSuMenuButton,
         parentSize: Point,
         n: Int
     ): ArrayList<RectF> {
@@ -443,7 +443,7 @@ object PiecePlaceManager {
     }
 
     @JvmStatic
-    fun createPiece(bmb: BoomMenuButton, builder: BoomButtonBuilder<*>): BoomPiece {
+    fun createPiece(bmb: KarSuMenuButton, builder: KarSuButtonBuilder<*>): KarSuPiece {
         return when (bmb.buttonEnum) {
             com.karsu.ballonsmenu.ButtonEnum.SimpleCircle,
             com.karsu.ballonsmenu.ButtonEnum.TextInsideCircle,
@@ -459,7 +459,7 @@ object PiecePlaceManager {
 
     private fun createDot(
         context: Context,
-        builder: BoomButtonBuilder<*>,
+        builder: KarSuButtonBuilder<*>,
         pieceCornerRadius: Float
     ): Dot {
         val dot = Dot(context)
@@ -470,7 +470,7 @@ object PiecePlaceManager {
 
     private fun createHam(
         context: Context,
-        builder: BoomButtonBuilder<*>,
+        builder: KarSuButtonBuilder<*>,
         pieceCornerRadius: Float
     ): Ham {
         val ham = Ham(context)

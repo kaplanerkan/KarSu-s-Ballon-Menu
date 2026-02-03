@@ -11,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.karsu.ballonsmenu.FadeViewsActivity">
 
-    <com.karsu.ballonsmenu.BoomMenuButton
+    <com.karsu.ballonsmenu.KarSuMenuButton
         android:id="@+id/bmb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,9 +29,9 @@
             android:src="@drawable/butterfly"
             android:layout_gravity="center" />
 
-    </com.karsu.ballonsmenu.BoomMenuButton>
+    </com.karsu.ballonsmenu.KarSuMenuButton>
 
-    <com.karsu.ballonsmenu.BoomMenuButton
+    <com.karsu.ballonsmenu.KarSuMenuButton
         android:id="@+id/bmb2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,6 +60,6 @@
             android:textSize="10sp"
             android:textColor="@android:color/white"/>
 
-    </com.karsu.ballonsmenu.BoomMenuButton>
+    </com.karsu.ballonsmenu.KarSuMenuButton>
 
 </RelativeLayout>

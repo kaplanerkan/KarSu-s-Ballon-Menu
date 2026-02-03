@@ -18,7 +18,7 @@
         android:text="Only Custom Piece Positions"
         android:layout_marginBottom="15dp"/>
 
-    <com.karsu.ballonsmenu.BoomMenuButton
+    <com.karsu.ballonsmenu.KarSuMenuButton
         android:id="@+id/bmb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.karsu.ballonsmenu.BoomMenuButton
+        <com.karsu.ballonsmenu.KarSuMenuButton
             android:id="@+id/bmb2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             app:bmb_buttonPlaceEnum="buttonPlace_custom"
             />
 
-        <com.karsu.ballonsmenu.BoomMenuButton
+        <com.karsu.ballonsmenu.KarSuMenuButton
             android:id="@+id/bmb3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"/>
 
-    <com.karsu.ballonsmenu.BoomMenuButton
+    <com.karsu.ballonsmenu.KarSuMenuButton
         android:id="@+id/bmb4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,5 +1,5 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
-package com.karsu.ballonsmenu.BoomButtons
+package com.karsu.ballonsmenu.KarSuButtons
 
 enum class ButtonPlaceEnum(val value: Int) {
     SC_1(0),

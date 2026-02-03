@@ -6,7 +6,7 @@ import android.graphics.RectF
 import android.view.View
 import android.widget.FrameLayout
 
-abstract class BoomPiece(context: Context) : View(context) {
+abstract class KarSuPiece(context: Context) : View(context) {
 
     private var requestLayoutNotFinish = false
 
@@ -16,7 +16,8 @@ abstract class BoomPiece(context: Context) : View(context) {
 
     abstract fun setColorRes(colorRes: Int)
 
-    fun place(rectF: RectF) {
+    fun place(rectF: RectF?) {
+        rectF ?: return
         (layoutParams as? FrameLayout.LayoutParams)?.let { layoutParams ->
             layoutParams.leftMargin = rectF.left.toInt()
             layoutParams.topMargin = rectF.top.toInt()

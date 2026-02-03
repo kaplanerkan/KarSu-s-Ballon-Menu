@@ -5,12 +5,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuMenuButton
 import com.karsu.ballonsmenu.ButtonEnum
 
 class ToolBarActivity : AppCompatActivity() {
 
-    private lateinit var bmb: BoomMenuButton
+    private lateinit var bmb: KarSuMenuButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +21,7 @@ class ToolBarActivity : AppCompatActivity() {
             setSupportActionBar(toolbar)
         }
 
-        bmb = findViewById<BoomMenuButton>(R.id.bmb).apply {
+        bmb = findViewById<KarSuMenuButton>(R.id.bmb).apply {
             buttonEnum = ButtonEnum.Ham
             repeat(piecePlaceEnum.pieceNumber()) {
                 addBuilder(BuilderManager.getHamButtonBuilderWithDifferentPieceColor())

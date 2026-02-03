@@ -5,47 +5,47 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary">
+            android:background="?attr/colorPrimary"
+            app:titleTextColor="@android:color/white">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:text="ToolBar"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
-                    android:gravity="center"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
-                <com.karsu.ballonsmenu.BoomMenuButton
+                <com.karsu.ballonsmenu.KarSuMenuButton
                     android:id="@+id/bmb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
                     app:bmb_backgroundEffect="false"
                     app:bmb_boomEnum="boomParabola_2"
-                    app:bmb_piecePlaceEnum="piecePlace_ham_4"
                     app:bmb_buttonPlaceEnum="buttonPlace_ham_4"
-                    app:bmb_showDuration="2000"
-                    app:bmb_hideDuration="2000"/>
+                    app:bmb_hideDuration="2000"
+                    app:bmb_piecePlaceEnum="piecePlace_ham_4"
+                    app:bmb_showDuration="2000" />
 
             </RelativeLayout>
 
-        </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.MaterialToolbar>
 
-    </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

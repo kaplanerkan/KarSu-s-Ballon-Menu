@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuMenuButton
 
 class BMBFragment : Fragment() {
 
@@ -24,13 +25,13 @@ class BMBFragment : Fragment() {
                 text = position.toString()
             }
 
-            fragment.findViewById<BoomMenuButton>(R.id.bmb1).also { bmb ->
+            fragment.findViewById<KarSuMenuButton>(R.id.bmb1).also { bmb ->
                 repeat(bmb.piecePlaceEnum.pieceNumber()) {
                     bmb.addBuilder(BuilderManager.getSimpleCircleButtonBuilder())
                 }
             }
 
-            fragment.findViewById<BoomMenuButton>(R.id.bmb2).also { bmb ->
+            fragment.findViewById<KarSuMenuButton>(R.id.bmb2).also { bmb ->
                 repeat(bmb.piecePlaceEnum.pieceNumber()) {
                     bmb.addBuilder(BuilderManager.getSimpleCircleButtonBuilder())
                 }

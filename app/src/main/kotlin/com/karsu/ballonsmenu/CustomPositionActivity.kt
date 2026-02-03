@@ -4,7 +4,8 @@ package com.karsu.ballonsmenu
 import android.graphics.PointF
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuMenuButton
 import com.karsu.ballonsmenu.Util
 
 class CustomPositionActivity : AppCompatActivity() {
@@ -20,7 +21,7 @@ class CustomPositionActivity : AppCompatActivity() {
     }
 
     private fun initializeBmb1() {
-        findViewById<BoomMenuButton>(R.id.bmb1).apply {
+        findViewById<KarSuMenuButton>(R.id.bmb1).apply {
             repeat(buttonPlaceEnum.buttonNumber()) {
                 addBuilder(BuilderManager.getHamButtonBuilder())
             }
@@ -40,27 +41,27 @@ class CustomPositionActivity : AppCompatActivity() {
     }
 
     private fun initializeBmb2() {
-        findViewById<BoomMenuButton>(R.id.bmb2).apply {
+        findViewById<KarSuMenuButton>(R.id.bmb2).apply {
             repeat(piecePlaceEnum.pieceNumber()) {
                 addBuilder(BuilderManager.getSimpleCircleButtonBuilder())
             }
 
             customButtonPlacePositions.also { positions ->
-                positions.add(PointF(Util.dp2px(-80f), Util.dp2px(-80f)))
+                positions.add(PointF(Util.dp2px(-80f).toFloat(), Util.dp2px(-80f).toFloat()))
                 positions.add(PointF(0f, 0f))
-                positions.add(PointF(Util.dp2px(+80f), Util.dp2px(+80f)))
+                positions.add(PointF(Util.dp2px(+80f).toFloat(), Util.dp2px(+80f).toFloat()))
             }
         }
     }
 
     private fun initializeBmb3() {
-        findViewById<BoomMenuButton>(R.id.bmb3).apply {
+        findViewById<KarSuMenuButton>(R.id.bmb3).apply {
             repeat(12) {
                 addBuilder(BuilderManager.getTextOutsideCircleButtonBuilderWithDifferentPieceColor())
             }
 
-            val w = Util.dp2px(80f)
-            val h = Util.dp2px(96f)
+            val w = Util.dp2px(80f).toFloat()
+            val h = Util.dp2px(96f).toFloat()
             val h05 = h / 2
             val h15 = h * 1.5f
 
@@ -87,21 +88,21 @@ class CustomPositionActivity : AppCompatActivity() {
     }
 
     private fun initializeBmb4() {
-        findViewById<BoomMenuButton>(R.id.bmb4).apply {
+        findViewById<KarSuMenuButton>(R.id.bmb4).apply {
             repeat(3) {
                 addBuilder(BuilderManager.getTextInsideCircleButtonBuilder())
             }
 
             customPiecePlacePositions.also { positions ->
-                positions.add(PointF(Util.dp2px(+6f), Util.dp2px(-6f)))
+                positions.add(PointF(Util.dp2px(+6f).toFloat(), Util.dp2px(-6f).toFloat()))
                 positions.add(PointF(0f, 0f))
-                positions.add(PointF(Util.dp2px(-6f), Util.dp2px(+6f)))
+                positions.add(PointF(Util.dp2px(-6f).toFloat(), Util.dp2px(+6f).toFloat()))
             }
 
             customButtonPlacePositions.also { positions ->
-                positions.add(PointF(Util.dp2px(-80f), Util.dp2px(-80f)))
+                positions.add(PointF(Util.dp2px(-80f).toFloat(), Util.dp2px(-80f).toFloat()))
                 positions.add(PointF(0f, 0f))
-                positions.add(PointF(Util.dp2px(+80f), Util.dp2px(+80f)))
+                positions.add(PointF(Util.dp2px(+80f).toFloat(), Util.dp2px(+80f).toFloat()))
             }
         }
     }

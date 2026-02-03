@@ -1,7 +1,7 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
 package com.karsu.ballonsmenu.Animation
 
-enum class BoomEnum(val value: Int) {
+enum class KarSuEnum(val value: Int) {
     LINE(0),
     PARABOLA_1(1),
     PARABOLA_2(2),
@@ -14,7 +14,7 @@ enum class BoomEnum(val value: Int) {
 
     companion object {
         @JvmStatic
-        fun getEnum(value: Int): BoomEnum {
+        fun getEnum(value: Int): KarSuEnum {
             return if (value < 0 || value >= entries.size) Unknown
             else entries[value]
         }

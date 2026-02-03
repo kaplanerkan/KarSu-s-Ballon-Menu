@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.karsu.ballonsmenu.BoomButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.KarSuMenuButton
 import com.karsu.ballonsmenu.ButtonEnum
 import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
 
@@ -31,7 +32,7 @@ class ActionBarActivity : AppCompatActivity() {
 
             (actionBarView.parent as? Toolbar)?.setContentInsetsAbsolute(0, 0)
 
-            actionBarView.findViewById<BoomMenuButton>(R.id.action_bar_left_bmb).apply {
+            actionBarView.findViewById<KarSuMenuButton>(R.id.action_bar_left_bmb).apply {
                 buttonEnum = ButtonEnum.TextOutsideCircle
                 piecePlaceEnum = PiecePlaceEnum.DOT_9_1
                 buttonPlaceEnum = ButtonPlaceEnum.SC_9_1
@@ -40,7 +41,7 @@ class ActionBarActivity : AppCompatActivity() {
                 }
             }
 
-            actionBarView.findViewById<BoomMenuButton>(R.id.action_bar_right_bmb).apply {
+            actionBarView.findViewById<KarSuMenuButton>(R.id.action_bar_right_bmb).apply {
                 buttonEnum = ButtonEnum.Ham
                 piecePlaceEnum = PiecePlaceEnum.HAM_4
                 buttonPlaceEnum = ButtonPlaceEnum.HAM_4

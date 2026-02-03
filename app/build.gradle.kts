@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.karsu.ballonsmenu"
+    namespace = "com.karsu.ballonsmenu.app"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -29,9 +29,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+}
 
-    kotlinOptions {
-        jvmTarget = "17"
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }
 
@@ -46,4 +48,7 @@ dependencies {
     implementation(libs.androidx.fragment)
     implementation(libs.material)
     testImplementation(libs.junit)
+
+    // LeakCanary - Memory leak detection (debug only)
+    debugImplementation(libs.leakcanary)
 }

@@ -1,5 +1,5 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
-package com.karsu.ballonsmenu.BoomButtons
+package com.karsu.ballonsmenu.KarSuButtons
 
 fun interface OnBMClickListener {
     /**
@@ -7,5 +7,5 @@ fun interface OnBMClickListener {
      *
      * @param index the index of boom-button
      */
-    fun onBoomButtonClick(index: Int)
+    fun onKarSuButtonClick(index: Int)
 }

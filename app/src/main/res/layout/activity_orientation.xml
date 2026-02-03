@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.karsu.ballonsmenu.OrientationActivity">
 
-    <com.karsu.ballonsmenu.BoomMenuButton
+    <com.karsu.ballonsmenu.KarSuMenuButton
         android:id="@+id/bmb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,5 +1,5 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
-package com.karsu.ballonsmenu.BoomButtons
+package com.karsu.ballonsmenu.KarSuButtons
 
 import android.content.Context
 import android.graphics.PointF
@@ -9,7 +9,7 @@ import com.karsu.ballonsmenu.ButtonEnum
 import com.karsu.ballonsmenu.R
 
 @Suppress("unused")
-class SimpleCircleButton private constructor(builder: Builder, context: Context) : BoomButton(context) {
+class SimpleCircleButton private constructor(builder: Builder, context: Context) : KarSuButton(context) {
 
     init {
         this.context = context
@@ -30,7 +30,7 @@ class SimpleCircleButton private constructor(builder: Builder, context: Context)
         )
     }
 
-    override fun initAttrs(builder: BoomButtonBuilder<*>) {
+    override fun initAttrs(builder: KarSuButtonBuilder<*>) {
         super.initAttrs(builder)
     }
 
@@ -81,7 +81,7 @@ class SimpleCircleButton private constructor(builder: Builder, context: Context)
         // No implementation needed
     }
 
-    class Builder : BoomButtonBuilder<Builder>() {
+    class Builder : KarSuButtonBuilder<Builder>() {
 
         /**
          * The radius of boom-button, in pixel.

@@ -14,7 +14,7 @@ import com.karsu.ballonsmenu.Animation.AnimationManager
 @SuppressLint("ViewConstructor")
 internal class BackgroundView(
     context: Context,
-    private val bmb: BoomMenuButton
+    private val bmb: KarSuMenuButton
 ) : FrameLayout(context) {
 
     private val dimColor: Int = bmb.dimColor
@@ -32,7 +32,7 @@ internal class BackgroundView(
         rootView.addView(this)
     }
 
-    fun reLayout(bmb: BoomMenuButton) {
+    fun reLayout(bmb: KarSuMenuButton) {
         val rootView = bmb.parentView
         val params = layoutParams as LayoutParams
         params.width = rootView.width

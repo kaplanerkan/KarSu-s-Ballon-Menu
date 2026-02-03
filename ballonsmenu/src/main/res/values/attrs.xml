@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="BoomMenuButton">
+    <declare-styleable name="KarSuMenuButton">
         <!--Basic-->
         <attr name="bmb_cacheOptimization" format="boolean|reference"/>
         <attr name="bmb_boomInWholeScreen" format="boolean|reference"/>
@@ -320,10 +320,10 @@
         </attr>
         <attr name="bmb_rotateDegree" format="integer|reference"/>
         <attr name="bmb_use3DTransformAnimation" format="boolean|reference"/>
-        <attr name="bmb_autoBoom" format="boolean|reference"/>
-        <attr name="bmb_autoBoomImmediately" format="boolean|reference"/>
+        <attr name="bmb_autoKarSu" format="boolean|reference"/>
+        <attr name="bmb_autoKarSuImmediately" format="boolean|reference"/>
 
-        <!--Boom Buttons-->
+        <!--KarSu Buttons-->
         <attr name="bmb_buttonPlaceEnum" format="enum|reference">
             <enum name="buttonPlace_sc_1" value="0"/>
             <enum name="buttonPlace_sc_2_1" value="1"/>

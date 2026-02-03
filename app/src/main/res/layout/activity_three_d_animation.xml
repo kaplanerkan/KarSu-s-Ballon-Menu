@@ -1,89 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_order_example"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:padding="16dp"
     tools:context="com.karsu.ballonsmenu.ThreeDAnimationActivity">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:text="Drag BMBs and try the difference between 2D and 3D animations."/>
+        android:text="Drag BMBs and try the difference between 2D and 3D animations."
+        android:textAppearance="?attr/textAppearanceBodyMedium" />
 
-    <Switch
+    <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/three_d_animation_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/tip"
-        android:text="3D Animation   "/>
+        android:layout_marginTop="8dp"
+        android:text="3D Animation" />
 
-    <SeekBar
+    <com.google.android.material.slider.Slider
         android:id="@+id/duration_seek"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/three_d_animation_switch" />
+        android:layout_below="@id/three_d_animation_switch"
+        android:layout_marginTop="8dp"
+        android:valueFrom="0"
+        android:valueTo="2000"
+        android:stepSize="100" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/duration_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|end"
         android:layout_below="@id/duration_seek"
-        />
+        android:gravity="center_vertical|end"
+        android:textAppearance="?attr/textAppearanceBodySmall" />
 
-    <com.karsu.ballonsmenu.BoomMenuButton
+    <com.karsu.ballonsmenu.KarSuMenuButton
         android:id="@+id/bmb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        app:bmb_draggable="true"
-        app:bmb_normalColor="@android:color/white"
-        app:bmb_highlightedColor="@android:color/darker_gray"
+        android:layout_alignParentBottom="true"
         app:bmb_buttonEnum="simpleCircle"
-        app:bmb_piecePlaceEnum="piecePlace_dot_9_1"
         app:bmb_buttonPlaceEnum="buttonPlace_sc_9_1"
+        app:bmb_draggable="true"
+        app:bmb_highlightedColor="@android:color/darker_gray"
+        app:bmb_normalColor="@android:color/white"
         app:bmb_pieceCornerRadius="1dp"
-        />
+        app:bmb_piecePlaceEnum="piecePlace_dot_9_1" />
 
-    <com.karsu.ballonsmenu.BoomMenuButton
+    <com.karsu.ballonsmenu.KarSuMenuButton
         android:id="@+id/bmb2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        app:bmb_draggable="true"
-        app:bmb_normalColor="@android:color/holo_green_light"
-        app:bmb_highlightedColor="@android:color/holo_green_dark"
         app:bmb_buttonEnum="ham"
-        app:bmb_piecePlaceEnum="piecePlace_ham_4"
         app:bmb_buttonPlaceEnum="buttonPlace_ham_4"
-        />
+        app:bmb_draggable="true"
+        app:bmb_highlightedColor="@android:color/holo_green_dark"
+        app:bmb_normalColor="@android:color/holo_green_light"
+        app:bmb_piecePlaceEnum="piecePlace_ham_4" />
 
-    <com.karsu.ballonsmenu.BoomMenuButton
+    <com.karsu.ballonsmenu.KarSuMenuButton
         android:id="@+id/bmb3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        app:bmb_draggable="true"
-        app:bmb_normalColor="@android:color/holo_blue_light"
-        app:bmb_highlightedColor="@android:color/holo_blue_bright"
+        android:layout_alignParentBottom="true"
         app:bmb_buttonEnum="textOutsideCircle"
-        app:bmb_piecePlaceEnum="piecePlace_dot_9_1"
         app:bmb_buttonPlaceEnum="buttonPlace_sc_9_1"
-        />
+        app:bmb_draggable="true"
+        app:bmb_highlightedColor="@android:color/holo_blue_bright"
+        app:bmb_normalColor="@android:color/holo_blue_light"
+        app:bmb_piecePlaceEnum="piecePlace_dot_9_1" />
 
 </RelativeLayout>

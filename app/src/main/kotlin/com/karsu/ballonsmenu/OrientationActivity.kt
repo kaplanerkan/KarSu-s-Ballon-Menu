@@ -3,8 +3,9 @@ package com.karsu.ballonsmenu
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.karsu.ballonsmenu.BoomButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.KarSuMenuButton
 import com.karsu.ballonsmenu.ButtonEnum
 import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
 
@@ -14,7 +15,7 @@ class OrientationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orientation)
 
-        findViewById<BoomMenuButton>(R.id.bmb).apply {
+        findViewById<KarSuMenuButton>(R.id.bmb).apply {
             buttonEnum = ButtonEnum.SimpleCircle
             piecePlaceEnum = PiecePlaceEnum.DOT_9_1
             buttonPlaceEnum = ButtonPlaceEnum.SC_9_1

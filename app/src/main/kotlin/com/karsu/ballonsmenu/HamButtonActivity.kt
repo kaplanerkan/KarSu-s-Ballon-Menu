@@ -6,21 +6,22 @@ import android.util.Pair
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import com.karsu.ballonsmenu.BoomButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.KarSuMenuButton
 import com.karsu.ballonsmenu.ButtonEnum
 import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
 
 class HamButtonActivity : AppCompatActivity() {
 
-    private lateinit var bmb: BoomMenuButton
-    private val piecesAndButtons = ArrayList<Pair<*, *>>()
+    private lateinit var bmb: KarSuMenuButton
+    private val piecesAndButtons = ArrayList<Pair<PiecePlaceEnum, ButtonPlaceEnum>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ham_button)
 
-        bmb = findViewById<BoomMenuButton>(R.id.bmb).apply {
+        bmb = findViewById<KarSuMenuButton>(R.id.bmb).apply {
             buttonEnum = ButtonEnum.Ham
             piecePlaceEnum = PiecePlaceEnum.HAM_1
             buttonPlaceEnum = ButtonPlaceEnum.HAM_1
@@ -35,8 +36,8 @@ class HamButtonActivity : AppCompatActivity() {
             )
             setOnItemClickListener { _, _, position, _ ->
                 piecesAndButtons[position].let { pair ->
-                    bmb.piecePlaceEnum = pair.first as PiecePlaceEnum
-                    bmb.buttonPlaceEnum = pair.second as ButtonPlaceEnum
+                    bmb.piecePlaceEnum = pair.first
+                    bmb.buttonPlaceEnum = pair.second
                     bmb.clearBuilders()
                     repeat(bmb.piecePlaceEnum.pieceNumber()) {
                         bmb.addBuilder(BuilderManager.getHamButtonBuilder())

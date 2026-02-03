@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuMenuButton
 
 class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
@@ -49,8 +50,8 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val text: TextView = view.findViewById(R.id.text)
-        val bmb1: BoomMenuButton = view.findViewById(R.id.bmb1)
-        val bmb2: BoomMenuButton = view.findViewById(R.id.bmb2)
-        val bmb3: BoomMenuButton = view.findViewById(R.id.bmb3)
+        val bmb1: KarSuMenuButton = view.findViewById(R.id.bmb1)
+        val bmb2: KarSuMenuButton = view.findViewById(R.id.bmb2)
+        val bmb3: KarSuMenuButton = view.findViewById(R.id.bmb3)
     }
 }

@@ -7,16 +7,17 @@ import android.widget.ListView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.karsu.ballonsmenu.BoomButtons.ButtonPlaceAlignmentEnum
-import com.karsu.ballonsmenu.BoomButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceAlignmentEnum
+import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.KarSuMenuButton
 import com.karsu.ballonsmenu.ButtonEnum
 import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
 import com.karsu.ballonsmenu.Util
 
 class ButtonPlaceAlignmentActivity : AppCompatActivity() {
 
-    private lateinit var bmb: BoomMenuButton
+    private lateinit var bmb: KarSuMenuButton
     private lateinit var topMarginSeekText: TextView
     private lateinit var bottomMarginSeekText: TextView
     private lateinit var leftMarginSeekText: TextView
@@ -26,7 +27,7 @@ class ButtonPlaceAlignmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_button_place_alignment)
 
-        bmb = findViewById<BoomMenuButton>(R.id.bmb).apply {
+        bmb = findViewById<KarSuMenuButton>(R.id.bmb).apply {
             buttonEnum = ButtonEnum.SimpleCircle
             piecePlaceEnum = PiecePlaceEnum.DOT_4_1
             buttonPlaceEnum = ButtonPlaceEnum.SC_4_1
@@ -55,7 +56,7 @@ class ButtonPlaceAlignmentActivity : AppCompatActivity() {
     private fun initTopMarginSeek() {
         topMarginSeekText = findViewById(R.id.top_margin_text)
         findViewById<SeekBar>(R.id.top_margin_seek).apply {
-            max = Util.dp2px(50f).toInt()
+            max = Util.dp2px(50f)
             progress = bmb.buttonTopMargin.toInt()
             topMarginSeekText.text = "Top margin = $progress pixel(s)"
             setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -73,7 +74,7 @@ class ButtonPlaceAlignmentActivity : AppCompatActivity() {
     private fun initBottomMarginSeek() {
         bottomMarginSeekText = findViewById(R.id.bottom_margin_text)
         findViewById<SeekBar>(R.id.bottom_margin_seek).apply {
-            max = Util.dp2px(50f).toInt()
+            max = Util.dp2px(50f)
             progress = bmb.buttonBottomMargin.toInt()
             bottomMarginSeekText.text = "Bottom margin = $progress pixel(s)"
             setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -91,7 +92,7 @@ class ButtonPlaceAlignmentActivity : AppCompatActivity() {
     private fun initLeftMarginSeek() {
         leftMarginSeekText = findViewById(R.id.left_margin_text)
         findViewById<SeekBar>(R.id.left_margin_seek).apply {
-            max = Util.dp2px(50f).toInt()
+            max = Util.dp2px(50f)
             progress = bmb.buttonLeftMargin.toInt()
             leftMarginSeekText.text = "Left margin = $progress pixel(s)"
             setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -109,7 +110,7 @@ class ButtonPlaceAlignmentActivity : AppCompatActivity() {
     private fun initRightMarginSeek() {
         rightMarginSeekText = findViewById(R.id.right_margin_text)
         findViewById<SeekBar>(R.id.right_margin_seek).apply {
-            max = Util.dp2px(50f).toInt()
+            max = Util.dp2px(50f)
             progress = bmb.buttonRightMargin.toInt()
             rightMarginSeekText.text = "Right margin = $progress pixel(s)"
             setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {

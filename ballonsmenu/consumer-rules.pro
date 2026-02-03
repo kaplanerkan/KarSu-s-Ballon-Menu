@@ -1,1 +1,1 @@
-# Consumer ProGuard rules for BoomMenu library
+# Consumer ProGuard rules for KarSuMenu library

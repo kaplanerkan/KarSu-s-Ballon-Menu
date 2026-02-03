@@ -1,12 +1,12 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
-package com.karsu.ballonsmenu.BoomButtons
+package com.karsu.ballonsmenu.KarSuButtons
 
 import android.graphics.Rect
 import android.graphics.Typeface
 import android.text.TextUtils
 
 @Suppress("UNCHECKED_CAST")
-abstract class BoomButtonWithTextBuilder<T : BoomButtonWithTextBuilder<T>> : BoomButtonBuilder<T>() {
+abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : KarSuButtonBuilder<T>() {
 
     /**
      * Set the text when boom-button is at normal-state.

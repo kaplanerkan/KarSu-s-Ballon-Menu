@@ -2,13 +2,13 @@
 package com.karsu.ballonsmenu
 
 /**
- * Helper class for creating OnBoomListener with default implementations.
+ * Helper class for creating OnKarSuListener with default implementations.
  */
-abstract class OnBoomListenerAdapter : OnBoomListener {
-    override fun onBoomWillShow() { /* empty */ }
-    override fun onBoomDidShow() { /* empty */ }
-    override fun onBoomWillHide() { /* empty */ }
-    override fun onBoomDidHide() { /* empty */ }
-    override fun onBoomButtonClick(index: Int) { /* empty */ }
+abstract class OnKarSuListenerAdapter : OnKarSuListener {
+    override fun onKarSuWillShow() { /* empty */ }
+    override fun onKarSuDidShow() { /* empty */ }
+    override fun onKarSuWillHide() { /* empty */ }
+    override fun onKarSuDidHide() { /* empty */ }
+    override fun onKarSuButtonClick(index: Int) { /* empty */ }
     override fun onBackgroundClick() { /* empty */ }
 }

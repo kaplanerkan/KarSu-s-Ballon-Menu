@@ -1,6 +1,6 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
-package com.karsu.ballonsmenu.BoomButtons
+package com.karsu.ballonsmenu.KarSuButtons
 
-fun interface InnerOnBoomButtonClickListener {
-    fun onButtonClick(index: Int, boomButton: BoomButton)
+fun interface InnerOnKarSuButtonClickListener {
+    fun onButtonClick(index: Int, boomButton: KarSuButton)
 }

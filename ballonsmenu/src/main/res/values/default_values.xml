@@ -63,10 +63,10 @@
     <integer name="default_bmb_hideRotateEaseEnum">21</integer>
     <integer name="default_bmb_rotateDegree">720</integer>
     <bool name="default_bmb_use3DTransformAnimation">false</bool>
-    <bool name="default_bmb_autoBoom">false</bool>
-    <bool name="default_bmb_autoBoomImmediately">false</bool>
+    <bool name="default_bmb_autoKarSu">false</bool>
+    <bool name="default_bmb_autoKarSuImmediately">false</bool>
 
-    <!--Boom Button-->
+    <!--KarSu Button-->
     <integer name="default_bmb_buttonPlaceEnum">-1</integer>
     <integer name="default_bmb_buttonPlaceAlignmentEnum">0</integer>
     <dimen name="default_bmb_buttonHorizontalMargin">20dp</dimen>

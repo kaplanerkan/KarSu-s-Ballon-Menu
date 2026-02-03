@@ -9,7 +9,8 @@ import android.widget.BaseAdapter
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuMenuButton
 
 class ListViewActivity : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class ListViewActivity : AppCompatActivity() {
         findViewById<ListView>(R.id.list_view).apply {
             adapter = MyAdapter()
             setOnItemClickListener { _, view, _, _ ->
-                view.findViewById<BoomMenuButton>(R.id.bmb1).boom()
+                view.findViewById<KarSuMenuButton>(R.id.bmb1).boom()
             }
         }
     }
@@ -79,9 +80,9 @@ class ListViewActivity : AppCompatActivity() {
 
         private data class ViewHolder(
             val text: TextView,
-            val bmb1: BoomMenuButton,
-            val bmb2: BoomMenuButton,
-            val bmb3: BoomMenuButton
+            val bmb1: KarSuMenuButton,
+            val bmb2: KarSuMenuButton,
+            val bmb3: KarSuMenuButton
         )
     }
 }

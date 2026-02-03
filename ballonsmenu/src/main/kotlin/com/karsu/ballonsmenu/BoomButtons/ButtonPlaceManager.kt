@@ -1,9 +1,9 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
-package com.karsu.ballonsmenu.BoomButtons
+package com.karsu.ballonsmenu.KarSuButtons
 
 import android.graphics.Point
 import android.graphics.PointF
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.KarSuMenuButton
 import com.karsu.ballonsmenu.ButtonEnum
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -16,7 +16,7 @@ object ButtonPlaceManager {
         w: Float,
         h: Float,
         buttonNumber: Int,
-        bmb: BoomMenuButton
+        bmb: KarSuMenuButton
     ): ArrayList<PointF> {
         val ps = ArrayList<PointF>(buttonNumber)
 
@@ -383,7 +383,7 @@ object ButtonPlaceManager {
         parentSize: Point,
         r: Float,
         buttonNumber: Int,
-        bmb: BoomMenuButton
+        bmb: KarSuMenuButton
     ): ArrayList<PointF> {
         val ps = ArrayList<PointF>(buttonNumber)
 
@@ -747,7 +747,7 @@ object ButtonPlaceManager {
         parentSize: Point,
         halfWidth: Float,
         halfHeight: Float,
-        bmb: BoomMenuButton
+        bmb: KarSuMenuButton
     ) {
         var minY = Float.MAX_VALUE
         var maxY = Float.MIN_VALUE
@@ -772,28 +772,28 @@ object ButtonPlaceManager {
                 yOffset = parentSize.y - halfHeight - maxY - bmb.buttonBottomMargin
             }
             ButtonPlaceAlignmentEnum.Left -> {
-                xOffset = halfWidth + bmb.buttonLeftMargin - minY
+                xOffset = halfWidth + bmb.buttonLeftMargin - minX
             }
             ButtonPlaceAlignmentEnum.Right -> {
-                xOffset = parentSize.y - halfHeight - maxY - bmb.buttonRightMargin
+                xOffset = parentSize.x - halfWidth - maxX - bmb.buttonRightMargin
             }
             ButtonPlaceAlignmentEnum.TL -> {
                 yOffset = halfHeight + bmb.buttonTopMargin - minY
-                xOffset = halfWidth + bmb.buttonLeftMargin - minY
+                xOffset = halfWidth + bmb.buttonLeftMargin - minX
             }
             ButtonPlaceAlignmentEnum.TR -> {
                 yOffset = halfHeight + bmb.buttonTopMargin - minY
-                xOffset = parentSize.y - halfHeight - maxY - bmb.buttonRightMargin
+                xOffset = parentSize.x - halfWidth - maxX - bmb.buttonRightMargin
             }
             ButtonPlaceAlignmentEnum.BL -> {
                 yOffset = parentSize.y - halfHeight - maxY - bmb.buttonBottomMargin
-                xOffset = halfWidth + bmb.buttonLeftMargin - minY
+                xOffset = halfWidth + bmb.buttonLeftMargin - minX
             }
             ButtonPlaceAlignmentEnum.BR -> {
                 yOffset = parentSize.y - halfHeight - maxY - bmb.buttonBottomMargin
-                xOffset = parentSize.y - halfHeight - maxY - bmb.buttonRightMargin
+                xOffset = parentSize.x - halfWidth - maxX - bmb.buttonRightMargin
             }
-            ButtonPlaceAlignmentEnum.Unknown -> { /* no adjustment */ }
+            ButtonPlaceAlignmentEnum.Unknown, null -> { /* no adjustment */ }
         }
 
         adjust(ps, xOffset, yOffset)

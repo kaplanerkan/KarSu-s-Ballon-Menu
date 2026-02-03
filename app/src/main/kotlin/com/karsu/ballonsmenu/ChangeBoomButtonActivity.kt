@@ -4,20 +4,21 @@ package com.karsu.ballonsmenu
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.karsu.ballonsmenu.BoomButtons.BoomButton
-import com.karsu.ballonsmenu.BoomButtons.HamButton
-import com.karsu.ballonsmenu.BoomMenuButton
-import com.karsu.ballonsmenu.OnBoomListenerAdapter
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuButtons.KarSuButton
+import com.karsu.ballonsmenu.KarSuButtons.HamButton
+import com.karsu.ballonsmenu.KarSuMenuButton
+import com.karsu.ballonsmenu.OnKarSuListenerAdapter
 
-class ChangeBoomButtonActivity : AppCompatActivity() {
+class ChangeKarSuButtonActivity : AppCompatActivity() {
 
-    private lateinit var bmb: BoomMenuButton
+    private lateinit var bmb: KarSuMenuButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change_boom_button)
 
-        bmb = findViewById<BoomMenuButton>(R.id.bmb).apply {
+        bmb = findViewById<KarSuMenuButton>(R.id.bmb).apply {
             addBuilder(BuilderManager.getHamButtonBuilder("Change Text", "..."))
             addBuilder(
                 BuilderManager.getHamButtonBuilder("Change Image", "...")
@@ -35,22 +36,22 @@ class ChangeBoomButtonActivity : AppCompatActivity() {
                     .unableText("Unable!")
             )
 
-            setOnBoomListener(object : OnBoomListenerAdapter() {
-                override fun onClicked(index: Int, boomButton: BoomButton) {
-                    super.onClicked(index, boomButton)
-                    changeBoomButton(index)
+            onKarSuListener = object : OnKarSuListenerAdapter() {
+                override fun onKarSuButtonClick(index: Int) {
+                    super.onKarSuButtonClick(index)
+                    changeKarSuButton(index)
                 }
-            })
+            }
         }
     }
 
-    private fun changeBoomButton(index: Int) {
+    private fun changeKarSuButton(index: Int) {
         // From version 2.0.9, BMB supports a new feature to change contents in boom-button
         // by changing contents in the corresponding builder.
         // Please notice that not every method supports this feature. Only the method whose comment
         // contains the "Synchronicity" tag supports.
         // For more details, check:
-        // https://github.com/Nightonke/BoomMenu/wiki/Change-Boom-Buttons-Dynamically
+        // https://github.com/Nightonke/KarSuMenu/wiki/Change-KarSu-Buttons-Dynamically
         val builder = bmb.getBuilder(index) as HamButton.Builder
 
         when (index) {

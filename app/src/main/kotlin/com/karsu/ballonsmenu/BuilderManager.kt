@@ -4,11 +4,12 @@ package com.karsu.ballonsmenu
 import android.graphics.Color
 import android.util.Pair
 
-import com.karsu.ballonsmenu.BoomButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.BoomButtons.HamButton
-import com.karsu.ballonsmenu.BoomButtons.SimpleCircleButton
-import com.karsu.ballonsmenu.BoomButtons.TextInsideCircleButton
-import com.karsu.ballonsmenu.BoomButtons.TextOutsideCircleButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.KarSuButtons.HamButton
+import com.karsu.ballonsmenu.KarSuButtons.SimpleCircleButton
+import com.karsu.ballonsmenu.KarSuButtons.TextInsideCircleButton
+import com.karsu.ballonsmenu.KarSuButtons.TextOutsideCircleButton
 import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
 import com.karsu.ballonsmenu.Util
 

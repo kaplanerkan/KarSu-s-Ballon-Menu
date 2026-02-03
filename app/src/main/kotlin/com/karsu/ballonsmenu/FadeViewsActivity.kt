@@ -3,7 +3,8 @@ package com.karsu.ballonsmenu
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.karsu.ballonsmenu.BoomMenuButton
+import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.KarSuMenuButton
 
 class FadeViewsActivity : AppCompatActivity() {
 
@@ -11,13 +12,13 @@ class FadeViewsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fade_views)
 
-        findViewById<BoomMenuButton>(R.id.bmb1).apply {
+        findViewById<KarSuMenuButton>(R.id.bmb1).apply {
             repeat(piecePlaceEnum.pieceNumber()) {
                 addBuilder(BuilderManager.getSimpleCircleButtonBuilder())
             }
         }
 
-        findViewById<BoomMenuButton>(R.id.bmb2).apply {
+        findViewById<KarSuMenuButton>(R.id.bmb2).apply {
             repeat(piecePlaceEnum.pieceNumber()) {
                 addBuilder(BuilderManager.getHamButtonBuilderWithDifferentPieceColor())
             }

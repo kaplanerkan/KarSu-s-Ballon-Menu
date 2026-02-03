@@ -7,7 +7,7 @@ import android.animation.TimeInterpolator
 import android.animation.TypeEvaluator
 import android.graphics.PointF
 import android.view.View
-import com.karsu.ballonsmenu.BoomButtons.BoomButton
+import com.karsu.ballonsmenu.KarSuButtons.KarSuButton
 import com.karsu.ballonsmenu.ButtonEnum
 import java.util.Random
 import kotlin.math.abs
@@ -50,7 +50,7 @@ object AnimationManager {
 
     @JvmStatic
     fun rotate(
-        boomButton: BoomButton,
+        boomButton: KarSuButton,
         delay: Long,
         duration: Long,
         interpolator: TimeInterpolator?,
@@ -115,7 +115,7 @@ object AnimationManager {
 
     @JvmStatic
     fun calculateShowXY(
-        boomEnum: BoomEnum?,
+        boomEnum: KarSuEnum?,
         parentSize: PointF,
         ease: Ease,
         frames: Int,
@@ -125,8 +125,8 @@ object AnimationManager {
         ys: FloatArray
     ) {
         val effectiveEndPosition = endPosition ?: PointF(0f, 0f)
-        var effectiveBoomEnum = boomEnum ?: BoomEnum.LINE
-        if (abs(startPosition.x - effectiveEndPosition.x) < 1) effectiveBoomEnum = BoomEnum.LINE
+        var effectiveKarSuEnum = boomEnum ?: KarSuEnum.LINE
+        if (abs(startPosition.x - effectiveEndPosition.x) < 1) effectiveKarSuEnum = KarSuEnum.LINE
 
         var x1 = startPosition.x
         var y1 = startPosition.y
@@ -137,8 +137,8 @@ object AnimationManager {
         val yOffset = y2 - y1
         var offset = 0f
 
-        when (effectiveBoomEnum) {
-            BoomEnum.LINE -> {
+        when (effectiveKarSuEnum) {
+            KarSuEnum.LINE -> {
                 for (i in 0..frames) {
                     val offsetInFact = ease.getInterpolation(offset)
                     xs[i] = x1 + offsetInFact * xOffset
@@ -146,7 +146,7 @@ object AnimationManager {
                     offset += p
                 }
             }
-            BoomEnum.PARABOLA_1 -> {
+            KarSuEnum.PARABOLA_1 -> {
                 val x3 = (x1 + x2) / 2.0f
                 val y3 = minOf(y1, y2) * 3.0f / 4
                 val a = (y1 * (x2 - x3) + y2 * (x3 - x1) + y3 * (x1 - x2)) /
@@ -160,7 +160,7 @@ object AnimationManager {
                     offset += p
                 }
             }
-            BoomEnum.PARABOLA_2 -> {
+            KarSuEnum.PARABOLA_2 -> {
                 val x3 = (x1 + x2) / 2.0f
                 val y3 = (parentSize.y + maxOf(y1, y2)) / 2.0f
                 val a = (y1 * (x2 - x3) + y2 * (x3 - x1) + y3 * (x1 - x2)) /
@@ -174,7 +174,7 @@ object AnimationManager {
                     offset += p
                 }
             }
-            BoomEnum.PARABOLA_3 -> {
+            KarSuEnum.PARABOLA_3 -> {
                 val y3 = (y1 + y2) / 2.0f
                 val x3 = minOf(x1, x2) / 2.0f
                 val a = (x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) /
@@ -188,7 +188,7 @@ object AnimationManager {
                     offset += p
                 }
             }
-            BoomEnum.PARABOLA_4 -> {
+            KarSuEnum.PARABOLA_4 -> {
                 val y3 = (y1 + y2) / 2.0f
                 val x3 = (parentSize.x + maxOf(x1, x2)) / 2.0f
                 val a = (x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) /
@@ -202,7 +202,7 @@ object AnimationManager {
                     offset += p
                 }
             }
-            BoomEnum.HORIZONTAL_THROW_1 -> {
+            KarSuEnum.HORIZONTAL_THROW_1 -> {
                 val x3 = x2 * 2 - x1
                 val y3 = y1
                 val a = (y1 * (x3 - x2) + y3 * (x2 - x1) + y2 * (x1 - x3)) /
@@ -216,7 +216,7 @@ object AnimationManager {
                     offset += p
                 }
             }
-            BoomEnum.HORIZONTAL_THROW_2 -> {
+            KarSuEnum.HORIZONTAL_THROW_2 -> {
                 x2 = startPosition.x
                 y2 = startPosition.y
                 x1 = effectiveEndPosition.x
@@ -235,13 +235,13 @@ object AnimationManager {
                     offset += p
                 }
             }
-            BoomEnum.RANDOM -> {
+            KarSuEnum.RANDOM -> {
                 calculateShowXY(
-                    BoomEnum.entries[Random().nextInt(BoomEnum.RANDOM.value)],
+                    KarSuEnum.entries[Random().nextInt(KarSuEnum.RANDOM.value)],
                     parentSize, ease, frames, startPosition, effectiveEndPosition, xs, ys
                 )
             }
-            BoomEnum.Unknown -> {
+            KarSuEnum.Unknown -> {
                 throw RuntimeException("Unknown boom-enum!")
             }
         }
@@ -249,7 +249,7 @@ object AnimationManager {
 
     @JvmStatic
     fun calculateHideXY(
-        boomEnum: BoomEnum?,
+        boomEnum: KarSuEnum?,
         parentSize: PointF,
         ease: Ease,
         frames: Int,
@@ -259,8 +259,8 @@ object AnimationManager {
         ys: FloatArray
     ) {
         val effectiveStartPosition = startPosition ?: PointF(0f, 0f)
-        var effectiveBoomEnum = boomEnum ?: BoomEnum.LINE
-        if (abs(effectiveStartPosition.x - endPosition.x) < 1) effectiveBoomEnum = BoomEnum.LINE
+        var effectiveKarSuEnum = boomEnum ?: KarSuEnum.LINE
+        if (abs(effectiveStartPosition.x - endPosition.x) < 1) effectiveKarSuEnum = KarSuEnum.LINE
 
         var x1 = effectiveStartPosition.x
         var y1 = effectiveStartPosition.y
@@ -270,17 +270,17 @@ object AnimationManager {
         var xOffset = x2 - x1
         var offset = 0f
 
-        when (effectiveBoomEnum) {
-            BoomEnum.LINE,
-            BoomEnum.PARABOLA_1,
-            BoomEnum.PARABOLA_2,
-            BoomEnum.PARABOLA_3,
-            BoomEnum.PARABOLA_4,
-            BoomEnum.RANDOM,
-            BoomEnum.Unknown -> {
-                calculateShowXY(effectiveBoomEnum, parentSize, ease, frames, effectiveStartPosition, endPosition, xs, ys)
+        when (effectiveKarSuEnum) {
+            KarSuEnum.LINE,
+            KarSuEnum.PARABOLA_1,
+            KarSuEnum.PARABOLA_2,
+            KarSuEnum.PARABOLA_3,
+            KarSuEnum.PARABOLA_4,
+            KarSuEnum.RANDOM,
+            KarSuEnum.Unknown -> {
+                calculateShowXY(effectiveKarSuEnum, parentSize, ease, frames, effectiveStartPosition, endPosition, xs, ys)
             }
-            BoomEnum.HORIZONTAL_THROW_1 -> {
+            KarSuEnum.HORIZONTAL_THROW_1 -> {
                 x2 = effectiveStartPosition.x
                 y2 = effectiveStartPosition.y
                 x1 = endPosition.x
@@ -299,7 +299,7 @@ object AnimationManager {
                     offset += p
                 }
             }
-            BoomEnum.HORIZONTAL_THROW_2 -> {
+            KarSuEnum.HORIZONTAL_THROW_2 -> {
                 val x3 = x2 * 2 - x1
                 val y3 = y1
                 val a = (y1 * (x3 - x2) + y3 * (x2 - x1) + y2 * (x1 - x3)) /
@@ -322,7 +322,7 @@ object AnimationManager {
         ys: FloatArray,
         delay: Long,
         duration: Long,
-        bb: BoomButton
+        bb: KarSuButton
     ): Rotate3DAnimation {
         val animation = Rotate3DAnimation(
             bb.trueWidth() / 2f,

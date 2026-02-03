@@ -4,33 +4,33 @@ package com.karsu.ballonsmenu
 /**
  * Listener for BMB life-cycle.
  */
-interface OnBoomListener {
+interface OnKarSuListener {
     /**
      * When the boom animation is about to start.
      */
-    fun onBoomWillShow()
+    fun onKarSuWillShow()
 
     /**
      * When the boom animation has finished.
      */
-    fun onBoomDidShow()
+    fun onKarSuDidShow()
 
     /**
      * When the re-boom animation is about to start.
      */
-    fun onBoomWillHide()
+    fun onKarSuWillHide()
 
     /**
      * When the re-boom animation has finished.
      */
-    fun onBoomDidHide()
+    fun onKarSuDidHide()
 
     /**
      * When the user clicks one of the boom-buttons.
      *
      * @param index the index of the boom-button
      */
-    fun onBoomButtonClick(index: Int)
+    fun onKarSuButtonClick(index: Int)
 
     /**
      * When the user clicks the background of the BMB.

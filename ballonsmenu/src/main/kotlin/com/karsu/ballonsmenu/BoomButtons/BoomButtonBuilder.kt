@@ -1,5 +1,5 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
-package com.karsu.ballonsmenu.BoomButtons
+package com.karsu.ballonsmenu.KarSuButtons
 
 import android.content.Context
 import android.graphics.Color
@@ -8,19 +8,19 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.text.TextUtils
 import android.view.Gravity
-import com.karsu.ballonsmenu.Piece.BoomPiece
+import com.karsu.ballonsmenu.Piece.KarSuPiece
 import com.karsu.ballonsmenu.Util
 import java.lang.ref.WeakReference
 
 @Suppress("UNCHECKED_CAST")
-abstract class BoomButtonBuilder<T : BoomButtonBuilder<T>> {
+abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
 
-    private var piece: BoomPiece? = null
-    private var boomButtonWeakReference: WeakReference<BoomButton>? = null
+    private var piece: KarSuPiece? = null
+    private var boomButtonWeakReference: WeakReference<KarSuButton>? = null
 
     // Basic
     @JvmField var index: Int = -1
-    @JvmField var listener: InnerOnBoomButtonClickListener? = null
+    @JvmField var listener: InnerOnKarSuButtonClickListener? = null
     @JvmField var onBMClickListener: OnBMClickListener? = null
     @JvmField var rotateImage: Boolean = true
     @JvmField var rotateText: Boolean = true
@@ -110,7 +110,7 @@ abstract class BoomButtonBuilder<T : BoomButtonBuilder<T>> {
     @JvmField var buttonCornerRadius: Int = Util.dp2px(5f)
     @JvmField var isRound: Boolean = true  // only for simple circle/text inside/text outside circle button
 
-    abstract fun build(context: Context): BoomButton
+    abstract fun build(context: Context): KarSuButton
 
     /**
      * Get the piece color, only used in BMB package.
@@ -133,9 +133,9 @@ abstract class BoomButtonBuilder<T : BoomButtonBuilder<T>> {
         this.unable = unable
     }
 
-    fun button(): BoomButton? = boomButtonWeakReference?.get()
+    fun button(): KarSuButton? = boomButtonWeakReference?.get()
 
-    internal fun weakReferenceButton(button: BoomButton): BoomButton {
+    internal fun weakReferenceButton(button: KarSuButton): KarSuButton {
         boomButtonWeakReference = WeakReference(button)
         return button
     }
@@ -145,7 +145,7 @@ abstract class BoomButtonBuilder<T : BoomButtonBuilder<T>> {
      *
      * @param piece the piece
      */
-    fun piece(piece: BoomPiece?) {
+    fun piece(piece: KarSuPiece?) {
         this.piece = piece
     }
 
@@ -155,7 +155,7 @@ abstract class BoomButtonBuilder<T : BoomButtonBuilder<T>> {
      * @param index the index
      * @return the builder
      */
-    fun index(index: Int): BoomButtonBuilder<*> {
+    fun index(index: Int): KarSuButtonBuilder<*> {
         this.index = index
         return this
     }
@@ -166,7 +166,7 @@ abstract class BoomButtonBuilder<T : BoomButtonBuilder<T>> {
      * @param listener the listener
      * @return the builder
      */
-    fun innerListener(listener: InnerOnBoomButtonClickListener?): BoomButtonBuilder<*> {
+    fun innerListener(listener: InnerOnKarSuButtonClickListener?): KarSuButtonBuilder<*> {
         this.listener = listener
         return this
     }
