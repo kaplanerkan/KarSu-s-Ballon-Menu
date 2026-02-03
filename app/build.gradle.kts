@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.nightonke.boommenusample"
+    namespace = "com.karsu.ballonsmenu"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.nightonke.boommenusample"
+        applicationId = "com.karsu.ballonsmenu"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 2110
@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":boommenu"))
+    implementation(project(":ballonsmenu"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.recyclerview)

@@ -9,9 +9,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.nightonke.boommenusample.FadeViewsActivity">
+    tools:context="com.karsu.ballonsmenu.FadeViewsActivity">
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,9 +29,9 @@
             android:src="@drawable/butterfly"
             android:layout_gravity="center" />
 
-    </com.nightonke.boommenu.BoomMenuButton>
+    </com.karsu.ballonsmenu.BoomMenuButton>
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,6 +60,6 @@
             android:textSize="10sp"
             android:textColor="@android:color/white"/>
 
-    </com.nightonke.boommenu.BoomMenuButton>
+    </com.karsu.ballonsmenu.BoomMenuButton>
 
 </RelativeLayout>

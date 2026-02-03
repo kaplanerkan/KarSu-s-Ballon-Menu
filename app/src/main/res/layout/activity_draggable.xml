@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nightonke.boommenusample.DraggableActivity">
+    tools:context="com.karsu.ballonsmenu.DraggableActivity">
 
     <Switch
         android:id="@+id/draggable_switch"
@@ -16,7 +16,7 @@
         android:layout_marginTop="10dp"
         android:text="Draggable   "/>
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

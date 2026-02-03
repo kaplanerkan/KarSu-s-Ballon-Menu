@@ -9,9 +9,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.nightonke.boommenusample.EaseActivity">
+    tools:context="com.karsu.ballonsmenu.EaseActivity">
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
         app:bmb_hideDuration="500"
         />
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         app:bmb_hideRotateEaseEnum="inExpo"
         />
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
         app:bmb_hideRotateEaseEnum="outBounce"
         />
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
         app:bmb_hideDelay="0"
         />
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
         app:bmb_hideRotateEaseEnum="inSine"
         />
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
         app:bmb_hideRotateEaseEnum="inCirc"
         />
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
         app:bmb_hideRotateEaseEnum="outCirc"
         />
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -166,7 +166,7 @@
         app:bmb_orderEnum="orderDefault"
         />
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

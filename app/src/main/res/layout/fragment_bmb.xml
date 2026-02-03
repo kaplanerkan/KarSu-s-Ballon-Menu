@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.nightonke.boommenusample.BMBFragment">
+    tools:context="com.karsu.ballonsmenu.BMBFragment">
 
     <TextView
         android:id="@+id/text"
@@ -12,7 +12,7 @@
         android:textSize="40sp"
         android:gravity="center"/>
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         app:bmb_inFragment="true"
         />
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

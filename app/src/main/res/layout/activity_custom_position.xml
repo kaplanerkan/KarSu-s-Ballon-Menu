@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.nightonke.boommenusample.CustomPositionActivity">
+    tools:context="com.karsu.ballonsmenu.CustomPositionActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:text="Only Custom Piece Positions"
         android:layout_marginBottom="15dp"/>
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.nightonke.boommenu.BoomMenuButton
+        <com.karsu.ballonsmenu.BoomMenuButton
             android:id="@+id/bmb2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             app:bmb_buttonPlaceEnum="buttonPlace_custom"
             />
 
-        <com.nightonke.boommenu.BoomMenuButton
+        <com.karsu.ballonsmenu.BoomMenuButton
             android:id="@+id/bmb3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"/>
 
-    <com.nightonke.boommenu.BoomMenuButton
+    <com.karsu.ballonsmenu.BoomMenuButton
         android:id="@+id/bmb4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

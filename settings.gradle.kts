@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "BoomMenu"
-include(":app", ":boommenu")
+rootProject.name = "BallonsMenu"
+include(":app", ":ballonsmenu")
