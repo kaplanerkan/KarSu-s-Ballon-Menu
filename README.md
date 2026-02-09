@@ -1,6 +1,7 @@
 # KarSu Menu Button
 
 [![](https://jitpack.io/v/kaplanerkan/KarSu-s-Ballon-Menu.svg)](https://jitpack.io/#kaplanerkan/KarSu-s-Ballon-Menu)
+[![Download APK](https://img.shields.io/badge/Download-Demo%20APK-green)](https://github.com/kaplanerkan/KarSu-s-Ballon-Menu/releases/latest/download/app-debug.apk)
 
 An animated FAB (Floating Action Button) menu library for Android, written in **Kotlin**. KarSu Menu Button lets you create expressive, animated popup menus with various button types, animations, and layouts.
 
@@ -66,7 +67,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation("com.github.kaplanerkan:KarSu-s-Ballon-Menu:v2.1.1")
+    implementation("com.github.kaplanerkan:KarSu-s-Ballon-Menu:v2.1.2")
 }
 ```
 
