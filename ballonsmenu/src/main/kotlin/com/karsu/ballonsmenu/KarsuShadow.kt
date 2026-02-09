@@ -25,6 +25,7 @@ class KarsuShadow @JvmOverloads constructor(
     private var shadowRadius = 0
     private var shadowCornerRadius = 0
     private var shadowColor = 0
+    private var currentShadowBitmap: Bitmap? = null
 
     private fun initPadding() {
         val xPadding = shadowRadius + abs(shadowOffsetX)
@@ -47,6 +48,8 @@ class KarsuShadow @JvmOverloads constructor(
     private fun createShadow() {
         if (shadowEffect) {
             val shadowBitmap = createShadowBitmap() ?: return
+            currentShadowBitmap?.recycle()
+            currentShadowBitmap = shadowBitmap
             val shadowDrawable = BitmapDrawable(resources, shadowBitmap)
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.JELLY_BEAN) {
                 @Suppress("DEPRECATION")
@@ -114,5 +117,13 @@ class KarsuShadow @JvmOverloads constructor(
 
     fun clearShadow() {
         Util.setDrawable(this, null)
+        currentShadowBitmap?.recycle()
+        currentShadowBitmap = null
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        currentShadowBitmap?.recycle()
+        currentShadowBitmap = null
     }
 }

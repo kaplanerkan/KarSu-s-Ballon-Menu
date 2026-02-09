@@ -930,6 +930,7 @@ class KarSuMenuButton @JvmOverloads constructor(
         if (!cacheOptimization || inList || inFragment) {
             background?.removeAllViews()
             (background?.parent as? ViewGroup)?.removeView(background)
+            background?.release()
             background = null
         }
     }
@@ -1166,7 +1167,19 @@ class KarSuMenuButton @JvmOverloads constructor(
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
+        // Cancel pending layout jobs
+        layoutJobsRunnable?.let { removeCallbacks(it) }
+        // Stop all running animations
+        karsuButtons.forEach { it.clearAnimation() }
+        background?.clearAnimation()
+        animatingViewNumber = 0
+        // Disable and release orientation listener
         orientationEventListener?.disable()
+        orientationEventListener = null
+        // Clear listener to prevent Activity leaks
+        onKarSuListener = null
+        // Clear background view
+        clearBackground()
     }
 
     private fun initOrientationListener() {

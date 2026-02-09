@@ -18,6 +18,17 @@ class Rotate3DAnimation(
     private var camera: Camera? = null
     private var view: View? = null
 
+    init {
+        setAnimationListener(object : AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {}
+            override fun onAnimationRepeat(animation: Animation?) {}
+            override fun onAnimationEnd(animation: Animation?) {
+                camera = null
+                view = null
+            }
+        })
+    }
+
     override fun initialize(width: Int, height: Int, parentWidth: Int, parentHeight: Int) {
         super.initialize(width, height, parentWidth, parentHeight)
         camera = Camera()

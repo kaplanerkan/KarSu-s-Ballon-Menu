@@ -6,14 +6,9 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.res.Resources
 import android.content.res.TypedArray
-import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Paint
 import android.graphics.Point
 import android.graphics.PointF
-import android.graphics.RectF
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.StateListDrawable
@@ -145,31 +140,19 @@ object Util {
         @ColorInt unableColor: Int
     ): StateListDrawable {
         val stateListDrawable = StateListDrawable()
-        val diameter = radius * 2
 
-        // Unable state
-        val unableBitmap = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888)
-        val unableCanvas = Canvas(unableBitmap)
-        val unablePaint = Paint(Paint.ANTI_ALIAS_FLAG)
-        unablePaint.color = unableColor
-        unableCanvas.drawOval(RectF(0f, 0f, diameter.toFloat(), diameter.toFloat()), unablePaint)
-        val unableDrawable = BitmapDrawable(view?.resources, unableBitmap)
-
-        // Pressed state
-        val pressedBitmap = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888)
-        val pressedCanvas = Canvas(pressedBitmap)
-        val pressedPaint = Paint(Paint.ANTI_ALIAS_FLAG)
-        pressedPaint.color = highlightedColor
-        pressedCanvas.drawOval(RectF(0f, 0f, diameter.toFloat(), diameter.toFloat()), pressedPaint)
-        val pressedDrawable = BitmapDrawable(view?.resources, pressedBitmap)
-
-        // Normal state
-        val normalBitmap = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888)
-        val normalCanvas = Canvas(normalBitmap)
-        val normalPaint = Paint(Paint.ANTI_ALIAS_FLAG)
-        normalPaint.color = normalColor
-        normalCanvas.drawOval(RectF(0f, 0f, diameter.toFloat(), diameter.toFloat()), normalPaint)
-        val normalDrawable = BitmapDrawable(view?.resources, normalBitmap)
+        val unableDrawable = GradientDrawable().apply {
+            shape = GradientDrawable.OVAL
+            setColor(unableColor)
+        }
+        val pressedDrawable = GradientDrawable().apply {
+            shape = GradientDrawable.OVAL
+            setColor(highlightedColor)
+        }
+        val normalDrawable = GradientDrawable().apply {
+            shape = GradientDrawable.OVAL
+            setColor(normalColor)
+        }
 
         stateListDrawable.addState(intArrayOf(-android.R.attr.state_enabled), unableDrawable)
         stateListDrawable.addState(intArrayOf(android.R.attr.state_pressed), pressedDrawable)
@@ -190,44 +173,21 @@ object Util {
     ): StateListDrawable {
         val stateListDrawable = StateListDrawable()
 
-        // Unable state
-        val unableBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        val unableCanvas = Canvas(unableBitmap)
-        val unablePaint = Paint(Paint.ANTI_ALIAS_FLAG)
-        unablePaint.color = unableColor
-        unableCanvas.drawRoundRect(
-            RectF(0f, 0f, width.toFloat(), height.toFloat()),
-            cornerRadius.toFloat(),
-            cornerRadius.toFloat(),
-            unablePaint
-        )
-        val unableDrawable = BitmapDrawable(view?.resources, unableBitmap)
-
-        // Pressed state
-        val pressedBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        val pressedCanvas = Canvas(pressedBitmap)
-        val pressedPaint = Paint(Paint.ANTI_ALIAS_FLAG)
-        pressedPaint.color = highlightedColor
-        pressedCanvas.drawRoundRect(
-            RectF(0f, 0f, width.toFloat(), height.toFloat()),
-            cornerRadius.toFloat(),
-            cornerRadius.toFloat(),
-            pressedPaint
-        )
-        val pressedDrawable = BitmapDrawable(view?.resources, pressedBitmap)
-
-        // Normal state
-        val normalBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        val normalCanvas = Canvas(normalBitmap)
-        val normalPaint = Paint(Paint.ANTI_ALIAS_FLAG)
-        normalPaint.color = normalColor
-        normalCanvas.drawRoundRect(
-            RectF(0f, 0f, width.toFloat(), height.toFloat()),
-            cornerRadius.toFloat(),
-            cornerRadius.toFloat(),
-            normalPaint
-        )
-        val normalDrawable = BitmapDrawable(view?.resources, normalBitmap)
+        val unableDrawable = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            this.cornerRadius = cornerRadius.toFloat()
+            setColor(unableColor)
+        }
+        val pressedDrawable = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            this.cornerRadius = cornerRadius.toFloat()
+            setColor(highlightedColor)
+        }
+        val normalDrawable = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            this.cornerRadius = cornerRadius.toFloat()
+            setColor(normalColor)
+        }
 
         stateListDrawable.addState(intArrayOf(-android.R.attr.state_enabled), unableDrawable)
         stateListDrawable.addState(intArrayOf(android.R.attr.state_pressed), pressedDrawable)

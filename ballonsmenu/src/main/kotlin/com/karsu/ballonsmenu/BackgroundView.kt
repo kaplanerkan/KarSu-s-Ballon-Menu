@@ -15,22 +15,27 @@ import com.karsu.ballonsmenu.animation.AnimationManager
 @SuppressLint("ViewConstructor")
 internal class BackgroundView(
     context: Context,
-    private val bmb: KarSuMenuButton
+    private var bmb: KarSuMenuButton?
 ) : FrameLayout(context) {
 
-    private val dimColor: Int = bmb.dimColor
+    private val dimColor: Int = bmb?.dimColor ?: Color.TRANSPARENT
 
     init {
-        val rootView = bmb.parentView
+        val rootView = bmb?.parentView ?: throw IllegalStateException("bmb must not be null during init")
         val w = rootView.width
         val h = rootView.height
         val params = ViewGroup.LayoutParams(w, h)
         layoutParams = params
         setBackgroundColor(Color.TRANSPARENT)
-        setOnClickListener { bmb.onBackgroundClicked() }
+        setOnClickListener { bmb?.onBackgroundClicked() }
         isMotionEventSplittingEnabled = false
         rootView.addView(this)
         forceLayout(w, h)
+    }
+
+    fun release() {
+        setOnClickListener(null)
+        bmb = null
     }
 
     fun reLayout(bmb: KarSuMenuButton) {
