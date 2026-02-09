@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.karsu.ballonsmenu.app.databinding.ItemMainMenuBinding
 
 data class MenuItem(
-    @StringRes val titleRes: Int,
-    @StringRes val descRes: Int,
-    @DrawableRes val icon: Int,
+    @param:StringRes val titleRes: Int,
+    @param:StringRes val descRes: Int,
+    @param:DrawableRes val icon: Int,
     val activityClass: Class<*>
 )
 

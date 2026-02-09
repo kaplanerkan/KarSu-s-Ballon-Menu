@@ -21,7 +21,7 @@ object LocaleHelper {
     fun applyLocale(context: Context): Context {
         val language = getLanguage(context)
         if (language.isEmpty()) return context
-        val locale = Locale(language)
+        val locale = Locale.forLanguageTag(language)
         Locale.setDefault(locale)
         val config = Configuration(context.resources.configuration)
         config.setLocale(locale)
