@@ -2,6 +2,10 @@
 
 An animated FAB (Floating Action Button) menu library for Android, written in Kotlin. KarSu Menu Button lets you create expressive, animated popup menus with various button types, animations, and layouts.
 
+## Demo
+
+<video src="https://private-user-images.githubusercontent.com/5566139/547308192-445fab60-1dac-466b-aa91-94742a4fef0b.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzA2NjgwNjgsIm5iZiI6MTc3MDY2Nzc2OCwicGF0aCI6Ii81NTY2MTM5LzU0NzMwODE5Mi00NDVmYWI2MC0xZGFjLTQ2NmItYWE5MS05NDc0MmE0ZmVmMGIubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDIwOSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjAyMDlUMjAwOTI4WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9ZGM5OWQxOWZhNWE1NDk5MzNmN2QxMmZkOWVmNjFmMTcxMWVmMjBhZTg2NzIxZGJkOTJkYmQzZTYzZWY2YWM4NCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.7FOlz9o4F-FrASoyKy7lWBUSlxttvVfKm35QZI8DVOE" autoplay loop muted playsinline width="300"></video>
+
 ## Screenshots
 
 | Main Menu | Simple Circle | Ham Buttons | 3D Animation |
