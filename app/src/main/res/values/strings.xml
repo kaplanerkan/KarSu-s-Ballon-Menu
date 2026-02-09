@@ -1,43 +1,126 @@
 <resources>
     <string name="app_name">KarSuMenuButton</string>
 
-    <string name="simple_circle_button_example">Simple Circle Button Example</string>
-    <string name="text_inside_circle_button_example">Text Inside Circle Button Example</string>
-    <string name="text_outside_circle_button_example">Text Outside Circle Button Example</string>
-    <string name="ham_button_example">Ham Button Example</string>
-    <string name="square_and_piece_corner_radius_example">Square And Piece Corner Radius Example</string>
-    <string name="boom_example">KarSu Example</string>
-    <string name="button_place_alignment_example">Button Place Alignment Example</string>
-    <string name="order_example">Order Example</string>
-    <string name="actionbar_example">ActionBar Example</string>
-    <string name="tool_bar_example">ToolBar Example</string>
-    <string name="draggable_example">Draggable Example</string>
-    <string name="ease_example">Ease Example</string>
-    <string name="listener_example">Listener Example</string>
-    <string name="control_example">Control Example</string>
-    <string name="share_example">Share Example</string>
-    <string name="list_example">List Example</string>
-    <string name="recycler_view_example">Recycler View Example</string>
-    <string name="fragment_example">Fragment Example</string>
-    <string name="change_boom_button_example">Change KarSu Button Example</string>
-    <string name="three_d_animation_example">3D Animation Example</string>
-    <string name="custom_position_example">Custom Position Example</string>
-    <string name="fade_views_example">Fade Views Example</string>
-    <string name="orientation_example">Orientation Example</string>
+    <!-- Header -->
+    <string name="app_header_title">KarSu Menu</string>
+    <string name="app_header_desc">Modern animated FAB menu library.\nTap examples below to explore.</string>
+    <string name="language_label">Language</string>
 
+    <!-- Menu titles -->
+    <string name="menu_simple_circle_title">Simple Circle Button</string>
+    <string name="menu_text_inside_title">Text Inside Circle Button</string>
+    <string name="menu_text_outside_title">Text Outside Circle Button</string>
+    <string name="menu_ham_title">Ham Button</string>
+    <string name="menu_square_corner_title">Square and Corner Radius</string>
+    <string name="menu_animation_types_title">Animation Types</string>
+    <string name="menu_alignment_title">Button Alignment</string>
+    <string name="menu_order_title">Order</string>
+    <string name="menu_actionbar_title">ActionBar Example</string>
+    <string name="menu_toolbar_title">Toolbar Example</string>
+    <string name="menu_draggable_title">Draggable</string>
+    <string name="menu_ease_title">Ease Animations</string>
+    <string name="menu_listener_title">Listener</string>
+    <string name="menu_control_title">Control</string>
+    <string name="menu_share_title">Share Lines</string>
+    <string name="menu_list_title">List Example</string>
+    <string name="menu_recyclerview_title">RecyclerView Example</string>
+    <string name="menu_fragment_title">Fragment Example</string>
+    <string name="menu_change_button_title">Change Button</string>
+    <string name="menu_3d_title">3D Animation</string>
+    <string name="menu_custom_pos_title">Custom Position</string>
+    <string name="menu_fade_title">Fade Views</string>
+    <string name="menu_orientation_title">Orientation</string>
+
+    <!-- Menu descriptions -->
+    <string name="menu_simple_circle_desc">Single icon animated round buttons</string>
+    <string name="menu_text_inside_desc">Buttons with text inside the circle</string>
+    <string name="menu_text_outside_desc">Buttons with text outside the circle</string>
+    <string name="menu_ham_desc">List-style buttons with title, subtitle and icon</string>
+    <string name="menu_square_corner_desc">Square shaped and rounded corner button examples</string>
+    <string name="menu_animation_types_desc">Discover different karsu animations</string>
+    <string name="menu_alignment_desc">Button positioning on the screen</string>
+    <string name="menu_order_desc">Change button opening order</string>
+    <string name="menu_actionbar_desc">KarSu menu usage in ActionBar</string>
+    <string name="menu_toolbar_desc">Integration with Material Toolbar</string>
+    <string name="menu_draggable_desc">FAB menu you can drag with your finger</string>
+    <string name="menu_ease_desc">Smooth animations with 9 different ease functions</string>
+    <string name="menu_listener_desc">Listen to button clicks and animation events</string>
+    <string name="menu_control_desc">Open/close menu programmatically</string>
+    <string name="menu_share_desc">Connection lines animation between buttons</string>
+    <string name="menu_list_desc">KarSu menu usage in ListView</string>
+    <string name="menu_recyclerview_desc">KarSu menu integrated with RecyclerView</string>
+    <string name="menu_fragment_desc">KarSu menu usage in Fragment</string>
+    <string name="menu_change_button_desc">Update button properties at runtime</string>
+    <string name="menu_3d_desc">3D rotation and transition effects</string>
+    <string name="menu_custom_pos_desc">Place buttons at your desired coordinates</string>
+    <string name="menu_fade_desc">Fade-in/fade-out animations for buttons</string>
+    <string name="menu_orientation_desc">Menu behavior when screen rotates</string>
+
+    <!-- Activity titles / UI labels -->
+    <string name="title_actionbar">ActionBar</string>
+    <string name="title_toolbar">ToolBar</string>
+    <string name="title_draggable">Draggable</string>
+    <string name="title_3d_animation">3D Animation</string>
+    <string name="desc_3d_animation">Drag BMBs and try the difference between 2D and 3D animations.</string>
+    <string name="title_custom_pos_piece">Only Custom Piece Positions</string>
+    <string name="title_custom_pos_button">Only Custom Button Positions</string>
+    <string name="title_custom_pos_both">Custom Piece and Button Positions</string>
+
+    <!-- Control buttons -->
+    <string name="karsu_button">KARSU!</string>
+    <string name="rekarsu_button">Re-KARSU!</string>
+    <string name="karsu_immediately_button">KARSU immediately!</string>
+    <string name="rekarsu_immediately_button">Re-KARSU immediately!</string>
+
+    <!-- Format strings -->
+    <string name="top_margin_format">Top margin = %d pixel(s)</string>
+    <string name="bottom_margin_format">Bottom margin = %d pixel(s)</string>
+    <string name="left_margin_format">Left margin = %d pixel(s)</string>
+    <string name="right_margin_format">Right margin = %d pixel(s)</string>
+    <string name="show_delay_format">Show delay = %d ms</string>
+    <string name="show_duration_format">Show duration = %d ms</string>
+    <string name="hide_delay_format">Hide delay = %d ms</string>
+    <string name="hide_duration_format">Hide duration = %d ms</string>
+    <string name="show_hide_duration_format">Show/Hide duration = %d ms</string>
+
+    <!-- Listener messages -->
+    <string name="click_background">Click background!!!</string>
+    <string name="will_rekarsu">Will RE-KARSU!!!</string>
+    <string name="did_rekarsu">Did RE-KARSU!!!</string>
+    <string name="will_karsu">Will KARSU!!!</string>
+    <string name="did_karsu">Did KARSU!!!</string>
+    <string name="button_clicked_format">No.%d karsu-button is clicked!</string>
+
+    <!-- ChangeKarSuButton -->
+    <string name="change_text">Change Text</string>
+    <string name="change_image">Change Image</string>
+    <string name="change_color">Change Color</string>
+    <string name="change_piece_color">Change Piece Color</string>
+    <string name="change_unable">Change Unable</string>
+    <string name="unable_text">Unable!</string>
+    <string name="changed_text">Changed!</string>
+    <string name="highlighted_changed">Highlighted, changed!</string>
+    <string name="sub_text_changed">Sub-text, changed!</string>
+    <string name="ellipsis">…</string>
+
+    <!-- List/RecyclerView items -->
+    <string name="item_profile">Profile Settings</string>
+    <string name="item_notifications">Notifications</string>
+    <string name="item_messages">Messages</string>
+    <string name="item_favorites">Favorites</string>
+    <string name="item_help">Help</string>
+
+    <!-- Button text states (existing) -->
     <string name="text_inside_circle_button_text_normal">Text Inside Circle Button(Normal)</string>
     <string name="text_inside_circle_button_text_highlighted">Text Inside Circle Button(Highlighted)</string>
     <string name="text_inside_circle_button_text_unable">Text Inside Circle Button(Unable)</string>
-
     <string name="text_outside_circle_button_text_normal">Text Outside Circle Button(Normal)</string>
     <string name="text_outside_circle_button_text_highlighted">Text Outside Circle Button(Highlighted)</string>
     <string name="text_outside_circle_button_text_unable">Text Outside Circle Button(Unable)</string>
-
     <string name="text_ham_button_text_normal">Ham Button Text(Normal)</string>
     <string name="text_ham_button_text_highlighted">Ham Button Text(Highlighted)</string>
     <string name="text_ham_button_text_unable">Ham Button Text(Unable)</string>
     <string name="text_ham_button_sub_text_normal">Ham Button Sub Text(Normal)</string>
     <string name="text_ham_button_sub_text_highlighted">Ham Button Sub Text(Highlighted)</string>
     <string name="text_ham_button_sub_text_unable">Ham Button Sub Text(Unable)</string>
-
 </resources>

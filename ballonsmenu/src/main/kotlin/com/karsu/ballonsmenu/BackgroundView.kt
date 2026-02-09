@@ -37,7 +37,7 @@ internal class BackgroundView(
         val rootView = bmb.parentView
         val w = rootView.width
         val h = rootView.height
-        val params = layoutParams as LayoutParams
+        val params = layoutParams
         params.width = w
         params.height = h
         layoutParams = params

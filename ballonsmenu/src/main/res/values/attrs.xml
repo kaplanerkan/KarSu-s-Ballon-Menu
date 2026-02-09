@@ -4,7 +4,7 @@
     <declare-styleable name="KarSuMenuButton">
         <!--Basic-->
         <attr name="bmb_cacheOptimization" format="boolean|reference"/>
-        <attr name="bmb_boomInWholeScreen" format="boolean|reference"/>
+        <attr name="bmb_karsuInWholeScreen" format="boolean|reference"/>
         <attr name="bmb_inList" format="boolean|reference"/>
         <attr name="bmb_inFragment" format="boolean|reference"/>
         <attr name="bmb_backPressListened" format="boolean|reference"/>
@@ -110,15 +110,15 @@
             <enum name="orderRandom" value="2"/>
         </attr>
         <attr name="bmb_frames" format="integer|reference"/>
-        <attr name="bmb_boomEnum" format="enum|reference">
-            <enum name="boomLine" value="0"/>
-            <enum name="boomParabola_1" value="1"/>
-            <enum name="boomParabola_2" value="2"/>
-            <enum name="boomParabola_3" value="3"/>
-            <enum name="boomParabola_4" value="4"/>
-            <enum name="boomHorizontalThrow_1" value="5"/>
-            <enum name="boomHorizontalThrow_2" value="6"/>
-            <enum name="boomRandom" value="7"/>
+        <attr name="bmb_karsuEnum" format="enum|reference">
+            <enum name="karsuLine" value="0"/>
+            <enum name="karsuParabola_1" value="1"/>
+            <enum name="karsuParabola_2" value="2"/>
+            <enum name="karsuParabola_3" value="3"/>
+            <enum name="karsuParabola_4" value="4"/>
+            <enum name="karsuHorizontalThrow_1" value="5"/>
+            <enum name="karsuHorizontalThrow_2" value="6"/>
+            <enum name="karsuRandom" value="7"/>
         </attr>
         <attr name="bmb_showMoveEaseEnum" format="enum|reference">
             <enum name="inSine" value="0"/>

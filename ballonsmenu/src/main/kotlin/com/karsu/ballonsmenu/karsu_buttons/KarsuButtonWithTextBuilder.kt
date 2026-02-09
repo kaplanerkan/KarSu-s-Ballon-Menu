@@ -9,10 +9,10 @@ import android.text.TextUtils
 abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : KarSuButtonBuilder<T>() {
 
     /**
-     * Set the text when boom-button is at normal-state.
+     * Set the text when karsu-button is at normal-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param normalText text
      * @return the builder
@@ -29,10 +29,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the text resource when boom-button is at normal-state.
+     * Set the text resource when karsu-button is at normal-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param normalTextRes text resource
      * @return the builder
@@ -49,10 +49,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the text when boom-button is at highlighted-state.
+     * Set the text when karsu-button is at highlighted-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param highlightedText text
      * @return the builder
@@ -69,10 +69,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the text resource when boom-button is at highlighted-state.
+     * Set the text resource when karsu-button is at highlighted-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param highlightedTextRes text resource
      * @return the builder
@@ -89,10 +89,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the text when boom-button is at unable-state.
+     * Set the text when karsu-button is at unable-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param unableText text
      * @return the builder
@@ -109,10 +109,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the text resource when boom-button is at unable-state.
+     * Set the text resource when karsu-button is at unable-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param unableTextRes text resource
      * @return the builder
@@ -129,10 +129,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the color of text when boom-button is at normal-state.
+     * Set the color of text when karsu-button is at normal-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param normalTextColor color of text
      * @return the builder
@@ -149,10 +149,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the color of text when boom-button is at normal-state.
+     * Set the color of text when karsu-button is at normal-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param normalTextColorRes color resource of text
      * @return the builder
@@ -169,10 +169,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the color of text when boom-button is at highlighted-state.
+     * Set the color of text when karsu-button is at highlighted-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param highlightedTextColor color of text
      * @return the builder
@@ -189,10 +189,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the color of text when boom-button is at highlighted-state.
+     * Set the color of text when karsu-button is at highlighted-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param highlightedTextColorRes color resource of text
      * @return the builder
@@ -209,10 +209,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the color of text when boom-button is at unable-state.
+     * Set the color of text when karsu-button is at unable-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param unableTextColor color of text
      * @return the builder
@@ -229,10 +229,10 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
     }
 
     /**
-     * Set the color of text when boom-button is at unable-state.
+     * Set the color of text when karsu-button is at unable-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param unableTextColorRes color resource of text
      * @return the builder
@@ -250,12 +250,12 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
 
     /**
      * Set the rect of text.
-     * By this method, you can set the position and size of the text-view in boom-button.
+     * By this method, you can set the position and size of the text-view in karsu-button.
      * For example, builder.textRect(new Rect(0, 50, 100, 100)) will make the
      * text-view's size to be 100 * 50 and margin-top to be 50 pixel.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param textRect the text rect, in pixel.
      * @return the builder
@@ -277,8 +277,8 @@ abstract class KarSuButtonWithTextBuilder<T : KarSuButtonWithTextBuilder<T>> : K
      * For instance, builder.textPadding(new Rect(10, 10, 10, 10)) will make the
      * text-view content 10-pixel padding to itself.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param textPadding the text padding
      * @return the builder

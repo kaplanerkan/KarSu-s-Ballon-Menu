@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference
 abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
 
     private var piece: KarSuPiece? = null
-    private var boomButtonWeakReference: WeakReference<KarSuButton>? = null
+    private var karsuButtonWeakReference: WeakReference<KarSuButton>? = null
 
     // Basic
     @JvmField var index: Int = -1
@@ -133,10 +133,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
         this.unable = unable
     }
 
-    fun button(): KarSuButton? = boomButtonWeakReference?.get()
+    fun button(): KarSuButton? = karsuButtonWeakReference?.get()
 
     internal fun weakReferenceButton(button: KarSuButton): KarSuButton {
-        boomButtonWeakReference = WeakReference(button)
+        karsuButtonWeakReference = WeakReference(button)
         return button
     }
 
@@ -150,7 +150,7 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the index of the boom-button, only used in BMB package.
+     * Set the index of the karsu-button, only used in BMB package.
      *
      * @param index the index
      * @return the builder
@@ -161,7 +161,7 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the listener of the boom-button, only used in BMB package.
+     * Set the listener of the karsu-button, only used in BMB package.
      *
      * @param listener the listener
      * @return the builder
@@ -172,7 +172,7 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set listener for when the boom-button is clicked.
+     * Set listener for when the karsu-button is clicked.
      *
      * @param onBMClickListener OnBMClickListener
      * @return the builder
@@ -194,7 +194,7 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Whether the boom-button should have a shadow effect.
+     * Whether the karsu-button should have a shadow effect.
      *
      * @param shadowEffect have shadow effect or not
      * @return the builder
@@ -205,7 +205,7 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the horizontal shadow-offset of the boom-button.
+     * Set the horizontal shadow-offset of the karsu-button.
      *
      * @param shadowOffsetX the shadow offset x
      * @return the builder
@@ -216,7 +216,7 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the vertical shadow-offset of the boom-button.
+     * Set the vertical shadow-offset of the karsu-button.
      *
      * @param shadowOffsetY the shadow offset y
      * @return the builder
@@ -227,7 +227,7 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the radius of shadow of the boom-button.
+     * Set the radius of shadow of the karsu-button.
      *
      * @param shadowRadius the shadow radius
      * @return the builder
@@ -249,7 +249,7 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the color of the shadow of boom-button.
+     * Set the color of the shadow of karsu-button.
      *
      * @param shadowColor the shadow color
      * @return the builder
@@ -260,10 +260,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the image drawable when boom-button is at normal-state.
+     * Set the image drawable when karsu-button is at normal-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param normalImageDrawable the normal image drawable
      * @return the builder
@@ -280,10 +280,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the image resource when boom-button is at normal-state.
+     * Set the image resource when karsu-button is at normal-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param normalImageRes the normal image res
      * @return the builder
@@ -300,10 +300,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the image drawable when boom-button is at highlighted-state.
+     * Set the image drawable when karsu-button is at highlighted-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param highlightedImageDrawable the highlighted image drawable
      * @return the builder
@@ -320,10 +320,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the image resource when boom-button is at highlighted-state.
+     * Set the image resource when karsu-button is at highlighted-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param highlightedImageRes the highlighted image res
      * @return the builder
@@ -340,10 +340,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the image drawable when boom-button is at unable-state.
+     * Set the image drawable when karsu-button is at unable-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param unableImageDrawable the unable image drawable
      * @return the builder
@@ -360,10 +360,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Set the image resource when boom-button is at unable-state.
+     * Set the image resource when karsu-button is at unable-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param unableImageRes the unable image res
      * @return the builder
@@ -381,12 +381,12 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
 
     /**
      * Set the rect of image.
-     * By this method, you can set the position and size of the image-view in boom-button.
+     * By this method, you can set the position and size of the image-view in karsu-button.
      * For example, builder.imageRect(new Rect(0, 50, 100, 100)) will make the
      * image-view's size to be 100 * 50 and margin-top to be 50 pixel.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param imageRect the image rect, in pixel.
      * @return the builder
@@ -408,8 +408,8 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
      * For instance, builder.imagePadding(new Rect(10, 10, 10, 10)) will make the
      * image-view content 10-pixel padding to itself.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param imagePadding the image padding
      * @return the builder
@@ -426,7 +426,7 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Whether the boom-button should have a ripple effect.
+     * Whether the karsu-button should have a ripple effect.
      *
      * @param rippleEffect the ripple effect
      * @return the builder
@@ -437,10 +437,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * The color of boom-button when it is at normal-state.
+     * The color of karsu-button when it is at normal-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param normalColor the normal color
      * @return the builder
@@ -457,10 +457,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * The resource of color of boom-button when it is at normal-state.
+     * The resource of color of karsu-button when it is at normal-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param normalColorRes resource of normal color
      * @return the builder
@@ -477,10 +477,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * The color of boom-button when it is at highlighted-state.
+     * The color of karsu-button when it is at highlighted-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param highlightedColor the highlighted color
      * @return the builder
@@ -497,10 +497,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * The resource of color of boom-button when it is at highlighted-state.
+     * The resource of color of karsu-button when it is at highlighted-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param highlightedColorRes resource of highlighted color
      * @return the builder
@@ -517,10 +517,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * The color of boom-button when it is at unable-state.
+     * The color of karsu-button when it is at unable-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param unableColor the unable color
      * @return the builder
@@ -537,10 +537,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * The resource of color of boom-button when it is at unable-state.
+     * The resource of color of karsu-button when it is at unable-state.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param unableColorRes resource of unable color
      * @return the builder
@@ -557,10 +557,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * The color of boom-button when it is just a piece.
+     * The color of karsu-button when it is just a piece.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param pieceColor color of piece
      * @return the builder
@@ -575,10 +575,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * The resource of color of boom-button when it is just a piece.
+     * The resource of color of karsu-button when it is just a piece.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param pieceColorRes resource of color of piece
      * @return the builder
@@ -593,10 +593,10 @@ abstract class KarSuButtonBuilder<T : KarSuButtonBuilder<T>> {
     }
 
     /**
-     * Whether the boom-button is unable, default value is false.
+     * Whether the karsu-button is unable, default value is false.
      *
-     * Synchronicity: If the boom-button existed,
-     * then synchronize this change to boom-button.
+     * Synchronicity: If the karsu-button existed,
+     * then synchronize this change to karsu-button.
      *
      * @param unable the unable
      * @return the builder

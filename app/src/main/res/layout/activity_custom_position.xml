@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Only Custom Piece Positions"
+        android:text="@string/title_custom_pos_piece"
         android:layout_marginBottom="15dp"/>
 
     <com.karsu.ballonsmenu.KarSuMenuButton
@@ -33,7 +33,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Only Custom Button Positions"
+        android:text="@string/title_custom_pos_button"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"/>
 
@@ -69,7 +69,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Custom Piece and Button Positions"
+        android:text="@string/title_custom_pos_both"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"/>
 

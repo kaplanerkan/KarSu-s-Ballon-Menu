@@ -49,10 +49,10 @@ enum class ButtonPlaceEnum(val value: Int) {
     Unknown(-1);
 
     /**
-     * Get the number of boom-button for button-place-enum.
+     * Get the number of karsu-button for button-place-enum.
      * -1 for unknown, and MAX_INT for horizontal or vertical place-enum.
      *
-     * @return the number of boom-button
+     * @return the number of karsu-button
      */
     fun buttonNumber(): Int = when (this) {
         SC_1, HAM_1 -> 1

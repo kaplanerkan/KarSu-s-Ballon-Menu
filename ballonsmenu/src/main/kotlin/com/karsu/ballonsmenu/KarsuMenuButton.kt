@@ -66,7 +66,7 @@ class KarSuMenuButton @JvmOverloads constructor(
     // Basic
     private var needToLayout = true
     private var cacheOptimization = false
-    private var boomInWholeScreen = false
+    private var karsuInWholeScreen = false
     private var inList = false
     private var inFragment = false
     private var isBackPressListened = true
@@ -157,7 +157,7 @@ class KarSuMenuButton @JvmOverloads constructor(
         set(value) {
             if (field == value) return
             field = value
-            if (boomStateEnum == KarSuStateEnum.DidKarSu && background != null) {
+            if (karsuStateEnum == KarSuStateEnum.DidKarSu && background != null) {
                 background?.setBackgroundColor(value)
             }
         }
@@ -187,7 +187,7 @@ class KarSuMenuButton @JvmOverloads constructor(
     var isAutoHide = false
     var orderEnum: OrderEnum? = null
     var frames = 0
-    var boomEnum: KarSuEnum? = null
+    var karsuEnum: KarSuEnum? = null
     var showMoveEaseEnum: EaseEnum? = null
     var showScaleEaseEnum: EaseEnum? = null
     var showRotateEaseEnum: EaseEnum? = null
@@ -198,14 +198,14 @@ class KarSuMenuButton @JvmOverloads constructor(
     var isUse3DTransformAnimation = false
     var isAutoKarSu = false
     var isAutoKarSuImmediately = false
-    private var boomStateEnum: KarSuStateEnum = KarSuStateEnum.DidReboom
+    private var karsuStateEnum: KarSuStateEnum = KarSuStateEnum.DidRekarsu
 
     // Background
     private var background: BackgroundView? = null
 
     // KarSu Buttons
-    private var boomButtons: ArrayList<KarSuButton> = ArrayList()
-    private var boomButtonBuilders: ArrayList<KarSuButtonBuilder<*>> = ArrayList()
+    private var karsuButtons: ArrayList<KarSuButton> = ArrayList()
+    private var karsuButtonBuilders: ArrayList<KarSuButtonBuilder<*>> = ArrayList()
     private var simpleCircleButtonRadius = 0f
     private var textInsideCircleButtonRadius = 0f
     private var textOutsideCircleButtonWidth = 0f
@@ -237,7 +237,7 @@ class KarSuMenuButton @JvmOverloads constructor(
     var bottomHamButtonTopMargin = 0f
     private var needToCreateButtons = true
     private var needToCalculateStartPositions = true
-    private var lastReboomIndex = -1
+    private var lastRekarsuIndex = -1
 
     // Orientation
     var isOrientationAdaptable = false
@@ -252,7 +252,9 @@ class KarSuMenuButton @JvmOverloads constructor(
     private var orientationEventListener: OrientationEventListener? = null
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.bmb, this, true)
+        val bmbBinding = com.karsu.ballonsmenu.databinding.BmbBinding.inflate(LayoutInflater.from(context), this, true)
+        shadow = bmbBinding.shadow
+        button = bmbBinding.button
         initAttrs(context, attrs)
         initShadow()
         initButton()
@@ -264,7 +266,7 @@ class KarSuMenuButton @JvmOverloads constructor(
         try {
             // Basic
             cacheOptimization = Util.getBoolean(typedArray, R.styleable.KarSuMenuButton_bmb_cacheOptimization, R.bool.default_bmb_cacheOptimization)
-            boomInWholeScreen = Util.getBoolean(typedArray, R.styleable.KarSuMenuButton_bmb_boomInWholeScreen, R.bool.default_bmb_boomInWholeScreen)
+            karsuInWholeScreen = Util.getBoolean(typedArray, R.styleable.KarSuMenuButton_bmb_karsuInWholeScreen, R.bool.default_bmb_karsuInWholeScreen)
             inList = Util.getBoolean(typedArray, R.styleable.KarSuMenuButton_bmb_inList, R.bool.default_bmb_inList)
             inFragment = Util.getBoolean(typedArray, R.styleable.KarSuMenuButton_bmb_inFragment, R.bool.default_bmb_inFragment)
             isBackPressListened = Util.getBoolean(typedArray, R.styleable.KarSuMenuButton_bmb_backPressListened, R.bool.default_bmb_backPressListened)
@@ -318,7 +320,7 @@ class KarSuMenuButton @JvmOverloads constructor(
             isAutoHide = Util.getBoolean(typedArray, R.styleable.KarSuMenuButton_bmb_autoHide, R.bool.default_bmb_autoHide)
             orderEnum = OrderEnum.getEnum(Util.getInt(typedArray, R.styleable.KarSuMenuButton_bmb_orderEnum, R.integer.default_bmb_orderEnum))
             frames = Util.getInt(typedArray, R.styleable.KarSuMenuButton_bmb_frames, R.integer.default_bmb_frames)
-            boomEnum = KarSuEnum.getEnum(Util.getInt(typedArray, R.styleable.KarSuMenuButton_bmb_boomEnum, R.integer.default_bmb_boomEnum))
+            karsuEnum = KarSuEnum.getEnum(Util.getInt(typedArray, R.styleable.KarSuMenuButton_bmb_karsuEnum, R.integer.default_bmb_karsuEnum))
             showMoveEaseEnum = EaseEnum.getEnum(Util.getInt(typedArray, R.styleable.KarSuMenuButton_bmb_showMoveEaseEnum, R.integer.default_bmb_showMoveEaseEnum))
             showScaleEaseEnum = EaseEnum.getEnum(Util.getInt(typedArray, R.styleable.KarSuMenuButton_bmb_showScaleEaseEnum, R.integer.default_bmb_showScaleEaseEnum))
             showRotateEaseEnum = EaseEnum.getEnum(Util.getInt(typedArray, R.styleable.KarSuMenuButton_bmb_showRotateEaseEnum, R.integer.default_bmb_showRotateEaseEnum))
@@ -347,7 +349,6 @@ class KarSuMenuButton @JvmOverloads constructor(
     }
 
     private fun initShadow() {
-        if (shadow == null) shadow = findViewById(R.id.shadow) as KarsuShadow
         val hasShadow = shadowEffect && backgroundEffect && !inList
         shadow?.setShadowEffect(hasShadow)
         if (hasShadow) {
@@ -362,8 +363,7 @@ class KarSuMenuButton @JvmOverloads constructor(
     }
 
     private fun initButton() {
-        if (button == null) button = findViewById(R.id.button) as FrameLayout
-        button?.setOnClickListener { boom() }
+        button?.setOnClickListener { karsu() }
         initDraggableTouchListener()
         setButtonSize()
         setButtonBackground()
@@ -408,9 +408,9 @@ class KarSuMenuButton @JvmOverloads constructor(
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (KeyEvent.KEYCODE_BACK == keyCode
             && isBackPressListened
-            && (boomStateEnum == KarSuStateEnum.WillKarSu || boomStateEnum == KarSuStateEnum.DidKarSu)
+            && (karsuStateEnum == KarSuStateEnum.WillKarSu || karsuStateEnum == KarSuStateEnum.DidKarSu)
         ) {
-            reboom()
+            rekarsu()
             return true
         }
         return super.onKeyDown(keyCode, event)
@@ -456,7 +456,7 @@ class KarSuMenuButton @JvmOverloads constructor(
         val pieceNumber = pieceNumber()
         pieces = ArrayList(pieceNumber)
         for (i in 0 until pieceNumber) {
-            pieces?.add(PiecePlaceManager.createPiece(this, boomButtonBuilders[i]))
+            pieces?.add(PiecePlaceManager.createPiece(this, karsuButtonBuilders[i]))
         }
     }
 
@@ -488,7 +488,7 @@ class KarSuMenuButton @JvmOverloads constructor(
                     PiecePlaceManager.getShareDotPositions(
                         this,
                         Point(button?.width ?: 0, button?.height ?: 0),
-                        boomButtonBuilders.size
+                        karsuButtonBuilders.size
                     )
                 } else {
                     PiecePlaceManager.getDotPositions(
@@ -575,37 +575,37 @@ class KarSuMenuButton @JvmOverloads constructor(
     fun isAnimating(): Boolean = animatingViewNumber != 0
 
     /**
-     * Whether the BMB has finished booming.
+     * Whether the BMB has finished karsuing.
      *
-     * @return whether the BMB has finished booming
+     * @return whether the BMB has finished karsuing
      */
-    fun isKarSued(): Boolean = boomStateEnum == KarSuStateEnum.DidKarSu
+    fun isKarSued(): Boolean = karsuStateEnum == KarSuStateEnum.DidKarSu
 
     /**
      * Whether the BMB has finished ReKarSuing.
      *
      * @return whether the BMB has finished ReKarSuing
      */
-    fun isReKarSued(): Boolean = boomStateEnum == KarSuStateEnum.DidReboom
+    fun isReKarSued(): Boolean = karsuStateEnum == KarSuStateEnum.DidRekarsu
 
     /**
      * KarSu the BMB!
      */
-    fun boom() {
+    fun karsu() {
         innerKarSu(false)
     }
 
     /**
      * KarSu the BMB with duration 0!
      */
-    fun boomImmediately() {
+    fun karsuImmediately() {
         innerKarSu(true)
     }
 
     private fun innerKarSu(immediately: Boolean) {
-        if (isAnimating() || boomStateEnum != KarSuStateEnum.DidReboom) return
-        ExceptionManager.judge(this, boomButtonBuilders)
-        boomStateEnum = KarSuStateEnum.WillKarSu
+        if (isAnimating() || karsuStateEnum != KarSuStateEnum.DidRekarsu) return
+        ExceptionManager.judge(this, karsuButtonBuilders)
+        karsuStateEnum = KarSuStateEnum.WillKarSu
         onKarSuListener?.onKarSuWillShow()
         calculateStartPositions(false)
         android.util.Log.d("KarSuMenu", "innerKarSu: startPositions=$startPositions")
@@ -622,26 +622,26 @@ class KarSuMenuButton @JvmOverloads constructor(
     }
 
     /**
-     * Re-boom the BMB!
+     * Re-karsu the BMB!
      */
-    fun reboom() {
-        innerReboom(false)
+    fun rekarsu() {
+        innerRekarsu(false)
     }
 
     /**
-     * Re-boom the BMB with duration 0!
+     * Re-karsu the BMB with duration 0!
      */
-    fun reboomImmediately() {
-        innerReboom(true)
+    fun rekarsuImmediately() {
+        innerRekarsu(true)
     }
 
-    private fun innerReboom(immediately: Boolean) {
-        if (isAnimating() || boomStateEnum != KarSuStateEnum.DidKarSu) return
-        boomStateEnum = KarSuStateEnum.WillReboom
+    private fun innerRekarsu(immediately: Boolean) {
+        if (isAnimating() || karsuStateEnum != KarSuStateEnum.DidKarSu) return
+        karsuStateEnum = KarSuStateEnum.WillRekarsu
         onKarSuListener?.onKarSuWillHide()
         lightBackground(immediately)
-        startReboomAnimations(immediately)
-        startReboomAnimationForFadeViews(immediately)
+        startRekarsuAnimations(immediately)
+        startRekarsuAnimationForFadeViews(immediately)
         if (isBackPressListened) {
             isFocusable = false
             isFocusableInTouchMode = false
@@ -656,7 +656,7 @@ class KarSuMenuButton @JvmOverloads constructor(
         background?.dim(duration, object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator) {
                 super.onAnimationEnd(animation)
-                boomStateEnum = KarSuStateEnum.DidKarSu
+                karsuStateEnum = KarSuStateEnum.DidKarSu
                 onKarSuListener?.onKarSuDidShow()
             }
         })
@@ -680,11 +680,11 @@ class KarSuMenuButton @JvmOverloads constructor(
         }
     }
 
-    private fun finishReboomAnimations() {
+    private fun finishRekarsuAnimations() {
         if (isAnimating()) {
             return
         }
-        boomStateEnum = KarSuStateEnum.DidReboom
+        karsuStateEnum = KarSuStateEnum.DidRekarsu
         onKarSuListener?.onKarSuDidHide()
         background?.visibility = GONE
         clearViews(false)
@@ -700,47 +700,47 @@ class KarSuMenuButton @JvmOverloads constructor(
             AnimationManager.getOrderIndex(orderEnum, pieces?.size ?: 0)
         }
         // Fix the strange bug when use3DTransformAnimation is true
-        if (lastReboomIndex != -1 && isUse3DTransformAnimation) {
-            boomButtons[lastReboomIndex] = boomButtonBuilders[lastReboomIndex]
-                .innerListener(this).index(lastReboomIndex).build(context)
+        if (lastRekarsuIndex != -1 && isUse3DTransformAnimation) {
+            karsuButtons[lastRekarsuIndex] = karsuButtonBuilders[lastRekarsuIndex]
+                .innerListener(this).index(lastRekarsuIndex).build(context)
         }
-        // Reverse to keep the former boom-buttons are above than the latter(z-axis)
+        // Reverse to keep the former karsu-buttons are above than the latter(z-axis)
         for (i in indexes.size - 1 downTo 0) {
             val index = indexes[i]
-            val boomButton = boomButtons[index]
+            val karsuButton = karsuButtons[index]
             val startPosition = PointF(
-                (startPositions?.get(index)?.x ?: 0f) - (boomButton.centerPoint?.x ?: 0f),
-                (startPositions?.get(index)?.y ?: 0f) - (boomButton.centerPoint?.y ?: 0f)
+                (startPositions?.get(index)?.x ?: 0f) - (karsuButton.centerPoint?.x ?: 0f),
+                (startPositions?.get(index)?.y ?: 0f) - (karsuButton.centerPoint?.y ?: 0f)
             )
-            android.util.Log.d("KarSuMenu", "startKarSuAnim[$index]: startPos=$startPosition, endPos=${endPositions?.get(index)}, centerPoint=${boomButton.centerPoint}, btnVisible=${boomButton.visibility}, btnW=${boomButton.width}, btnH=${boomButton.height}")
-            putKarSuButtonInBackground(boomButton, startPosition)
+            android.util.Log.d("KarSuMenu", "startKarSuAnim[$index]: startPos=$startPosition, endPos=${endPositions?.get(index)}, centerPoint=${karsuButton.centerPoint}, btnVisible=${karsuButton.visibility}, btnW=${karsuButton.width}, btnH=${karsuButton.height}")
+            putKarSuButtonInBackground(karsuButton, startPosition)
             startEachKarSuAnimation(
-                pieces?.get(index), boomButton, startPosition,
+                pieces?.get(index), karsuButton, startPosition,
                 endPositions?.get(index), i, immediately
             )
         }
         android.util.Log.d("KarSuMenu", "startKarSuAnimations: bgChildCount=${background?.childCount}")
     }
 
-    private fun startReboomAnimations(immediately: Boolean) {
+    private fun startRekarsuAnimations(immediately: Boolean) {
         val indexes = if (piecePlaceEnum == PiecePlaceEnum.Share) {
             AnimationManager.getOrderIndex(OrderEnum.REVERSE, pieces?.size ?: 0)
         } else {
             AnimationManager.getOrderIndex(orderEnum, pieces?.size ?: 0)
         }
-        lastReboomIndex = indexes[indexes.size - 1]
+        lastRekarsuIndex = indexes[indexes.size - 1]
         for (index in indexes) {
-            boomButtons[index].bringToFront()
+            karsuButtons[index].bringToFront()
         }
         for (i in indexes.indices) {
             val index = indexes[i]
-            val boomButton = boomButtons[index]
+            val karsuButton = karsuButtons[index]
             val startPosition = PointF(
-                (startPositions?.get(index)?.x ?: 0f) - (boomButton.centerPoint?.x ?: 0f),
-                (startPositions?.get(index)?.y ?: 0f) - (boomButton.centerPoint?.y ?: 0f)
+                (startPositions?.get(index)?.x ?: 0f) - (karsuButton.centerPoint?.x ?: 0f),
+                (startPositions?.get(index)?.y ?: 0f) - (karsuButton.centerPoint?.y ?: 0f)
             )
-            startEachReboomAnimation(
-                pieces?.get(index), boomButton,
+            startEachRekarsuAnimation(
+                pieces?.get(index), karsuButton,
                 endPositions?.get(index), startPosition, i, immediately
             )
         }
@@ -748,7 +748,7 @@ class KarSuMenuButton @JvmOverloads constructor(
 
     private fun startEachKarSuAnimation(
         piece: KarSuPiece?,
-        boomButton: KarSuButton,
+        karsuButton: KarSuButton,
         startPosition: PointF,
         endPosition: PointF?,
         delayFactor: Int,
@@ -756,16 +756,16 @@ class KarSuMenuButton @JvmOverloads constructor(
     ) {
         if (isBatterySaveModeTurnOn()) {
             post {
-                innerStartEachKarSuAnimation(piece, boomButton, startPosition, endPosition, delayFactor, immediately)
+                innerStartEachKarSuAnimation(piece, karsuButton, startPosition, endPosition, delayFactor, immediately)
             }
         } else {
-            innerStartEachKarSuAnimation(piece, boomButton, startPosition, endPosition, delayFactor, immediately)
+            innerStartEachKarSuAnimation(piece, karsuButton, startPosition, endPosition, delayFactor, immediately)
         }
     }
 
     private fun innerStartEachKarSuAnimation(
         piece: KarSuPiece?,
-        boomButton: KarSuButton,
+        karsuButton: KarSuButton,
         startPosition: PointF,
         endPosition: PointF?,
         delayFactor: Int,
@@ -774,71 +774,71 @@ class KarSuMenuButton @JvmOverloads constructor(
         animatingViewNumber++
         val xs = FloatArray(frames + 1)
         val ys = FloatArray(frames + 1)
-        val scaleX = (piece?.width ?: 1) * 1.0f / boomButton.contentWidth()
-        val scaleY = (piece?.height ?: 1) * 1.0f / boomButton.contentHeight()
+        val scaleX = (piece?.width ?: 1) * 1.0f / karsuButton.contentWidth()
+        val scaleY = (piece?.height ?: 1) * 1.0f / karsuButton.contentHeight()
         val delay = if (immediately) 1L else showDelay * delayFactor
         val duration = if (immediately) 1L else showDuration
-        android.util.Log.d("KarSuMenu", "innerAnim: pieceW=${piece?.width}, pieceH=${piece?.height}, contentW=${boomButton.contentWidth()}, contentH=${boomButton.contentHeight()}, trueW=${boomButton.trueWidth()}, trueH=${boomButton.trueHeight()}, scaleX=$scaleX, scaleY=$scaleY, delay=$delay, duration=$duration, frames=$frames, boomEnum=$boomEnum")
-        boomButton.setSelfScaleAnchorPoints()
-        boomButton.scaleX = scaleX
-        boomButton.scaleY = scaleY
-        boomButton.hideAllGoneViews()
+        android.util.Log.d("KarSuMenu", "innerAnim: pieceW=${piece?.width}, pieceH=${piece?.height}, contentW=${karsuButton.contentWidth()}, contentH=${karsuButton.contentHeight()}, trueW=${karsuButton.trueWidth()}, trueH=${karsuButton.trueHeight()}, scaleX=$scaleX, scaleY=$scaleY, delay=$delay, duration=$duration, frames=$frames, karsuEnum=$karsuEnum")
+        karsuButton.setSelfScaleAnchorPoints()
+        karsuButton.scaleX = scaleX
+        karsuButton.scaleY = scaleY
+        karsuButton.hideAllGoneViews()
         AnimationManager.calculateShowXY(
-            boomEnum,
+            karsuEnum,
             PointF(
                 (background?.layoutParams?.width ?: 0).toFloat(),
                 (background?.layoutParams?.height ?: 0).toFloat()
             ),
             Ease.getInstance(showMoveEaseEnum), frames, startPosition, endPosition, xs, ys
         )
-        android.util.Log.d("KarSuMenu", "innerAnim: xs[0]=${xs[0]}, xs[last]=${xs[frames]}, ys[0]=${ys[0]}, ys[last]=${ys[frames]}, btnLeft=${boomButton.left}, btnTop=${boomButton.top}")
-        if (boomButton.isNeededColorAnimation()) {
-            if (boomButton.prepareColorTransformAnimation()) {
+        android.util.Log.d("KarSuMenu", "innerAnim: xs[0]=${xs[0]}, xs[last]=${xs[frames]}, ys[0]=${ys[0]}, ys[last]=${ys[frames]}, btnLeft=${karsuButton.left}, btnTop=${karsuButton.top}")
+        if (karsuButton.isNeededColorAnimation()) {
+            if (karsuButton.prepareColorTransformAnimation()) {
                 AnimationManager.animate(
-                    boomButton, "rippleButtonColor", delay, duration,
-                    ShowRgbEvaluator.instance, null, boomButton.pieceColor(), boomButton.buttonColor()
+                    karsuButton, "rippleButtonColor", delay, duration,
+                    ShowRgbEvaluator.instance, null, karsuButton.pieceColor(), karsuButton.buttonColor()
                 )
             } else {
                 AnimationManager.animate(
-                    boomButton, "nonRippleButtonColor", delay, duration,
-                    ShowRgbEvaluator.instance, null, boomButton.pieceColor(), boomButton.buttonColor()
+                    karsuButton, "nonRippleButtonColor", delay, duration,
+                    ShowRgbEvaluator.instance, null, karsuButton.pieceColor(), karsuButton.buttonColor()
                 )
             }
         }
-        AnimationManager.animate(boomButton, "x", delay, duration, LinearInterpolator(), null, *xs)
-        AnimationManager.animate(boomButton, "y", delay, duration, LinearInterpolator(), null, *ys)
-        AnimationManager.rotate(boomButton, delay, duration, Ease.getInstance(showRotateEaseEnum), 0, rotateDegree)
-        AnimationManager.animate("alpha", delay, duration, floatArrayOf(0f, 1f), Ease.getInstance(EaseEnum.Linear), boomButton.goneViews())
-        AnimationManager.animate(boomButton, "scaleX", delay, duration, Ease.getInstance(showScaleEaseEnum), null, scaleX, 1f)
+        AnimationManager.animate(karsuButton, "x", delay, duration, LinearInterpolator(), null, *xs)
+        AnimationManager.animate(karsuButton, "y", delay, duration, LinearInterpolator(), null, *ys)
+        AnimationManager.rotate(karsuButton, delay, duration, Ease.getInstance(showRotateEaseEnum), 0, rotateDegree)
+        AnimationManager.animate("alpha", delay, duration, floatArrayOf(0f, 1f), Ease.getInstance(EaseEnum.Linear), karsuButton.goneViews())
+        AnimationManager.animate(karsuButton, "scaleX", delay, duration, Ease.getInstance(showScaleEaseEnum), null, scaleX, 1f)
         AnimationManager.animate(
-            boomButton, "scaleY", delay, duration, Ease.getInstance(showScaleEaseEnum),
+            karsuButton, "scaleY", delay, duration, Ease.getInstance(showScaleEaseEnum),
             object : AnimatorListenerAdapter() {
                 override fun onAnimationStart(animation: Animator) {
                     super.onAnimationStart(animation)
                     Util.setVisibility(INVISIBLE, piece)
-                    Util.setVisibility(VISIBLE, boomButton)
-                    boomButton.willShow()
+                    Util.setVisibility(VISIBLE, karsuButton)
+                    karsuButton.willShow()
                 }
 
                 override fun onAnimationEnd(animation: Animator) {
                     super.onAnimationEnd(animation)
-                    boomButton.didShow()
+                    karsuButton.didShow()
                     animatingViewNumber--
                 }
             }, scaleY, 1f
         )
 
         if (isUse3DTransformAnimation) {
-            val rotate3DAnimation = AnimationManager.getRotate3DAnimation(xs, ys, delay, duration, boomButton)
-            rotate3DAnimation.set(boomButton, startPosition.x, startPosition.y)
-            boomButton.cameraDistance = 0f
-            boomButton.startAnimation(rotate3DAnimation)
+            val rotate3DAnimation = AnimationManager.getRotate3DAnimation(xs, ys, delay, duration, karsuButton)
+            rotate3DAnimation.set(karsuButton, startPosition.x, startPosition.y)
+            karsuButton.cameraDistance = 0f
+            karsuButton.startAnimation(rotate3DAnimation)
         }
     }
 
-    private fun startEachReboomAnimation(
+    private fun startEachRekarsuAnimation(
         piece: KarSuPiece?,
-        boomButton: KarSuButton,
+        karsuButton: KarSuButton,
         startPosition: PointF?,
         endPosition: PointF,
         delayFactor: Int,
@@ -847,59 +847,59 @@ class KarSuMenuButton @JvmOverloads constructor(
         animatingViewNumber++
         val xs = FloatArray(frames + 1)
         val ys = FloatArray(frames + 1)
-        val scaleX = (piece?.width ?: 1) * 1.0f / boomButton.contentWidth()
-        val scaleY = (piece?.height ?: 1) * 1.0f / boomButton.contentHeight()
+        val scaleX = (piece?.width ?: 1) * 1.0f / karsuButton.contentWidth()
+        val scaleY = (piece?.height ?: 1) * 1.0f / karsuButton.contentHeight()
         val delay = if (immediately) 1L else hideDelay * delayFactor
         val duration = if (immediately) 1L else hideDuration
         AnimationManager.calculateHideXY(
-            boomEnum,
+            karsuEnum,
             PointF(
                 (background?.layoutParams?.width ?: 0).toFloat(),
                 (background?.layoutParams?.height ?: 0).toFloat()
             ),
             Ease.getInstance(hideMoveEaseEnum), frames, startPosition, endPosition, xs, ys
         )
-        if (boomButton.isNeededColorAnimation()) {
-            if (boomButton.prepareColorTransformAnimation()) {
+        if (karsuButton.isNeededColorAnimation()) {
+            if (karsuButton.prepareColorTransformAnimation()) {
                 AnimationManager.animate(
-                    boomButton, "rippleButtonColor", delay, duration,
-                    HideRgbEvaluator.instance, null, boomButton.buttonColor(), boomButton.pieceColor()
+                    karsuButton, "rippleButtonColor", delay, duration,
+                    HideRgbEvaluator.instance, null, karsuButton.buttonColor(), karsuButton.pieceColor()
                 )
             } else {
                 AnimationManager.animate(
-                    boomButton, "nonRippleButtonColor", delay, duration,
-                    HideRgbEvaluator.instance, null, boomButton.buttonColor(), boomButton.pieceColor()
+                    karsuButton, "nonRippleButtonColor", delay, duration,
+                    HideRgbEvaluator.instance, null, karsuButton.buttonColor(), karsuButton.pieceColor()
                 )
             }
         }
-        AnimationManager.animate(boomButton, "x", delay, duration, LinearInterpolator(), null, *xs)
-        AnimationManager.animate(boomButton, "y", delay, duration, LinearInterpolator(), null, *ys)
-        AnimationManager.rotate(boomButton, delay, duration, Ease.getInstance(hideRotateEaseEnum), 0, -rotateDegree)
-        AnimationManager.animate("alpha", delay, duration, floatArrayOf(1f, 0f), Ease.getInstance(EaseEnum.Linear), boomButton.goneViews())
-        AnimationManager.animate(boomButton, "scaleX", delay, duration, Ease.getInstance(hideScaleEaseEnum), null, 1f, scaleX)
+        AnimationManager.animate(karsuButton, "x", delay, duration, LinearInterpolator(), null, *xs)
+        AnimationManager.animate(karsuButton, "y", delay, duration, LinearInterpolator(), null, *ys)
+        AnimationManager.rotate(karsuButton, delay, duration, Ease.getInstance(hideRotateEaseEnum), 0, -rotateDegree)
+        AnimationManager.animate("alpha", delay, duration, floatArrayOf(1f, 0f), Ease.getInstance(EaseEnum.Linear), karsuButton.goneViews())
+        AnimationManager.animate(karsuButton, "scaleX", delay, duration, Ease.getInstance(hideScaleEaseEnum), null, 1f, scaleX)
         AnimationManager.animate(
-            boomButton, "scaleY", delay, duration, Ease.getInstance(hideScaleEaseEnum),
+            karsuButton, "scaleY", delay, duration, Ease.getInstance(hideScaleEaseEnum),
             object : AnimatorListenerAdapter() {
                 override fun onAnimationStart(animation: Animator) {
                     super.onAnimationStart(animation)
-                    boomButton.willHide()
+                    karsuButton.willHide()
                 }
 
                 override fun onAnimationEnd(animation: Animator) {
                     super.onAnimationEnd(animation)
                     Util.setVisibility(VISIBLE, piece)
-                    Util.setVisibility(INVISIBLE, boomButton)
-                    boomButton.didHide()
+                    Util.setVisibility(INVISIBLE, karsuButton)
+                    karsuButton.didHide()
                     animatingViewNumber--
-                    finishReboomAnimations()
+                    finishRekarsuAnimations()
                 }
             }, 1f, scaleY
         )
         if (isUse3DTransformAnimation) {
-            val rotate3DAnimation = AnimationManager.getRotate3DAnimation(xs, ys, delay, duration, boomButton)
-            rotate3DAnimation.set(boomButton, endPosition.x, endPosition.y)
-            boomButton.cameraDistance = 0f
-            boomButton.startAnimation(rotate3DAnimation)
+            val rotate3DAnimation = AnimationManager.getRotate3DAnimation(xs, ys, delay, duration, karsuButton)
+            rotate3DAnimation.set(karsuButton, endPosition.x, endPosition.y)
+            karsuButton.cameraDistance = 0f
+            karsuButton.startAnimation(rotate3DAnimation)
         }
     }
 
@@ -913,7 +913,7 @@ class KarSuMenuButton @JvmOverloads constructor(
 
     val parentView: ViewGroup
         get() {
-            return if (boomInWholeScreen) {
+            return if (karsuInWholeScreen) {
                 val activity = Util.scanForActivity(context)
                 if (activity == null) {
                     parent as ViewGroup
@@ -937,24 +937,24 @@ class KarSuMenuButton @JvmOverloads constructor(
     private fun createButtons() {
         if (!needToCreateButtons) return
         needToCreateButtons = false
-        boomButtons = ArrayList(pieces?.size ?: 0)
-        for (i in boomButtonBuilders.indices) {
-            boomButtons.add(boomButtonBuilders[i].innerListener(this).index(i).build(context))
+        karsuButtons = ArrayList(pieces?.size ?: 0)
+        for (i in karsuButtonBuilders.indices) {
+            karsuButtons.add(karsuButtonBuilders[i].innerListener(this).index(i).build(context))
         }
         when (buttonEnum) {
             ButtonEnum.SimpleCircle -> {
-                simpleCircleButtonRadius = (boomButtonBuilders[0] as SimpleCircleButton.Builder).getButtonRadius().toFloat()
+                simpleCircleButtonRadius = (karsuButtonBuilders[0] as SimpleCircleButton.Builder).getButtonRadius().toFloat()
             }
             ButtonEnum.TextInsideCircle -> {
-                textInsideCircleButtonRadius = (boomButtonBuilders[0] as TextInsideCircleButton.Builder).getButtonRadius().toFloat()
+                textInsideCircleButtonRadius = (karsuButtonBuilders[0] as TextInsideCircleButton.Builder).getButtonRadius().toFloat()
             }
             ButtonEnum.TextOutsideCircle -> {
-                textOutsideCircleButtonWidth = (boomButtonBuilders[0] as TextOutsideCircleButton.Builder).getButtonContentWidth().toFloat()
-                textOutsideCircleButtonHeight = (boomButtonBuilders[0] as TextOutsideCircleButton.Builder).getButtonContentHeight().toFloat()
+                textOutsideCircleButtonWidth = (karsuButtonBuilders[0] as TextOutsideCircleButton.Builder).getButtonContentWidth().toFloat()
+                textOutsideCircleButtonHeight = (karsuButtonBuilders[0] as TextOutsideCircleButton.Builder).getButtonContentHeight().toFloat()
             }
             ButtonEnum.Ham -> {
-                hamButtonWidth = (boomButtonBuilders[0] as HamButton.Builder).getButtonWidth().toFloat()
-                hamButtonHeight = (boomButtonBuilders[0] as HamButton.Builder).getButtonHeight().toFloat()
+                hamButtonWidth = (karsuButtonBuilders[0] as HamButton.Builder).getButtonWidth().toFloat()
+                hamButtonHeight = (karsuButtonBuilders[0] as HamButton.Builder).getButtonHeight().toFloat()
             }
             ButtonEnum.Unknown -> { }
         }
@@ -963,7 +963,7 @@ class KarSuMenuButton @JvmOverloads constructor(
     internal fun onBackgroundClicked() {
         if (isAnimating()) return
         onKarSuListener?.onBackgroundClick()
-        if (isCancelable) reboom()
+        if (isCancelable) rekarsu()
     }
 
     private fun calculateStartPositions(force: Boolean) {
@@ -993,45 +993,45 @@ class KarSuMenuButton @JvmOverloads constructor(
         android.util.Log.d("KarSuMenu", "calculateEndPositions: parentSize=$parentSize, buttonEnum=$buttonEnum, alignment=$buttonPlaceAlignmentEnum, buttonPlaceEnum=$buttonPlaceEnum")
         endPositions = when (buttonEnum) {
             ButtonEnum.SimpleCircle -> {
-                ButtonPlaceManager.getPositions(parentSize, simpleCircleButtonRadius, boomButtonBuilders.size, this)
+                ButtonPlaceManager.getPositions(parentSize, simpleCircleButtonRadius, karsuButtonBuilders.size, this)
             }
             ButtonEnum.TextInsideCircle -> {
-                ButtonPlaceManager.getPositions(parentSize, textInsideCircleButtonRadius, boomButtonBuilders.size, this)
+                ButtonPlaceManager.getPositions(parentSize, textInsideCircleButtonRadius, karsuButtonBuilders.size, this)
             }
             ButtonEnum.TextOutsideCircle -> {
                 ButtonPlaceManager.getPositions(
                     parentSize,
                     textOutsideCircleButtonWidth, textOutsideCircleButtonHeight,
-                    boomButtonBuilders.size, this
+                    karsuButtonBuilders.size, this
                 )
             }
             ButtonEnum.Ham -> {
                 ButtonPlaceManager.getPositions(
                     parentSize,
                     hamButtonWidth, hamButtonHeight,
-                    boomButtonBuilders.size, this
+                    karsuButtonBuilders.size, this
                 )
             }
             ButtonEnum.Unknown -> null
         }
         android.util.Log.d("KarSuMenu", "calculateEndPositions: raw endPositions=$endPositions")
-        boomButtons.forEachIndexed { i, boomButton ->
-            endPositions?.get(i)?.offset(-(boomButton.centerPoint?.x ?: 0f), -(boomButton.centerPoint?.y ?: 0f))
+        karsuButtons.forEachIndexed { i, karsuButton ->
+            endPositions?.get(i)?.offset(-(karsuButton.centerPoint?.x ?: 0f), -(karsuButton.centerPoint?.y ?: 0f))
         }
         android.util.Log.d("KarSuMenu", "calculateEndPositions: final endPositions=$endPositions")
     }
 
-    private fun putKarSuButtonInBackground(boomButton: KarSuButton, position: PointF): KarSuButton {
+    private fun putKarSuButtonInBackground(karsuButton: KarSuButton, position: PointF): KarSuButton {
         createBackground()
-        boomButton.place(
+        karsuButton.place(
             position.x.toInt(),
             position.y.toInt(),
-            boomButton.trueWidth(),
-            boomButton.trueHeight()
+            karsuButton.trueWidth(),
+            karsuButton.trueHeight()
         )
-        boomButton.visibility = INVISIBLE
-        background?.addView(boomButton)
-        return boomButton
+        karsuButton.visibility = INVISIBLE
+        background?.addView(karsuButton)
+        return karsuButton
     }
 
     private fun clearViews(force: Boolean) {
@@ -1043,8 +1043,8 @@ class KarSuMenuButton @JvmOverloads constructor(
 
     private fun clearButtons() {
         needToCreateButtons = true
-        boomButtons.forEach { boomButton -> background?.removeView(boomButton) }
-        boomButtons.clear()
+        karsuButtons.forEach { karsuButton -> background?.removeView(karsuButton) }
+        karsuButtons.clear()
     }
 
     private fun buttonMaxHeight(): Float {
@@ -1109,16 +1109,16 @@ class KarSuMenuButton @JvmOverloads constructor(
     private fun pieceNumber(): Int {
         return when {
             piecePlaceEnum == PiecePlaceEnum.Unknown -> 0
-            piecePlaceEnum == PiecePlaceEnum.Share -> boomButtonBuilders.size
+            piecePlaceEnum == PiecePlaceEnum.Share -> karsuButtonBuilders.size
             piecePlaceEnum == PiecePlaceEnum.Custom -> customPiecePlacePositions.size
             else -> piecePlaceEnum.pieceNumber()
         }
     }
 
-    override fun onButtonClick(index: Int, boomButton: KarSuButton) {
+    override fun onButtonClick(index: Int, karsuButton: KarSuButton) {
         if (isAnimating()) return
         onKarSuListener?.onKarSuButtonClick(index)
-        if (isAutoHide) reboom()
+        if (isAutoHide) rekarsu()
     }
 
     private fun placeShareLinesView() {
@@ -1153,8 +1153,8 @@ class KarSuMenuButton @JvmOverloads constructor(
     }
 
     private fun checkAutoKarSu() {
-        if (isAutoKarSuImmediately) boomImmediately()
-        else if (isAutoKarSu) boom()
+        if (isAutoKarSuImmediately) karsuImmediately()
+        else if (isAutoKarSu) karsu()
         isAutoKarSuImmediately = false
         isAutoKarSu = false
     }
@@ -1190,14 +1190,14 @@ class KarSuMenuButton @JvmOverloads constructor(
             background?.reLayout(this)
             calculateStartPositions(true)
             calculateEndPositions()
-            when (boomStateEnum) {
-                KarSuStateEnum.DidReboom -> { }
+            when (karsuStateEnum) {
+                KarSuStateEnum.DidRekarsu -> { }
                 KarSuStateEnum.DidKarSu -> {
                     placeButtons()
                 }
                 KarSuStateEnum.WillKarSu,
-                KarSuStateEnum.WillReboom -> {
-                    stopAllAnimations(boomStateEnum == KarSuStateEnum.WillKarSu)
+                KarSuStateEnum.WillRekarsu -> {
+                    stopAllAnimations(karsuStateEnum == KarSuStateEnum.WillKarSu)
                     placeButtons()
                 }
             }
@@ -1205,16 +1205,16 @@ class KarSuMenuButton @JvmOverloads constructor(
     }
 
     private fun placeButtons() {
-        boomButtons.forEachIndexed { i, boomButton ->
+        karsuButtons.forEachIndexed { i, karsuButton ->
             val pointF = endPositions?.get(i) ?: return@forEachIndexed
-            boomButton.x = pointF.x
-            boomButton.y = pointF.y
+            karsuButton.x = pointF.x
+            karsuButton.y = pointF.y
         }
     }
 
     private fun stopAllAnimations(isKarSuAnimation: Boolean) {
         background?.clearAnimation()
-        boomButtons.forEach { it.clearAnimation() }
+        karsuButtons.forEach { it.clearAnimation() }
     }
 
     // Region Builders
@@ -1225,7 +1225,7 @@ class KarSuMenuButton @JvmOverloads constructor(
      * @param builder builder
      */
     fun addBuilder(builder: KarSuButtonBuilder<*>) {
-        boomButtonBuilders.add(builder)
+        karsuButtonBuilders.add(builder)
         toLayout()
     }
 
@@ -1236,7 +1236,7 @@ class KarSuMenuButton @JvmOverloads constructor(
      * @param builder builder
      */
     fun setBuilder(index: Int, builder: KarSuButtonBuilder<*>) {
-        boomButtonBuilders[index] = builder
+        karsuButtonBuilders[index] = builder
         toLayout()
     }
 
@@ -1246,7 +1246,7 @@ class KarSuMenuButton @JvmOverloads constructor(
      * @param builders builders
      */
     fun setBuilders(builders: ArrayList<KarSuButtonBuilder<*>>) {
-        boomButtonBuilders = builders
+        karsuButtonBuilders = builders
         toLayout()
     }
 
@@ -1257,8 +1257,8 @@ class KarSuMenuButton @JvmOverloads constructor(
      * @return the builder at the index
      */
     fun getBuilder(index: Int): KarSuButtonBuilder<*>? {
-        return if (index < 0 || index >= boomButtonBuilders.size) null
-        else boomButtonBuilders[index]
+        return if (index < 0 || index >= karsuButtonBuilders.size) null
+        else karsuButtonBuilders[index]
     }
 
     /**
@@ -1267,7 +1267,7 @@ class KarSuMenuButton @JvmOverloads constructor(
      * @param builder builder
      */
     fun removeBuilder(builder: KarSuButtonBuilder<*>) {
-        boomButtonBuilders.remove(builder)
+        karsuButtonBuilders.remove(builder)
         toLayout()
     }
 
@@ -1277,7 +1277,7 @@ class KarSuMenuButton @JvmOverloads constructor(
      * @param index index
      */
     fun removeBuilder(index: Int) {
-        boomButtonBuilders.removeAt(index)
+        karsuButtonBuilders.removeAt(index)
         toLayout()
     }
 
@@ -1288,18 +1288,18 @@ class KarSuMenuButton @JvmOverloads constructor(
     }
 
     /**
-     * Set enable attribute of the boom-button at index.
+     * Set enable attribute of the karsu-button at index.
      *
-     * @param index index of the boom-button
-     * @param enable whether the boom-button should be enable
+     * @param index index of the karsu-button
+     * @param enable whether the karsu-button should be enable
      */
     fun setEnable(index: Int, enable: Boolean) {
         if (index < 0) return
-        if (index < boomButtonBuilders.size) {
-            boomButtonBuilders[index].setUnable(!enable)
+        if (index < karsuButtonBuilders.size) {
+            karsuButtonBuilders[index].setUnable(!enable)
         }
-        if (index < boomButtons.size) {
-            boomButtons[index].isEnabled = enable
+        if (index < karsuButtons.size) {
+            karsuButtons[index].isEnabled = enable
         }
     }
 
@@ -1307,7 +1307,7 @@ class KarSuMenuButton @JvmOverloads constructor(
      * Remove all builders, notice that @needToLayout will NOT be called.
      */
     fun clearBuilders() {
-        boomButtonBuilders.clear()
+        karsuButtonBuilders.clear()
     }
 
     /**
@@ -1315,28 +1315,28 @@ class KarSuMenuButton @JvmOverloads constructor(
      *
      * @return array of builders
      */
-    fun getBuilders(): ArrayList<KarSuButtonBuilder<*>> = boomButtonBuilders
+    fun getBuilders(): ArrayList<KarSuButtonBuilder<*>> = karsuButtonBuilders
 
     /**
-     * Get a boom button at index.
-     * Notice that the boom button may be null,
-     * because boom buttons are cleared in some situation(in list, in fragment, etc.)
+     * Get a karsu button at index.
+     * Notice that the karsu button may be null,
+     * because karsu buttons are cleared in some situation(in list, in fragment, etc.)
      *
      * @param index index
-     * @return boom button
+     * @return karsu button
      */
     fun getKarSuButton(index: Int): KarSuButton? {
-        return if (index in 0 until boomButtons.size) boomButtons[index] else null
+        return if (index in 0 until karsuButtons.size) karsuButtons[index] else null
     }
 
     /**
-     * Get boom buttons.
-     * Notice that the boom button may be null,
-     * because boom buttons are cleared in some situation(in list, in fragment, etc.)
+     * Get karsu buttons.
+     * Notice that the karsu button may be null,
+     * because karsu buttons are cleared in some situation(in list, in fragment, etc.)
      *
-     * @return boom buttons
+     * @return karsu buttons
      */
-    fun getKarSuButtons(): ArrayList<KarSuButton> = boomButtons
+    fun getKarSuButtons(): ArrayList<KarSuButton> = karsuButtons
 
     // Region Fade Views
 
@@ -1349,7 +1349,7 @@ class KarSuMenuButton @JvmOverloads constructor(
         )
     }
 
-    private fun startReboomAnimationForFadeViews(immediately: Boolean) {
+    private fun startRekarsuAnimationForFadeViews(immediately: Boolean) {
         val duration = if (immediately) 1L else hideDuration + hideDelay * ((pieces?.size ?: 1) - 1)
         AnimationManager.animate(
             "alpha", 0, duration, floatArrayOf(0f, 1f),
@@ -1377,7 +1377,7 @@ class KarSuMenuButton @JvmOverloads constructor(
     fun isCacheOptimization(): Boolean = cacheOptimization
 
     /**
-     * Whether use cache optimization to avoid multi-creating boom-buttons.
+     * Whether use cache optimization to avoid multi-creating karsu-buttons.
      *
      * @param cacheOptimization cache optimization
      */
@@ -1385,16 +1385,16 @@ class KarSuMenuButton @JvmOverloads constructor(
         this.cacheOptimization = cacheOptimization
     }
 
-    fun isKarSuInWholeScreen(): Boolean = boomInWholeScreen
+    fun isKarSuInWholeScreen(): Boolean = karsuInWholeScreen
 
     /**
-     * Whether the BMB should boom in the whole screen.
-     * If this value is false, then BMB will boom its boom-buttons to its parent-view.
+     * Whether the BMB should karsu in the whole screen.
+     * If this value is false, then BMB will karsu its karsu-buttons to its parent-view.
      *
-     * @param boomInWholeScreen boom in the whole screen
+     * @param karsuInWholeScreen karsu in the whole screen
      */
-    fun setKarSuInWholeScreen(boomInWholeScreen: Boolean) {
-        this.boomInWholeScreen = boomInWholeScreen
+    fun setKarSuInWholeScreen(karsuInWholeScreen: Boolean) {
+        this.karsuInWholeScreen = karsuInWholeScreen
     }
 
     fun isInList(): Boolean = inList
@@ -1422,9 +1422,9 @@ class KarSuMenuButton @JvmOverloads constructor(
     fun isBackPressListened(): Boolean = isBackPressListened
 
     /**
-     * Whether BMB will reboom when the back-key is pressed.
+     * Whether BMB will rekarsu when the back-key is pressed.
      *
-     * @param backPressListened whether BMB will reboom when the back-key is pressed
+     * @param backPressListened whether BMB will rekarsu when the back-key is pressed
      */
     fun setBackPressListened(backPressListened: Boolean) {
         isBackPressListened = backPressListened

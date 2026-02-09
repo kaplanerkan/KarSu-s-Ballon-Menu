@@ -111,7 +111,7 @@ object Util {
 
     @JvmStatic
     fun getRootView(activity: Activity): ViewGroup? {
-        return activity.window?.decorView?.findViewById(android.R.id.content)
+        return activity.window?.decorView as? ViewGroup
     }
 
     @JvmStatic

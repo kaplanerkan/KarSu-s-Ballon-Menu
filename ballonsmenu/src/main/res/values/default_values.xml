@@ -3,7 +3,7 @@
 
     <!--Basic-->
     <bool name="default_bmb_cacheOptimization">true</bool>
-    <bool name="default_bmb_boomInWholeScreen">true</bool>
+    <bool name="default_bmb_karsuInWholeScreen">true</bool>
     <bool name="default_bmb_inList">false</bool>
     <bool name="default_bmb_inFragment">false</bool>
     <bool name="default_bmb_backPressListened">true</bool>
@@ -54,7 +54,7 @@
     <bool name="default_bmb_autoHide">true</bool>
     <integer name="default_bmb_orderEnum">2</integer>
     <integer name="default_bmb_frames">60</integer>
-    <integer name="default_bmb_boomEnum">6</integer>
+    <integer name="default_bmb_karsuEnum">6</integer>
     <integer name="default_bmb_showMoveEaseEnum">22</integer>
     <integer name="default_bmb_showScaleEaseEnum">22</integer>
     <integer name="default_bmb_showRotateEaseEnum">22</integer>

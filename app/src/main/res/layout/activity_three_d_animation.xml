@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:text="Drag BMBs and try the difference between 2D and 3D animations."
+        android:text="@string/desc_3d_animation"
         android:textAppearance="?attr/textAppearanceBodyMedium" />
 
     <com.google.android.material.materialswitch.MaterialSwitch
@@ -23,7 +23,7 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@id/tip"
         android:layout_marginTop="8dp"
-        android:text="3D Animation" />
+        android:text="@string/title_3d_animation" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/duration_seek"

@@ -19,8 +19,8 @@ internal object ExceptionManager {
         if (bmb.buttonPlaceEnum == ButtonPlaceEnum.Unknown) {
             throw RuntimeException("Unknown button-place-enum!")
         }
-        if (bmb.boomEnum == null || bmb.boomEnum == KarSuEnum.Unknown) {
-            throw RuntimeException("Unknown boom-enum!")
+        if (bmb.karsuEnum == null || bmb.karsuEnum == KarSuEnum.Unknown) {
+            throw RuntimeException("Unknown karsu-enum!")
         }
         if (builders == null || builders.isEmpty()) {
             throw RuntimeException("Empty builders!")

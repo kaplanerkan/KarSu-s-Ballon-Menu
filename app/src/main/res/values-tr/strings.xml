@@ -1,0 +1,126 @@
+<resources>
+    <string name="app_name">KarSuMenuButton</string>
+
+    <!-- Header -->
+    <string name="app_header_title">KarSu Menu</string>
+    <string name="app_header_desc">Modern animasyonlu FAB menu kutuphanesi.\nAsagidaki orneklere tiklayarak kesfedebilirsiniz.</string>
+    <string name="language_label">Dil</string>
+
+    <!-- Menu titles -->
+    <string name="menu_simple_circle_title">Basit Daire Buton</string>
+    <string name="menu_text_inside_title">Yazi Icinde Daire Buton</string>
+    <string name="menu_text_outside_title">Yazi Disinda Daire Buton</string>
+    <string name="menu_ham_title">Ham Buton</string>
+    <string name="menu_square_corner_title">Kare ve Kose Yaricapi</string>
+    <string name="menu_animation_types_title">Animasyon Turleri</string>
+    <string name="menu_alignment_title">Buton Hizalama</string>
+    <string name="menu_order_title">Siralama</string>
+    <string name="menu_actionbar_title">ActionBar Ornegi</string>
+    <string name="menu_toolbar_title">Toolbar Ornegi</string>
+    <string name="menu_draggable_title">Surukleme</string>
+    <string name="menu_ease_title">Ease Animasyonlari</string>
+    <string name="menu_listener_title">Dinleyici</string>
+    <string name="menu_control_title">Kontrol</string>
+    <string name="menu_share_title">Paylasim Cizgileri</string>
+    <string name="menu_list_title">Liste Ornegi</string>
+    <string name="menu_recyclerview_title">RecyclerView Ornegi</string>
+    <string name="menu_fragment_title">Fragment Ornegi</string>
+    <string name="menu_change_button_title">Buton Degistirme</string>
+    <string name="menu_3d_title">3D Animasyon</string>
+    <string name="menu_custom_pos_title">Ozel Konum</string>
+    <string name="menu_fade_title">Gorunum Solma</string>
+    <string name="menu_orientation_title">Yon Degisikligi</string>
+
+    <!-- Menu descriptions -->
+    <string name="menu_simple_circle_desc">Tek ikonlu yuvarlak animasyonlu butonlar</string>
+    <string name="menu_text_inside_desc">Dairenin icinde metin bulunan butonlar</string>
+    <string name="menu_text_outside_desc">Dairenin disinda metin bulunan butonlar</string>
+    <string name="menu_ham_desc">Baslik, alt baslik ve ikon iceren liste tipi butonlar</string>
+    <string name="menu_square_corner_desc">Kare seklinde ve yuvarlak koseli buton ornekleri</string>
+    <string name="menu_animation_types_desc">Farkli patlama animasyonlarini kesfet</string>
+    <string name="menu_alignment_desc">Butonlarin ekran uzerindeki konumlandirilmasi</string>
+    <string name="menu_order_desc">Butonlarin acilma sirasini degistirme</string>
+    <string name="menu_actionbar_desc">ActionBar icinde KarSu menu kullanimi</string>
+    <string name="menu_toolbar_desc">Material Toolbar ile entegrasyon</string>
+    <string name="menu_draggable_desc">Parmaginizla surukleyebileceginiz FAB menu</string>
+    <string name="menu_ease_desc">9 farkli ease fonksiyonu ile akici animasyonlar</string>
+    <string name="menu_listener_desc">Buton tiklamalari ve animasyon olaylarini dinleme</string>
+    <string name="menu_control_desc">Menuyu programatik olarak ac/kapa</string>
+    <string name="menu_share_desc">Butonlar arasi baglanti cizgileri animasyonu</string>
+    <string name="menu_list_desc">ListView icinde KarSu menu kullanimi</string>
+    <string name="menu_recyclerview_desc">RecyclerView ile entegre KarSu menu</string>
+    <string name="menu_fragment_desc">Fragment icinde KarSu menu kullanimi</string>
+    <string name="menu_change_button_desc">Calisma zamaninda buton ozelliklerini guncelle</string>
+    <string name="menu_3d_desc">Uc boyutlu donme ve gecis efektleri</string>
+    <string name="menu_custom_pos_desc">Butonlari istediginiz koordinata yerlestirin</string>
+    <string name="menu_fade_desc">Butonlarin solma animasyonlari</string>
+    <string name="menu_orientation_desc">Ekran dondugunde menunun davranisi</string>
+
+    <!-- Activity titles / UI labels -->
+    <string name="title_actionbar">ActionBar</string>
+    <string name="title_toolbar">Arac Cubugu</string>
+    <string name="title_draggable">Suruklenebilir</string>
+    <string name="title_3d_animation">3D Animasyon</string>
+    <string name="desc_3d_animation">BMB\'leri surukleyin ve 2D ile 3D animasyonlar arasindaki farki deneyin.</string>
+    <string name="title_custom_pos_piece">Sadece Ozel Parca Konumlari</string>
+    <string name="title_custom_pos_button">Sadece Ozel Buton Konumlari</string>
+    <string name="title_custom_pos_both">Ozel Parca ve Buton Konumlari</string>
+
+    <!-- Control buttons -->
+    <string name="karsu_button">PATLAT!</string>
+    <string name="rekarsu_button">Tekrar PATLAT!</string>
+    <string name="karsu_immediately_button">Hemen PATLAT!</string>
+    <string name="rekarsu_immediately_button">Hemen Tekrar PATLAT!</string>
+
+    <!-- Format strings -->
+    <string name="top_margin_format">Ust bosluk = %d piksel</string>
+    <string name="bottom_margin_format">Alt bosluk = %d piksel</string>
+    <string name="left_margin_format">Sol bosluk = %d piksel</string>
+    <string name="right_margin_format">Sag bosluk = %d piksel</string>
+    <string name="show_delay_format">Gosterme gecikmesi = %d ms</string>
+    <string name="show_duration_format">Gosterme suresi = %d ms</string>
+    <string name="hide_delay_format">Gizleme gecikmesi = %d ms</string>
+    <string name="hide_duration_format">Gizleme suresi = %d ms</string>
+    <string name="show_hide_duration_format">Goster/Gizle suresi = %d ms</string>
+
+    <!-- Listener messages -->
+    <string name="click_background">Arka plana tiklandi!!!</string>
+    <string name="will_rekarsu">Tekrar PATLAYACAK!!!</string>
+    <string name="did_rekarsu">Tekrar PATLADI!!!</string>
+    <string name="will_karsu">PATLAYACAK!!!</string>
+    <string name="did_karsu">PATLADI!!!</string>
+    <string name="button_clicked_format">%d. butona tiklandi!</string>
+
+    <!-- ChangeKarSuButton -->
+    <string name="change_text">Metin Degistir</string>
+    <string name="change_image">Resim Degistir</string>
+    <string name="change_color">Renk Degistir</string>
+    <string name="change_piece_color">Parca Rengini Degistir</string>
+    <string name="change_unable">Devre Disi Birak</string>
+    <string name="unable_text">Devre Disi!</string>
+    <string name="changed_text">Degisti!</string>
+    <string name="highlighted_changed">Vurgulandi, degisti!</string>
+    <string name="sub_text_changed">Alt metin, degisti!</string>
+    <string name="ellipsis">…</string>
+
+    <!-- List/RecyclerView items -->
+    <string name="item_profile">Profil Ayarlari</string>
+    <string name="item_notifications">Bildirimler</string>
+    <string name="item_messages">Mesajlar</string>
+    <string name="item_favorites">Favoriler</string>
+    <string name="item_help">Yardim</string>
+
+    <!-- Button text states -->
+    <string name="text_inside_circle_button_text_normal">Daire Ici Metin Butonu (Normal)</string>
+    <string name="text_inside_circle_button_text_highlighted">Daire Ici Metin Butonu (Vurgulu)</string>
+    <string name="text_inside_circle_button_text_unable">Daire Ici Metin Butonu (Devre Disi)</string>
+    <string name="text_outside_circle_button_text_normal">Daire Disi Metin Butonu (Normal)</string>
+    <string name="text_outside_circle_button_text_highlighted">Daire Disi Metin Butonu (Vurgulu)</string>
+    <string name="text_outside_circle_button_text_unable">Daire Disi Metin Butonu (Devre Disi)</string>
+    <string name="text_ham_button_text_normal">Ham Buton Metni (Normal)</string>
+    <string name="text_ham_button_text_highlighted">Ham Buton Metni (Vurgulu)</string>
+    <string name="text_ham_button_text_unable">Ham Buton Metni (Devre Disi)</string>
+    <string name="text_ham_button_sub_text_normal">Ham Buton Alt Metni (Normal)</string>
+    <string name="text_ham_button_sub_text_highlighted">Ham Buton Alt Metni (Vurgulu)</string>
+    <string name="text_ham_button_sub_text_unable">Ham Buton Alt Metni (Devre Disi)</string>
+</resources>

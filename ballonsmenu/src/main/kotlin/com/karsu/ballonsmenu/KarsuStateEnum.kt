@@ -4,6 +4,6 @@ package com.karsu.ballonsmenu
 internal enum class KarSuStateEnum {
     DidKarSu,
     WillKarSu,
-    DidReboom,
-    WillReboom
+    DidRekarsu,
+    WillRekarsu
 }

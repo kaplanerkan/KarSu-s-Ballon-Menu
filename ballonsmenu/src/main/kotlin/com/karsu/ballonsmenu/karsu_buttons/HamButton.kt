@@ -10,8 +10,8 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import com.karsu.ballonsmenu.ButtonEnum
-import com.karsu.ballonsmenu.R
 import com.karsu.ballonsmenu.Util
+import com.karsu.ballonsmenu.databinding.KarsuHamButtonBinding
 
 @Suppress("unused")
 class HamButton private constructor(builder: Builder, context: Context) : KarSuButton(context) {
@@ -23,10 +23,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
     }
 
     private fun init(builder: Builder) {
-        LayoutInflater.from(context).inflate(R.layout.karsu_ham_button, this, true)
+        val binding = KarsuHamButtonBinding.inflate(LayoutInflater.from(context), this, true)
         initAttrs(builder)
-        initShadow(builder.shadowCornerRadius)
-        initHamButton()
+        initShadow(builder.shadowCornerRadius, binding.shadow)
+        initHamButton(binding.button)
         initText(button)
         initSubText(button)
         initImage()
@@ -111,10 +111,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the sub-text when boom-button is at normal-state.
+         * Set the sub-text when karsu-button is at normal-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subNormalText sub-text
          * @return the builder
@@ -131,10 +131,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the sub-text resource when boom-button is at normal-state.
+         * Set the sub-text resource when karsu-button is at normal-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subNormalTextRes sub-text resource
          * @return the builder
@@ -151,10 +151,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the sub-text when boom-button is at highlighted-state.
+         * Set the sub-text when karsu-button is at highlighted-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subHighlightedText sub-text
          * @return the builder
@@ -171,10 +171,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the sub-text resource when boom-button is at highlighted-state.
+         * Set the sub-text resource when karsu-button is at highlighted-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subHighlightedTextRes sub-text resource
          * @return the builder
@@ -191,10 +191,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the sub-text when boom-button is at unable-state.
+         * Set the sub-text when karsu-button is at unable-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subUnableText sub-text
          * @return the builder
@@ -211,10 +211,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the sub-text resource when boom-button is at unable-state.
+         * Set the sub-text resource when karsu-button is at unable-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subUnableTextRes sub-text resource
          * @return the builder
@@ -231,10 +231,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the color of sub-text when boom-button is at normal-state.
+         * Set the color of sub-text when karsu-button is at normal-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subNormalTextColor color of sub-text
          * @return the builder
@@ -251,10 +251,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the color of sub-text when boom-button is at normal-state.
+         * Set the color of sub-text when karsu-button is at normal-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subNormalTextColorRes color resource of sub-text
          * @return the builder
@@ -271,10 +271,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the color of sub-text when boom-button is at highlighted-state.
+         * Set the color of sub-text when karsu-button is at highlighted-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subHighlightedTextColor color of sub-text
          * @return the builder
@@ -291,10 +291,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the color of sub-text when boom-button is at highlighted-state.
+         * Set the color of sub-text when karsu-button is at highlighted-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subHighlightedTextColorRes color resource of sub-text
          * @return the builder
@@ -311,10 +311,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the color of sub-text when boom-button is at unable-state.
+         * Set the color of sub-text when karsu-button is at unable-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subUnableTextColor color of sub-text
          * @return the builder
@@ -331,10 +331,10 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the color of sub-text when boom-button is at unable-state.
+         * Set the color of sub-text when karsu-button is at unable-state.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subUnableTextColorRes color resource of sub-text
          * @return the builder
@@ -352,12 +352,12 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
 
         /**
          * Set the rect of sub-text.
-         * By this method, you can set the position and size of the sub-text-view in boom-button.
+         * By this method, you can set the position and size of the sub-text-view in karsu-button.
          * For example, builder.textRect(new Rect(0, 50, 100, 100)) will make the
          * sub-text-view's size to be 100 * 50 and margin-top to be 50 pixel.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subTextRect the sub-text rect, in pixel.
          * @return the builder
@@ -379,8 +379,8 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
          * For instance, builder.textPadding(new Rect(10, 10, 10, 10)) will make the
          * sub-text-view content 10-pixel padding to itself.
          *
-         * Synchronicity: If the boom-button existed,
-         * then synchronize this change to boom-button.
+         * Synchronicity: If the karsu-button existed,
+         * then synchronize this change to karsu-button.
          *
          * @param subTextPadding the sub-text padding
          * @return the builder
@@ -452,7 +452,7 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the width of boom-button, in pixel.
+         * Set the width of karsu-button, in pixel.
          *
          * @param buttonWidth width of button
          * @return the builder
@@ -463,7 +463,7 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Set the height of boom-button, in pixel.
+         * Set the height of karsu-button, in pixel.
          *
          * @param buttonHeight height of button
          * @return the builder
@@ -485,14 +485,14 @@ class HamButton private constructor(builder: Builder, context: Context) : KarSuB
         }
 
         /**
-         * Get the width of boom-button.
+         * Get the width of karsu-button.
          *
          * @return width of button
          */
         fun getButtonWidth(): Int = buttonWidth
 
         /**
-         * Get the height of boom-button
+         * Get the height of karsu-button
          *
          * @return height of button
          */

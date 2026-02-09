@@ -6,7 +6,7 @@ import android.graphics.PointF
 import android.view.LayoutInflater
 import android.view.View
 import com.karsu.ballonsmenu.ButtonEnum
-import com.karsu.ballonsmenu.R
+import com.karsu.ballonsmenu.databinding.KarsuTextInsideCircleButtonBinding
 
 @Suppress("unused")
 class TextInsideCircleButton private constructor(builder: Builder, context: Context) : KarSuButton(context) {
@@ -18,11 +18,11 @@ class TextInsideCircleButton private constructor(builder: Builder, context: Cont
     }
 
     private fun init(builder: Builder) {
-        LayoutInflater.from(context).inflate(R.layout.karsu_text_inside_circle_button, this, true)
+        val binding = KarsuTextInsideCircleButtonBinding.inflate(LayoutInflater.from(context), this, true)
         initAttrs(builder)
-        if (isRound) initShadow(buttonRadius + shadowRadius)
-        else initShadow(shadowCornerRadius)
-        initCircleButton()
+        if (isRound) initShadow(buttonRadius + shadowRadius, binding.shadow)
+        else initShadow(shadowCornerRadius, binding.shadow)
+        initCircleButton(binding.button)
         initText(button)
         initImage()
         centerPoint = PointF(
@@ -104,7 +104,7 @@ class TextInsideCircleButton private constructor(builder: Builder, context: Cont
         }
 
         /**
-         * The radius of boom-button, in pixel.
+         * The radius of karsu-button, in pixel.
          *
          * @param buttonRadius the button radius
          * @return the builder

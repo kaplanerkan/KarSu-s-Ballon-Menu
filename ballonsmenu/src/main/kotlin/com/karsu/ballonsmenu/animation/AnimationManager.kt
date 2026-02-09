@@ -50,15 +50,15 @@ object AnimationManager {
 
     @JvmStatic
     fun rotate(
-        boomButton: KarSuButton,
+        karsuButton: KarSuButton,
         delay: Long,
         duration: Long,
         interpolator: TimeInterpolator?,
         vararg degrees: Int
     ) {
-        boomButton.setRotateAnchorPoints()
+        karsuButton.setRotateAnchorPoints()
         val floatDegrees = degrees.map { it.toFloat() }.toFloatArray()
-        for (view in boomButton.rotateViews()) {
+        for (view in karsuButton.rotateViews()) {
             animate(view, "rotation", delay, duration, interpolator, null, *floatDegrees)
         }
     }
@@ -115,7 +115,7 @@ object AnimationManager {
 
     @JvmStatic
     fun calculateShowXY(
-        boomEnum: KarSuEnum?,
+        karsuEnum: KarSuEnum?,
         parentSize: PointF,
         ease: Ease,
         frames: Int,
@@ -125,7 +125,7 @@ object AnimationManager {
         ys: FloatArray
     ) {
         val effectiveEndPosition = endPosition ?: PointF(0f, 0f)
-        var effectiveKarSuEnum = boomEnum ?: KarSuEnum.LINE
+        var effectiveKarSuEnum = karsuEnum ?: KarSuEnum.LINE
         if (abs(startPosition.x - effectiveEndPosition.x) < 1) effectiveKarSuEnum = KarSuEnum.LINE
 
         var x1 = startPosition.x
@@ -242,14 +242,14 @@ object AnimationManager {
                 )
             }
             KarSuEnum.Unknown -> {
-                throw RuntimeException("Unknown boom-enum!")
+                throw RuntimeException("Unknown karsu-enum!")
             }
         }
     }
 
     @JvmStatic
     fun calculateHideXY(
-        boomEnum: KarSuEnum?,
+        karsuEnum: KarSuEnum?,
         parentSize: PointF,
         ease: Ease,
         frames: Int,
@@ -259,7 +259,7 @@ object AnimationManager {
         ys: FloatArray
     ) {
         val effectiveStartPosition = startPosition ?: PointF(0f, 0f)
-        var effectiveKarSuEnum = boomEnum ?: KarSuEnum.LINE
+        var effectiveKarSuEnum = karsuEnum ?: KarSuEnum.LINE
         if (abs(effectiveStartPosition.x - endPosition.x) < 1) effectiveKarSuEnum = KarSuEnum.LINE
 
         var x1 = effectiveStartPosition.x

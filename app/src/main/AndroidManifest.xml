@@ -16,95 +16,95 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.karsu.ballonsmenu.SimpleCircleButtonActivity"
+            android:name="com.karsu.ballonsmenu.demo.buttons.SimpleCircleButtonActivity"
             android:exported="false"
             android:label="Simple Circle Button" />
         <activity
-            android:name="com.karsu.ballonsmenu.TextInsideCircleButtonActivity"
+            android:name="com.karsu.ballonsmenu.demo.buttons.TextInsideCircleButtonActivity"
             android:exported="false"
             android:label="Text Inside Button" />
         <activity
-            android:name="com.karsu.ballonsmenu.TextOutsideCircleButtonActivity"
+            android:name="com.karsu.ballonsmenu.demo.buttons.TextOutsideCircleButtonActivity"
             android:exported="false"
             android:label="Text Outside Button" />
         <activity
-            android:name="com.karsu.ballonsmenu.HamButtonActivity"
+            android:name="com.karsu.ballonsmenu.demo.buttons.HamButtonActivity"
             android:exported="false"
             android:label="Ham Button" />
         <activity
-            android:name="com.karsu.ballonsmenu.SquareAndPieceCornerRadiusActivity"
+            android:name="com.karsu.ballonsmenu.demo.config.SquareAndPieceCornerRadiusActivity"
             android:exported="false"
             android:label="Square &amp; Piece Corner Radius" />
         <activity
-            android:name="com.karsu.ballonsmenu.KarSuExampleActivity"
+            android:name="com.karsu.ballonsmenu.demo.config.KarSuExampleActivity"
             android:exported="false"
             android:label="KarSu" />
         <activity
-            android:name="com.karsu.ballonsmenu.ButtonPlaceAlignmentActivity"
+            android:name="com.karsu.ballonsmenu.demo.config.ButtonPlaceAlignmentActivity"
             android:exported="false"
             android:label="Button Place Alignment" />
         <activity
-            android:name="com.karsu.ballonsmenu.OrderExampleActivity"
+            android:name="com.karsu.ballonsmenu.demo.animation.OrderExampleActivity"
             android:exported="false"
             android:label="Order" />
         <activity
-            android:name="com.karsu.ballonsmenu.ActionBarActivity"
+            android:name="com.karsu.ballonsmenu.demo.layout.ActionBarActivity"
             android:exported="false"
             android:label="ActionBar" />
         <activity
-            android:name="com.karsu.ballonsmenu.ToolBarActivity"
+            android:name="com.karsu.ballonsmenu.demo.layout.ToolBarActivity"
             android:exported="false"
             android:theme="@style/NoTitleTheme" />
         <activity
-            android:name="com.karsu.ballonsmenu.DraggableActivity"
+            android:name="com.karsu.ballonsmenu.demo.feature.DraggableActivity"
             android:exported="false"
             android:label="Draggable" />
         <activity
-            android:name="com.karsu.ballonsmenu.EaseActivity"
+            android:name="com.karsu.ballonsmenu.demo.animation.EaseActivity"
             android:exported="false"
             android:label="Ease" />
         <activity
-            android:name="com.karsu.ballonsmenu.ListenerActivity"
+            android:name="com.karsu.ballonsmenu.demo.feature.ListenerActivity"
             android:exported="false"
             android:label="Listener" />
         <activity
-            android:name="com.karsu.ballonsmenu.ControlActivity"
+            android:name="com.karsu.ballonsmenu.demo.feature.ControlActivity"
             android:exported="false"
             android:label="Control" />
         <activity
-            android:name="com.karsu.ballonsmenu.ShareActivity"
+            android:name="com.karsu.ballonsmenu.demo.feature.ShareActivity"
             android:exported="false"
             android:label="Share" />
         <activity
-            android:name="com.karsu.ballonsmenu.ListViewActivity"
+            android:name="com.karsu.ballonsmenu.demo.layout.ListViewActivity"
             android:exported="false"
             android:label="List" />
         <activity
-            android:name="com.karsu.ballonsmenu.RecyclerViewActivity"
+            android:name="com.karsu.ballonsmenu.demo.layout.RecyclerViewActivity"
             android:exported="false"
             android:label="Recycler View" />
         <activity
-            android:name="com.karsu.ballonsmenu.FragmentActivity"
+            android:name="com.karsu.ballonsmenu.demo.layout.FragmentActivity"
             android:exported="false"
             android:label="Fragment" />
         <activity
-            android:name="com.karsu.ballonsmenu.ChangeKarSuButtonActivity"
+            android:name="com.karsu.ballonsmenu.demo.config.ChangeKarSuButtonActivity"
             android:exported="false"
             android:label="Change KarSu Button" />
         <activity
-            android:name="com.karsu.ballonsmenu.ThreeDAnimationActivity"
+            android:name="com.karsu.ballonsmenu.demo.animation.ThreeDAnimationActivity"
             android:exported="false"
             android:label="3D Animation" />
         <activity
-            android:name="com.karsu.ballonsmenu.CustomPositionActivity"
+            android:name="com.karsu.ballonsmenu.demo.config.CustomPositionActivity"
             android:exported="false"
             android:label="Custom Position" />
         <activity
-            android:name="com.karsu.ballonsmenu.FadeViewsActivity"
+            android:name="com.karsu.ballonsmenu.demo.feature.FadeViewsActivity"
             android:exported="false"
             android:label="Fade Views" />
         <activity
-            android:name="com.karsu.ballonsmenu.OrientationActivity"
+            android:name="com.karsu.ballonsmenu.demo.feature.OrientationActivity"
             android:exported="false"
             android:configChanges="keyboardHidden|orientation|screenSize" />
     </application>

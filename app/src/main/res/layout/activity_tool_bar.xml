@@ -25,7 +25,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="ToolBar"
+                    android:text="@string/title_toolbar"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     app:bmb_backgroundEffect="false"
-                    app:bmb_boomEnum="boomParabola_2"
+                    app:bmb_karsuEnum="karsuParabola_2"
                     app:bmb_buttonPlaceEnum="buttonPlace_ham_4"
                     app:bmb_hideDuration="2000"
                     app:bmb_piecePlaceEnum="piecePlace_ham_4"

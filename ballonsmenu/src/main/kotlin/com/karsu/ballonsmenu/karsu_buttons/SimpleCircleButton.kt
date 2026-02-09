@@ -6,7 +6,7 @@ import android.graphics.PointF
 import android.view.LayoutInflater
 import android.view.View
 import com.karsu.ballonsmenu.ButtonEnum
-import com.karsu.ballonsmenu.R
+import com.karsu.ballonsmenu.databinding.KarsuSimpleCircleButtonBinding
 
 @Suppress("unused")
 class SimpleCircleButton private constructor(builder: Builder, context: Context) : KarSuButton(context) {
@@ -18,11 +18,11 @@ class SimpleCircleButton private constructor(builder: Builder, context: Context)
     }
 
     private fun init(builder: Builder) {
-        LayoutInflater.from(context).inflate(R.layout.karsu_simple_circle_button, this, true)
+        val binding = KarsuSimpleCircleButtonBinding.inflate(LayoutInflater.from(context), this, true)
         initAttrs(builder)
-        if (isRound) initShadow(buttonRadius + shadowRadius)
-        else initShadow(shadowCornerRadius)
-        initCircleButton()
+        if (isRound) initShadow(buttonRadius + shadowRadius, binding.shadow)
+        else initShadow(shadowCornerRadius, binding.shadow)
+        initCircleButton(binding.button)
         initImage()
         centerPoint = PointF(
             (buttonRadius + shadowRadius + shadowOffsetX).toFloat(),
@@ -83,52 +83,23 @@ class SimpleCircleButton private constructor(builder: Builder, context: Context)
 
     class Builder : KarSuButtonBuilder<Builder>() {
 
-        /**
-         * The radius of boom-button, in pixel.
-         *
-         * @param buttonRadius the button radius
-         * @return the builder
-         */
         fun buttonRadius(buttonRadius: Int): Builder {
             this.buttonRadius = buttonRadius
             return this
         }
 
-        /**
-         * Set the corner-radius of button.
-         *
-         * @param buttonCornerRadius corner-radius of button
-         * @return the builder
-         */
         fun buttonCornerRadius(buttonCornerRadius: Int): Builder {
             this.buttonCornerRadius = buttonCornerRadius
             return this
         }
 
-        /**
-         * Whether the button is a circle shape.
-         *
-         * @param isRound is or not
-         * @return the builder
-         */
         fun isRound(isRound: Boolean): Builder {
             this.isRound = isRound
             return this
         }
 
-        /**
-         * Gets button radius, used in BMB package.
-         *
-         * @return the button radius
-         */
         fun getButtonRadius(): Int = buttonRadius
 
-        /**
-         * Build simple circle button, only used in BMB package.
-         *
-         * @param context the context
-         * @return the simple circle button
-         */
         override fun build(context: Context): SimpleCircleButton {
             val button = SimpleCircleButton(this, context)
             weakReferenceButton(button)

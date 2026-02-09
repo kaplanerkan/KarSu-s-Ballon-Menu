@@ -10,39 +10,39 @@
     tools:context="com.karsu.ballonsmenu.ControlActivity">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/boom"
+        android:id="@+id/karsu"
         style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="BOOM!"
+        android:text="@string/karsu_button"
         android:textAllCaps="false" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/reboom"
+        android:id="@+id/rekarsu"
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Re-BOOM!"
+        android:text="@string/rekarsu_button"
         android:textAllCaps="false" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/boom_immediately"
+        android:id="@+id/karsu_immediately"
         style="@style/Widget.Material3.Button.TonalButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="BOOM immediately!"
+        android:text="@string/karsu_immediately_button"
         android:textAllCaps="false" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/reboom_immediately"
+        android:id="@+id/rekarsu_immediately"
         style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Re-BOOM immediately!"
+        android:text="@string/rekarsu_immediately_button"
         android:textAllCaps="false" />
 
     <FrameLayout
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            app:bmb_boomInWholeScreen="false"
+            app:bmb_karsuInWholeScreen="false"
             app:bmb_buttonEnum="simpleCircle"
             app:bmb_buttonPlaceEnum="buttonPlace_sc_9_1"
             app:bmb_piecePlaceEnum="piecePlace_dot_9_1" />

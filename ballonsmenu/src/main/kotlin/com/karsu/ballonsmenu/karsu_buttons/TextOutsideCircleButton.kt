@@ -6,7 +6,7 @@ import android.graphics.PointF
 import android.view.LayoutInflater
 import android.view.View
 import com.karsu.ballonsmenu.ButtonEnum
-import com.karsu.ballonsmenu.R
+import com.karsu.ballonsmenu.databinding.KarsuTextOutsideCircleButtonBinding
 
 @Suppress("unused")
 class TextOutsideCircleButton private constructor(builder: Builder, context: Context) : KarSuButton(context) {
@@ -18,12 +18,12 @@ class TextOutsideCircleButton private constructor(builder: Builder, context: Con
     }
 
     private fun init(builder: Builder) {
-        LayoutInflater.from(context).inflate(R.layout.karsu_text_outside_circle_button, this, true)
+        val binding = KarsuTextOutsideCircleButtonBinding.inflate(LayoutInflater.from(context), this, true)
         initAttrs(builder)
-        initTextOutsideCircleButtonLayout()
-        if (isRound) initShadow(buttonRadius + shadowRadius)
-        else initShadow(shadowCornerRadius)
-        initCircleButton()
+        initTextOutsideCircleButtonLayout(binding.layout)
+        if (isRound) initShadow(buttonRadius + shadowRadius, binding.shadow)
+        else initShadow(shadowCornerRadius, binding.shadow)
+        initCircleButton(binding.button)
         initText(layout)
         initImage()
         centerPoint = PointF(trueRadius.toFloat(), trueRadius.toFloat())
@@ -137,7 +137,7 @@ class TextOutsideCircleButton private constructor(builder: Builder, context: Con
         }
 
         /**
-         * The radius of boom-button, in pixel.
+         * The radius of karsu-button, in pixel.
          *
          * @param buttonRadius the button radius
          * @return the builder
@@ -171,7 +171,7 @@ class TextOutsideCircleButton private constructor(builder: Builder, context: Con
 
         /**
          * Get the height of content.
-         * This method is used to calculate the position of boom-button on the screen,
+         * This method is used to calculate the position of karsu-button on the screen,
          * don't use it outside.
          *
          * @return the width of content in text-outside-circle-button
@@ -184,7 +184,7 @@ class TextOutsideCircleButton private constructor(builder: Builder, context: Con
 
         /**
          * Get the height of content.
-         * This method is used to calculate the position of boom-button on the screen,
+         * This method is used to calculate the position of karsu-button on the screen,
          * don't use it outside.
          *
          * @return the height of content in text-outside-circle-button

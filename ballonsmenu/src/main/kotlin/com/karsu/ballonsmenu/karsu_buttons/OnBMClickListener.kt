@@ -3,9 +3,9 @@ package com.karsu.ballonsmenu.karsu_buttons
 
 fun interface OnBMClickListener {
     /**
-     * When the boom-button is click
+     * When the karsu-button is click
      *
-     * @param index the index of boom-button
+     * @param index the index of karsu-button
      */
     fun onKarSuButtonClick(index: Int)
 }

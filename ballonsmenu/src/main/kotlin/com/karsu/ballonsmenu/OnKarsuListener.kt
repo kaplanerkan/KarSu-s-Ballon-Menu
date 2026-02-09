@@ -6,29 +6,29 @@ package com.karsu.ballonsmenu
  */
 interface OnKarSuListener {
     /**
-     * When the boom animation is about to start.
+     * When the karsu animation is about to start.
      */
     fun onKarSuWillShow()
 
     /**
-     * When the boom animation has finished.
+     * When the karsu animation has finished.
      */
     fun onKarSuDidShow()
 
     /**
-     * When the re-boom animation is about to start.
+     * When the re-karsu animation is about to start.
      */
     fun onKarSuWillHide()
 
     /**
-     * When the re-boom animation has finished.
+     * When the re-karsu animation has finished.
      */
     fun onKarSuDidHide()
 
     /**
-     * When the user clicks one of the boom-buttons.
+     * When the user clicks one of the karsu-buttons.
      *
-     * @param index the index of the boom-button
+     * @param index the index of the karsu-button
      */
     fun onKarSuButtonClick(index: Int)
 

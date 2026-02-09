@@ -277,15 +277,15 @@ abstract class KarSuButton(context: Context) : FrameLayout(context) {
         }
     }
 
-    protected fun initTextOutsideCircleButtonLayout() {
-        layout = findViewById<ViewGroup>(R.id.layout)
+    protected fun initTextOutsideCircleButtonLayout(layoutView: ViewGroup) {
+        layout = layoutView
         val params = LayoutParams(trueRadius * 2, trueRadius * 2)
         layout?.layoutParams = params
     }
 
-    protected fun initShadow(shadowCornerRadius: Int) {
+    protected fun initShadow(shadowCornerRadius: Int, shadowView: KarsuShadow) {
         if (shadowEffect) {
-            shadow = findViewById<KarsuShadow>(R.id.shadow)
+            shadow = shadowView
             shadow?.apply {
                 setShadowOffsetX(this@KarSuButton.shadowOffsetX)
                 setShadowOffsetY(this@KarSuButton.shadowOffsetY)
@@ -394,8 +394,8 @@ abstract class KarSuButton(context: Context) : FrameLayout(context) {
     }
 
     @SuppressLint("NewApi")
-    protected fun initCircleButton() {
-        button = findViewById<FrameLayout>(R.id.button)
+    protected fun initCircleButton(buttonView: FrameLayout) {
+        button = buttonView
         val params = button?.layoutParams as LayoutParams
         params.width = buttonRadius * 2
         params.height = buttonRadius * 2
@@ -466,8 +466,8 @@ abstract class KarSuButton(context: Context) : FrameLayout(context) {
     }
 
     @SuppressLint("NewApi")
-    protected fun initHamButton() {
-        button = findViewById<FrameLayout>(R.id.button)
+    protected fun initHamButton(buttonView: FrameLayout) {
+        button = buttonView
         val params = button?.layoutParams as LayoutParams
         params.width = buttonWidth
         params.height = buttonHeight
@@ -770,42 +770,42 @@ abstract class KarSuButton(context: Context) : FrameLayout(context) {
     protected fun unableColor(): Int = Util.getColor(context, unableColorRes, unableColor)
 
     /**
-     * Get the layout view of a boom button.
+     * Get the layout view of a karsu button.
      *
      * @return layout view
      */
     fun getLayout(): ViewGroup? = layout
 
     /**
-     * Get the button layout view of a boom button.
+     * Get the button layout view of a karsu button.
      *
      * @return button layout view
      */
     fun getButton(): FrameLayout? = button
 
     /**
-     * Get the shadow view of a boom button.
+     * Get the shadow view of a karsu button.
      *
      * @return shadow view
      */
     fun getShadow(): KarsuShadow? = shadow
 
     /**
-     * Get the image view of a boom button.
+     * Get the image view of a karsu button.
      *
      * @return image view
      */
     fun getImageView(): ImageView? = image
 
     /**
-     * Get the text view of a boom button.
+     * Get the text view of a karsu button.
      *
      * @return text view
      */
     fun getTextView(): TextView? = text
 
     /**
-     * Get the sub text view of a boom button.
+     * Get the sub text view of a karsu button.
      *
      * @return sub text view
      */
