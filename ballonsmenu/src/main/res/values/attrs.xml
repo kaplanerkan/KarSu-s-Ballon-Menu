@@ -36,7 +36,7 @@
         <attr name="bmb_edgeInsetsRight" format="dimension|reference"/>
         <attr name="bmb_edgeInsetsBottom" format="dimension|reference"/>
         
-        <!--Piece-->
+        <!--piece-->
         <attr name="bmb_dotRadius" format="dimension|reference"/>
         <attr name="bmb_hamWidth" format="dimension|reference"/>
         <attr name="bmb_hamHeight" format="dimension|reference"/>
@@ -96,7 +96,7 @@
         <attr name="bmb_shareLine2Color" format="color|reference"/>
         <attr name="bmb_shareLineWidth" format="dimension|reference"/>
 
-        <!--Animation-->
+        <!--animation-->
         <attr name="bmb_dimColor" format="color|reference"/>
         <attr name="bmb_showDuration" format="integer|reference"/>
         <attr name="bmb_showDelay" format="integer|reference"/>

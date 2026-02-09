@@ -2,19 +2,21 @@
 package com.karsu.ballonsmenu
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.materialswitch.MaterialSwitch
 import com.karsu.ballonsmenu.app.R
+import com.karsu.ballonsmenu.animation.KarSuEnum
 import com.karsu.ballonsmenu.karsu_buttons.ButtonPlaceEnum
 import com.karsu.ballonsmenu.piece.PiecePlaceEnum
 
-class DraggableActivity : AppCompatActivity() {
+class KarSuExampleActivity : AppCompatActivity() {
 
     private lateinit var bmb: KarSuMenuButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_draggable)
+        setContentView(R.layout.activity_boom_example)
 
         bmb = findViewById<KarSuMenuButton>(R.id.bmb).apply {
             buttonEnum = ButtonEnum.SimpleCircle
@@ -25,11 +27,20 @@ class DraggableActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<MaterialSwitch>(R.id.draggable_switch).apply {
-            setOnCheckedChangeListener { _, isChecked ->
-                bmb.setDraggable(isChecked)
+        findViewById<ListView>(R.id.list_view).apply {
+            adapter = ArrayAdapter(
+                this@KarSuExampleActivity,
+                android.R.layout.simple_expandable_list_item_1,
+                getData()
+            )
+            setOnItemClickListener { _, _, position, _ ->
+                bmb.boomEnum = KarSuEnum.values()[position]
             }
-            isChecked = true
         }
     }
+
+    private fun getData(): List<String> =
+        KarSuEnum.values()
+            .dropLast(1)
+            .map { it.toString() }
 }

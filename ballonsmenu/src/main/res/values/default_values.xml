@@ -30,7 +30,7 @@
     <dimen name="default_bmb_edgeInsetsRight">15dp</dimen>
     <dimen name="default_bmb_edgeInsetsBottom">15dp</dimen>
 
-    <!--Piece-->
+    <!--piece-->
     <dimen name="default_bmb_dotRadius">3dp</dimen>
     <dimen name="default_bmb_hamWidth">20dp</dimen>
     <dimen name="default_bmb_hamHeight">3dp</dimen>
@@ -44,7 +44,7 @@
     <color name="default_bmb_shareLine2Color">#ffffffff</color>
     <dimen name="default_bmb_shareLineWidth">1.5dp</dimen>
 
-    <!--Animation-->
+    <!--animation-->
     <color name="default_bmb_dimColor">#55000000</color>
     <integer name="default_bmb_showDuration">300</integer>
     <integer name="default_bmb_showDelay">50</integer>

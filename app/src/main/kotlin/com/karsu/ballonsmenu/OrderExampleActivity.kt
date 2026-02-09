@@ -6,11 +6,9 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.karsu.ballonsmenu.app.R
-import com.karsu.ballonsmenu.Animation.OrderEnum
-import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.KarSuMenuButton
-import com.karsu.ballonsmenu.ButtonEnum
-import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
+import com.karsu.ballonsmenu.animation.OrderEnum
+import com.karsu.ballonsmenu.karsu_buttons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.piece.PiecePlaceEnum
 
 class OrderExampleActivity : AppCompatActivity() {
 

@@ -28,11 +28,19 @@ class ListViewActivity : AppCompatActivity() {
 
     private class MyAdapter : BaseAdapter() {
 
-        override fun getCount(): Int = 1000
+        private val items = listOf(
+            "Profil Ayarları",
+            "Bildirimler",
+            "Mesajlar",
+            "Favoriler",
+            "Yardım"
+        )
 
-        override fun getItem(position: Int): Any? = null
+        override fun getCount(): Int = items.size
 
-        override fun getItemId(position: Int): Long = 0
+        override fun getItem(position: Int): Any = items[position]
+
+        override fun getItemId(position: Int): Long = position.toLong()
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             val viewHolder: ViewHolder
@@ -52,7 +60,7 @@ class ListViewActivity : AppCompatActivity() {
                 viewHolder = view.tag as ViewHolder
             }
 
-            viewHolder.text.text = "No. $position"
+            viewHolder.text.text = items[position]
 
             viewHolder.bmb1.apply {
                 clearBuilders()

@@ -1,10 +1,10 @@
 /** Created by Erkan Kaplan on 2026-02-03 */
 package com.karsu.ballonsmenu
 
-import com.karsu.ballonsmenu.Animation.KarSuEnum
-import com.karsu.ballonsmenu.KarSuButtons.KarSuButtonBuilder
-import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
+import com.karsu.ballonsmenu.animation.KarSuEnum
+import com.karsu.ballonsmenu.karsu_buttons.KarSuButtonBuilder
+import com.karsu.ballonsmenu.karsu_buttons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.piece.PiecePlaceEnum
 
 internal object ExceptionManager {
 

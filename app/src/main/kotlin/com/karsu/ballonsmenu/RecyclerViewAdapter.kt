@@ -11,6 +11,14 @@ import com.karsu.ballonsmenu.KarSuMenuButton
 
 class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
+    private val items = listOf(
+        "Profil Ayarları",
+        "Bildirimler",
+        "Mesajlar",
+        "Favoriler",
+        "Yardım"
+    )
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item, null, false).apply {
             layoutParams = RecyclerView.LayoutParams(
@@ -22,7 +30,7 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.text.text = "No. $position"
+        holder.text.text = items[position]
 
         holder.bmb1.apply {
             clearBuilders()
@@ -46,7 +54,7 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
         }
     }
 
-    override fun getItemCount(): Int = 1000
+    override fun getItemCount(): Int = items.size
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val text: TextView = view.findViewById(R.id.text)

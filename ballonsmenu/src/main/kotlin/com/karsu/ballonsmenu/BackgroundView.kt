@@ -6,10 +6,11 @@ import android.animation.ArgbEvaluator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 
-import com.karsu.ballonsmenu.Animation.AnimationManager
+import com.karsu.ballonsmenu.animation.AnimationManager
 
 @SuppressLint("ViewConstructor")
 internal class BackgroundView(
@@ -21,23 +22,34 @@ internal class BackgroundView(
 
     init {
         val rootView = bmb.parentView
-        val params = ViewGroup.LayoutParams(
-            rootView.width,
-            rootView.height
-        )
+        val w = rootView.width
+        val h = rootView.height
+        val params = ViewGroup.LayoutParams(w, h)
         layoutParams = params
         setBackgroundColor(Color.TRANSPARENT)
         setOnClickListener { bmb.onBackgroundClicked() }
         isMotionEventSplittingEnabled = false
         rootView.addView(this)
+        forceLayout(w, h)
     }
 
     fun reLayout(bmb: KarSuMenuButton) {
         val rootView = bmb.parentView
+        val w = rootView.width
+        val h = rootView.height
         val params = layoutParams as LayoutParams
-        params.width = rootView.width
-        params.height = rootView.height
+        params.width = w
+        params.height = h
         layoutParams = params
+        forceLayout(w, h)
+    }
+
+    private fun forceLayout(w: Int, h: Int) {
+        measure(
+            View.MeasureSpec.makeMeasureSpec(w, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(h, View.MeasureSpec.EXACTLY)
+        )
+        layout(0, 0, w, h)
     }
 
     fun dim(duration: Long, completeListener: AnimatorListenerAdapter?) {

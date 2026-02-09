@@ -18,7 +18,7 @@ class FragmentActivity : AppCompatActivity() {
         findViewById<ViewPager>(R.id.view_pager).apply {
             adapter = object : FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
                 override fun getItem(position: Int): Fragment =
-                    BMBFragment().position(position)
+                    KarsuFragment().position(position)
 
                 override fun getCount(): Int = 50
             }

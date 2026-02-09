@@ -4,10 +4,8 @@ package com.karsu.ballonsmenu
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.karsu.ballonsmenu.app.R
-import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.KarSuMenuButton
-import com.karsu.ballonsmenu.ButtonEnum
-import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
+import com.karsu.ballonsmenu.karsu_buttons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.piece.PiecePlaceEnum
 
 class OrientationActivity : AppCompatActivity() {
 

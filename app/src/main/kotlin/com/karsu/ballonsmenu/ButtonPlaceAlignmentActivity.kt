@@ -8,12 +8,9 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.karsu.ballonsmenu.app.R
-import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceAlignmentEnum
-import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.KarSuMenuButton
-import com.karsu.ballonsmenu.ButtonEnum
-import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
-import com.karsu.ballonsmenu.Util
+import com.karsu.ballonsmenu.karsu_buttons.ButtonPlaceAlignmentEnum
+import com.karsu.ballonsmenu.karsu_buttons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.piece.PiecePlaceEnum
 
 class ButtonPlaceAlignmentActivity : AppCompatActivity() {
 

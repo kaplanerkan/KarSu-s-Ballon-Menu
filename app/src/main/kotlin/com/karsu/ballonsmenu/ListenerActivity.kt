@@ -6,13 +6,9 @@ import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.karsu.ballonsmenu.app.R
-import com.karsu.ballonsmenu.KarSuButtons.KarSuButton
-import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.KarSuButtons.SimpleCircleButton
-import com.karsu.ballonsmenu.KarSuMenuButton
-import com.karsu.ballonsmenu.ButtonEnum
-import com.karsu.ballonsmenu.OnKarSuListener
-import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
+import com.karsu.ballonsmenu.karsu_buttons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.karsu_buttons.SimpleCircleButton
+import com.karsu.ballonsmenu.piece.PiecePlaceEnum
 
 class ListenerActivity : AppCompatActivity() {
 

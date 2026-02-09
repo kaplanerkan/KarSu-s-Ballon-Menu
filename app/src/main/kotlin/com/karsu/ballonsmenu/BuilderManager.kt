@@ -5,13 +5,12 @@ import android.graphics.Color
 import android.util.Pair
 
 import com.karsu.ballonsmenu.app.R
-import com.karsu.ballonsmenu.KarSuButtons.ButtonPlaceEnum
-import com.karsu.ballonsmenu.KarSuButtons.HamButton
-import com.karsu.ballonsmenu.KarSuButtons.SimpleCircleButton
-import com.karsu.ballonsmenu.KarSuButtons.TextInsideCircleButton
-import com.karsu.ballonsmenu.KarSuButtons.TextOutsideCircleButton
-import com.karsu.ballonsmenu.Piece.PiecePlaceEnum
-import com.karsu.ballonsmenu.Util
+import com.karsu.ballonsmenu.karsu_buttons.ButtonPlaceEnum
+import com.karsu.ballonsmenu.karsu_buttons.HamButton
+import com.karsu.ballonsmenu.karsu_buttons.SimpleCircleButton
+import com.karsu.ballonsmenu.karsu_buttons.TextInsideCircleButton
+import com.karsu.ballonsmenu.karsu_buttons.TextOutsideCircleButton
+import com.karsu.ballonsmenu.piece.PiecePlaceEnum
 
 object BuilderManager {
 
